@@ -17,33 +17,25 @@ photography lands.
 
 The logo itself is the client's supplied artwork and is used as delivered.
 
-## The grooming film
+## Video
 
-`assets/video/` holds the reel that opens the page — the full-bleed band
-directly under the header, above the hero and its logo.
+There is no video on the page. A film section was built and then removed once
+it was confirmed the supplied clip was a demonstration reel, not the client's
+own footage — unlicensed third-party video should not sit in the repo or on a
+commercial site.
 
-| File | Size | Notes |
-|---|---|---|
-| `grooming-reel.mp4` | 1.9 MB | H.264 High, 1280x732, 12.5s, faststart |
-| `grooming-reel.webm` | 1.1 MB | VP9 fallback |
-| `reel-poster.jpg` | 36 KB | Frame at 11.4s |
+**The section is not lost.** It is in git history at commit `d1b4dfb`, complete
+with the full-bleed opener layout, the heart-aperture reveal built from the
+logo mark, custom play/pause and progress controls, and the MP4 + VP9 encoding
+pipeline. To bring it back with footage they own:
 
-Both sources carry a full `codecs=` string. That is deliberate: a browser
-without an H.264 decoder (some Chromium builds) reports "maybe" for a bare
-`video/mp4` and will pick it and then fail, instead of falling through. With
-the exact codec declared it reports "" and moves cleanly to the VP9 source.
+```bash
+git show d1b4dfb:index.html            > /tmp/with-film.html   # section markup
+git show d1b4dfb:assets/css/styles.css > /tmp/with-film.css    # .reel-* block
+git show d1b4dfb:assets/js/main.js     > /tmp/with-film.js     # reel behaviour
+```
 
-**The audio was stripped.** Autoplay only works muted, so the track could never
-have been heard without a click — and the source was a screen recording whose
-music is of unknown origin, which is not something to publish on a commercial
-site by accident. If you own the audio and want an unmute control, say so.
-
-**Check the provenance before this goes live.** The file arrived as a screen
-recording, which usually means the footage was captured from something else
-playing rather than shot in-house. If it is licensed or borrowed, swap in your
-own footage before launch — the section is built to take any 16:9 clip.
-
-### Replacing the clip
+Then encode the new clip to `assets/video/`:
 
 ```bash
 ffmpeg -i new-clip.mov -t 12.5 -vf "scale=1280:-2" -an \
@@ -55,8 +47,14 @@ ffmpeg -ss 11.4 -i new-clip.mov -frames:v 1 -vf "scale=1280:-2" -q:v 4 \
   assets/video/reel-poster.jpg
 ```
 
-Then update the `codecs=` string in `index.html` if the profile changes, and
-the Breed / Service / Runtime slate to match what the new clip actually shows.
+Two details that cost real time to find, worth keeping:
+
+- Declare the **full** `codecs=` string on each `<source>`. A browser with no
+  H.264 decoder answers "maybe" to a bare `video/mp4`, picks it, and then fails
+  rather than falling through to the VP9 source.
+- Strip the audio. Autoplay only ever works muted, so the track is never heard
+  without a click, and it is the part of a borrowed clip most likely to carry a
+  licensed music bed.
 
 ## Slots
 

@@ -32,18 +32,13 @@ after any change you want reflected in the bundle.
 
 ## What's on the page
 
-Grooming film · Hero · Why us · Services · Before/after comparison sliders ·
-Facility · Locations · About · Groomer Artist Academy · Reviews · Gallery with
-lightbox · Appointment form · Franchise CTA · Footer.
+Hero · Why us · Services · Before/after comparison sliders · Facility ·
+Locations · About · Groomer Artist Academy · Reviews · Gallery with lightbox ·
+Appointment form · Franchise CTA · Footer.
 
-The page opens on the film: a full-bleed band directly under the header, with
-the hero and its logo immediately below. The footage is revealed through the
-heart from the logo mark, then the mask is dropped so the resting state is
-unmasked video. It plays muted and pauses whenever it scrolls out of view. Its
-headline is a `<p>`, not a heading, so the hero's `h1` remains the document's
-first heading. Below 940px the band shows the frame uncropped with the copy
-underneath, rather than overlaying an awkward crop. See `IMAGES.md` for the
-encoding and a provenance warning about the supplied clip.
+There is no video. A film section was built and removed once the supplied clip
+turned out not to belong to the client; `IMAGES.md` has the commit it lives at
+and how to restore it with footage they own.
 
 ## Before it goes live
 
