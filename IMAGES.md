@@ -17,25 +17,39 @@ photography lands.
 
 The logo itself is the client's supplied artwork and is used as delivered.
 
-## Video
+## The film
 
-There is no video on the page. A film section was built and then removed once
-it was confirmed the supplied clip was a demonstration reel, not the client's
-own footage — unlicensed third-party video should not sit in the repo or on a
-commercial site.
+`assets/video/` holds the licensed footage that runs as an ambient band above
+the hero.
 
-**The section is not lost.** It is in git history at commit `d1b4dfb`, complete
-with the full-bleed opener layout, the heart-aperture reveal built from the
-logo mark, custom play/pause and progress controls, and the MP4 + VP9 encoding
-pipeline. To bring it back with footage they own:
+| File | Size | Notes |
+|---|---|---|
+| `grooming-reel.mp4` | 1.9 MB | H.264 High, 1280x732, 12.5s, faststart |
+| `grooming-reel.webm` | 1.1 MB | VP9 fallback |
+| `reel-poster.jpg` | 33 KB | Frame at 11.4s |
 
-```bash
-git show d1b4dfb:index.html            > /tmp/with-film.html   # section markup
-git show d1b4dfb:assets/css/styles.css > /tmp/with-film.css    # .reel-* block
-git show d1b4dfb:assets/js/main.js     > /tmp/with-film.js     # reel behaviour
-```
+It carries no headline, slate or caption. Licensed footage sets a mood; it is
+not presented as the company's own work, and captioning it as a case study
+would imply otherwise.
 
-Then encode the new clip to `assets/video/`:
+Two details worth keeping:
+
+- Each `<source>` declares the **full** `codecs=` string. A browser with no
+  H.264 decoder answers "maybe" to a bare `video/mp4`, picks it, and then fails
+  rather than falling through to the VP9 source.
+- The audio is stripped. Autoplay only works muted, so the track could never be
+  heard without a click, and it is dead weight in the download.
+
+The footage is revealed through the heart from the logo mark and then the mask
+is removed outright, so the resting state is unmasked video. The heart is used
+rather than the paw because a paw has gaps between the toes and the pad, and
+scaling it from the centre would open a hole in the middle of the frame.
+
+Motion that starts on its own must be stoppable, so the band carries a pause
+control. Visitors with `prefers-reduced-motion` get the poster, no autoplay and
+no aperture.
+
+### Replacing the clip
 
 ```bash
 ffmpeg -i new-clip.mov -t 12.5 -vf "scale=1280:-2" -an \
@@ -47,14 +61,7 @@ ffmpeg -ss 11.4 -i new-clip.mov -frames:v 1 -vf "scale=1280:-2" -q:v 4 \
   assets/video/reel-poster.jpg
 ```
 
-Two details that cost real time to find, worth keeping:
-
-- Declare the **full** `codecs=` string on each `<source>`. A browser with no
-  H.264 decoder answers "maybe" to a bare `video/mp4`, picks it, and then fails
-  rather than falling through to the VP9 source.
-- Strip the audio. Autoplay only ever works muted, so the track is never heard
-  without a click, and it is the part of a borrowed clip most likely to carry a
-  licensed music bed.
+Update the `codecs=` string in `index.html` if the H.264 profile changes.
 
 ## Slots
 

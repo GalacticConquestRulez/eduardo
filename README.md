@@ -32,13 +32,16 @@ after any change you want reflected in the bundle.
 
 ## What's on the page
 
-Hero · Why us · Services · Before/after comparison sliders · Facility ·
+Film · Hero · Why us · Services · Before/after comparison sliders · Facility ·
 Locations · About · Groomer Artist Academy · Reviews · Gallery with lightbox ·
 Appointment form · Franchise CTA · Footer.
 
-There is no video. A film section was built and removed once the supplied clip
-turned out not to belong to the client; `IMAGES.md` has the commit it lives at
-and how to restore it with footage they own.
+The page opens on a band of licensed footage, with the hero and its logo
+immediately below. The band carries no copy of its own — it sets the mood, the
+hero makes the statement. The footage is revealed through the heart from the
+logo mark, then the mask is dropped so the resting state is unmasked video. It
+plays muted, pauses when it scrolls out of view, and can be stopped outright.
+See `IMAGES.md` for the encoding.
 
 ## Before it goes live
 

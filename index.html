@@ -71,6 +71,29 @@
 <main id="main">
 <span id="top"></span>
 
+<!-- ============================ FILM ============================ -->
+<!-- Licensed stock footage, used as atmosphere above the hero. No headline or
+     caption: it sets a mood, it is not presented as our own case study. -->
+<section class="reel" id="reel" aria-label="Grooming footage">
+  <div class="reel-media" id="reelFrame">
+    <video id="reelVideo" class="reel-video"
+           poster="assets/video/reel-poster.jpg"
+           width="1280" height="732"
+           muted loop playsinline preload="metadata"
+           aria-label="A small white dog being brushed out and finished on a grooming table">
+      <source src="assets/video/grooming-reel.mp4" type='video/mp4; codecs="avc1.640028"'>
+      <source src="assets/video/grooming-reel.webm" type='video/webm; codecs="vp9"'>
+    </video>
+
+    <div class="reel-scrim" aria-hidden="true"></div>
+
+    <button class="reel-toggle" id="reelToggle" type="button" aria-label="Pause the background footage">
+      <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.2v13.6L19 12z"/></svg>
+      <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.4v14H7zm6.6 0H17v14h-3.4z"/></svg>
+    </button>
+  </div>
+</section>
+
 <!-- ============================ HERO ============================ -->
 <section class="hero">
   <div class="hero-bg" aria-hidden="true"></div>

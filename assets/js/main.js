@@ -280,4 +280,66 @@
     });
   }
 
+
+  /* ---------- ambient film ---------- */
+  var reelFrame = $('#reelFrame');
+  var reelVideo = $('#reelVideo');
+  var reelToggle = $('#reelToggle');
+
+  if (reelFrame && reelVideo) {
+    var userPaused = false;
+    var opened = false;
+
+    /* Reveal the footage through the heart aperture, once. The mask is only
+       ever applied here and is removed again the moment the growth finishes,
+       so a missed transition can never leave the video clipped. */
+    function openAperture() {
+      if (opened) return;
+      opened = true;
+      if (reduced) return;
+
+      reelFrame.classList.add('armed');
+      void reelFrame.offsetWidth;           /* paint the small mask first */
+      reelFrame.classList.add('open');
+
+      var drop = function () { reelFrame.classList.remove('armed', 'open'); };
+      reelFrame.addEventListener('transitionend', drop, { once: true });
+      setTimeout(drop, 2400);
+    }
+
+    function setToggle(isPaused) {
+      reelToggle.classList.toggle('paused', isPaused);
+      reelToggle.setAttribute('aria-label',
+        isPaused ? 'Play the background footage' : 'Pause the background footage');
+    }
+
+    function tryPlay() {
+      if (userPaused || reduced) return;
+      var p = reelVideo.play();
+      if (p && p.catch) p.catch(function () { setToggle(true); });
+    }
+
+    if (reelToggle) {
+      setToggle(reduced);
+      reelToggle.addEventListener('click', function () {
+        if (reelVideo.paused) { userPaused = false; reelVideo.play(); setToggle(false); }
+        else { userPaused = true; reelVideo.pause(); setToggle(true); }
+      });
+      reelVideo.addEventListener('play',  function () { setToggle(false); });
+      reelVideo.addEventListener('pause', function () { setToggle(true); });
+    }
+
+    /* Only run while on screen — it costs the visitor nothing in battery or
+       data while they are further down the page. */
+    if ('IntersectionObserver' in window) {
+      new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) { openAperture(); tryPlay(); }
+          else if (!reelVideo.paused) reelVideo.pause();
+        });
+      }, { threshold: 0.35 }).observe(reelFrame);
+    } else {
+      tryPlay();
+    }
+  }
 })();
