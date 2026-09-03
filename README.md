@@ -36,9 +36,10 @@ Film · Hero · Why us · Services · Before/after comparison sliders · Facilit
 Locations · About · Groomer Artist Academy · Reviews · Gallery with lightbox ·
 Appointment form · Franchise CTA · Footer.
 
-The page opens on a band of licensed footage, with the hero and its logo
+The page opens on a band of licensed stock footage, with the hero and its logo
 immediately below. The band carries no copy of its own — it sets the mood, the
-hero makes the statement. The footage is revealed through the heart from the
+hero makes the statement. Keep it that way: stock must not be captioned as the
+company's own work. The footage is revealed through the heart from the
 logo mark, then the mask is dropped so the resting state is unmasked video. It
 plays muted, pauses when it scrolls out of view, and can be stopped outright.
 See `IMAGES.md` for the encoding.

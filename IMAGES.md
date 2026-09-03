@@ -19,8 +19,9 @@ The logo itself is the client's supplied artwork and is used as delivered.
 
 ## The film
 
-`assets/video/` holds the licensed footage that runs as an ambient band above
-the hero.
+`assets/video/` holds the licensed **stock** footage that runs as an ambient
+band above the hero. It is not the company's own footage, and the page is built
+that way deliberately.
 
 | File | Size | Notes |
 |---|---|---|
@@ -28,9 +29,11 @@ the hero.
 | `grooming-reel.webm` | 1.1 MB | VP9 fallback |
 | `reel-poster.jpg` | 33 KB | Frame at 11.4s |
 
-It carries no headline, slate or caption. Licensed footage sets a mood; it is
-not presented as the company's own work, and captioning it as a case study
-would imply otherwise.
+It carries no headline, slate or caption, and the only text attached to it is a
+screen-reader description of what is on screen. Stock sets a mood; it is not a
+case study. **Do not add copy that implies it was shot here** — no "filmed at
+our salon", no breed/service slate, no named client. If you want a captioned
+transformation piece, shoot one; the layout for it is in history at `d1b4dfb`.
 
 Two details worth keeping:
 
