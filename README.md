@@ -19,6 +19,17 @@ python3 -m http.server 8000
 # → http://localhost:8000
 ```
 
+## Single-file build
+
+```bash
+python3 tools/build_single_file.py          # → dist-single-file.html
+```
+
+Inlines the CSS, JS and every image and video as data URIs, and folds the
+privacy page in as a dialog, producing one portable HTML file (~4.6 MB) that
+runs with no server. The `assets/` tree stays the source of truth; rerun this
+after any change you want reflected in the bundle.
+
 ## What's on the page
 
 Grooming film · Hero · Why us · Services · Before/after comparison sliders ·
@@ -58,8 +69,11 @@ encoding and a provenance warning about the supplied clip.
 ## Notes
 
 - **Accessibility.** Skip link, visible focus rings, labelled form fields with
-  inline errors, keyboard-operable comparison sliders and lightbox, and
-  `prefers-reduced-motion` support throughout.
+  inline errors, keyboard-operable comparison sliders and lightbox, an outline
+  that starts at `h1`, and `prefers-reduced-motion` support throughout.
+- **Structure carries meaning.** The "Why Dog Grooming USA?" cards are parallel
+  reasons, not steps, so they carry no numbering — a numbered marker there would
+  assert a sequence the content does not have.
 - **SEO.** Description and Open Graph tags, plus `PetStore` JSON-LD carrying the
   address, hours, phone, service catalogue, and areas served.
 - **Brand.** Palette and typography are derived from the logo: navy `#0A2472`,
