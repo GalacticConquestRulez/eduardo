@@ -65,9 +65,7 @@
 
   /* ---------- scroll reveal ---------- */
   var revealables = $$('.reveal');
-  if (reduced || !('IntersectionObserver' in window)) {
-    revealables.forEach(function (el) { el.classList.add('in'); });
-  } else {
+  if (!reduced && 'IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries, obs) {
       entries.forEach(function (entry) {
         if (!entry.isIntersecting) return;

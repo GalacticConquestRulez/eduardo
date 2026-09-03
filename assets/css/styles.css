@@ -706,9 +706,15 @@ address { font-style: normal; }
 .lb-nav:hover, .lb-close:hover { background: rgba(255, 255, 255, .26); }
 .lb-close { position: absolute; top: 20px; right: 20px; font-size: 1.6rem; }
 
-/* ---------- reveal ---------- */
-.reveal { opacity: 0; transform: translateY(22px); }
-.reveal.in { opacity: 1; transform: none; transition: opacity .65s var(--ease), transform .65s var(--ease); }
+/* ---------- reveal ----------
+   Content is visible by default and only hidden once JS has confirmed it can
+   animate it back in, so the page never depends on an observer to be readable. */
+.reveal { opacity: 1; }
+.anim .reveal { opacity: 0; transform: translateY(22px); }
+.anim .reveal.in {
+  opacity: 1; transform: none;
+  transition: opacity .65s var(--ease), transform .65s var(--ease);
+}
 
 /* ==========================================================================
    Responsive
@@ -791,11 +797,11 @@ address { font-style: normal; }
     animation-iteration-count: 1 !important;
     transition-duration: .01ms !important;
   }
-  .reveal { opacity: 1; transform: none; }
+  .anim .reveal { opacity: 1; transform: none; }
 }
 
 @media print {
   .site-header, .mobile-bar, .lightbox, .nav-scrim, .hero-bg { display: none !important; }
   body { background: #fff; }
-  .reveal { opacity: 1; transform: none; }
+  .anim .reveal { opacity: 1; transform: none; }
 }
