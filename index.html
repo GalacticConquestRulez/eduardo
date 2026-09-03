@@ -6,21 +6,23 @@
 <title>Dog Grooming USA | Trusted Dog Grooming &amp; Pet Care in South Florida</title>
 <meta name="description" content="Professional dog grooming, daycare, and hotel care in Miami Lakes and Doral. Serving South Florida since 2017. Gentle handling, breed-sensitive styling, and results you can see. Call 305-300-2863.">
 <link rel="canonical" href="https://www.doggroomingusa.com/">
-<meta name="theme-color" content="#0F1E2E">
+<meta name="theme-color" content="#0A2472">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Dog Grooming USA | Trusted Dog Grooming &amp; Pet Care">
 <meta property="og:description" content="Professional dog grooming, daycare, and hotel care across South Florida since 2017.">
-<meta property="og:image" content="assets/img/og-card.svg">
+<meta property="og:image" content="assets/img/og-card.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://www.doggroomingusa.com/">
 <meta name="twitter:card" content="summary_large_image">
 
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
-<link rel="apple-touch-icon" href="assets/img/logo-mark.svg">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/styles.css">
 </head>
 <body>
@@ -30,8 +32,11 @@
 <header class="site-header" id="siteHeader">
   <div class="wrap header-inner">
     <a class="brand" href="#top" aria-label="Dog Grooming USA — home">
-      <!-- Swap assets/img/logo.svg for the final logo; nothing else needs to change. -->
-      <img src="assets/img/logo.svg" alt="Dog Grooming USA" width="300" height="64">
+      <img class="brand-mark" src="assets/img/logo-mark.svg" alt="" width="96" height="96" aria-hidden="true">
+      <span class="brand-text">
+        <span class="brand-name">Dog Grooming <em>USA</em></span>
+        <span class="brand-tag">Family Care. Happy Dogs.</span>
+      </span>
     </a>
 
     <nav class="nav" id="primaryNav" aria-label="Primary">
@@ -84,12 +89,13 @@
 
     <div class="hero-art reveal">
       <figure class="hero-plate">
-        <img src="assets/img/hero.svg" alt="Dog Grooming USA — professional grooming in South Florida" width="1000" height="760" fetchpriority="high">
+        <picture>
+          <source srcset="assets/img/logo.webp" type="image/webp">
+          <img src="assets/img/logo.png" alt="Dog Grooming USA — family care, happy dogs" width="760" height="798" fetchpriority="high">
+        </picture>
       </figure>
       <div class="hero-card">
-        <span class="hero-card-icon" aria-hidden="true">
-          <svg viewBox="0 0 24 24"><path d="M12 2 14.9 8.5 22 9.3l-5.2 4.8 1.4 7-6.2-3.5L5.8 21l1.4-7L2 9.3l7.1-.8z"/></svg>
-        </span>
+        <img class="hero-card-icon" src="assets/img/logo-mark.svg" alt="" width="44" height="44" aria-hidden="true">
         <div>
           <strong>Grooming-first since day one</strong>
           <span>Breed-sensitive styling, gentle handling</span>
@@ -514,8 +520,10 @@
 <footer class="site-footer">
   <div class="wrap footer-grid">
     <div class="footer-brand">
-      <img src="assets/img/logo-mark-light.svg" alt="" width="56" height="56" aria-hidden="true">
-      <p class="footer-name">Dog Grooming USA</p>
+      <picture>
+        <source srcset="assets/img/logo-sm.webp" type="image/webp">
+        <img src="assets/img/logo.png" alt="Dog Grooming USA" width="380" height="399" loading="lazy">
+      </picture>
       <p>Trusted dog grooming and pet care across South Florida since 2017.</p>
     </div>
 
@@ -586,7 +594,9 @@
   "telephone": "+1-305-300-2863",
   "email": "info@doggroomingusa.com",
   "foundingDate": "2017",
-  "image": "https://www.doggroomingusa.com/assets/img/og-card.svg",
+  "image": "https://www.doggroomingusa.com/assets/img/og-card.jpg",
+  "logo": "https://www.doggroomingusa.com/assets/img/logo.png",
+  "slogan": "Family Care. Happy Dogs.",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "16451 NW 67 Ave",

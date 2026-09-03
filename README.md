@@ -29,8 +29,9 @@ Appointment form · Franchise CTA · Footer.
 
 1. **Photography.** Swap the SVG plates for real photos — every slot is listed
    in [`IMAGES.md`](IMAGES.md) with its aspect ratio and subject.
-2. **Logo.** Overwrite the four logo files listed in `IMAGES.md`. Nothing else
-   changes.
+2. **Logo.** Already in place — it drives the palette, the header lockup, the
+   hero, the footer, the favicon and the social card. See `IMAGES.md` if it is
+   ever revised.
 3. **Wire up the form.** Set `data-endpoint` on `#bookForm` in `index.html` to
    your handler (Formspree, Netlify Forms, HubSpot — anything that accepts a
    JSON `POST`). Until one is set the form validates and then opens the
@@ -41,9 +42,9 @@ Appointment form · Franchise CTA · Footer.
    `index.html`.
 5. **Social card.** Export `assets/img/og-card.svg` to a 1200×630 JPG and point
    `og:image` at it — some platforms will not render an SVG preview.
-6. **Reviews.** The "View Reviews" button points at a Google search. Replace it
+5. **Reviews.** The "View Reviews" button points at a Google search. Replace it
    with your Google Business Profile review link.
-7. **Analytics.** Add your tag before `</head>` if you want one.
+6. **Analytics.** Add your tag before `</head>` if you want one.
 
 ## Notes
 
@@ -52,8 +53,12 @@ Appointment form · Franchise CTA · Footer.
   `prefers-reduced-motion` support throughout.
 - **SEO.** Description and Open Graph tags, plus `PetStore` JSON-LD carrying the
   address, hours, phone, service catalogue, and areas served.
-- **Performance.** No framework and no image requests beyond the SVGs. The only
-  third-party request is Google Fonts; the CSS falls back to system serif and
-  sans stacks if it is blocked.
+- **Brand.** Palette and typography are derived from the logo: navy `#0A2472`,
+  royal blue `#0B5BD3`, orange `#F4681B`, green `#0A7A32`. The tokens live at the
+  top of `assets/css/styles.css` and are mirrored in `tools/gen_art.py`.
+- **Performance.** No framework. The logo is served as WebP (157 KB) with a
+  quantised PNG fallback through `<picture>`; everything else is SVG. The only
+  third-party request is Google Fonts (Poppins + Inter), and the CSS falls back
+  to system sans stacks if it is blocked.
 - **Browsers.** Current Chrome, Safari, Firefox, and Edge. The comparison slider
   uses `clip-path` and the focus style uses `:has()`; both degrade harmlessly.
