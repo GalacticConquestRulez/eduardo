@@ -17,6 +17,47 @@ photography lands.
 
 The logo itself is the client's supplied artwork and is used as delivered.
 
+## The grooming film
+
+`assets/video/` holds the reel that runs in the **Twelve seconds in the chair**
+section, between the before/after sliders and the facility grid.
+
+| File | Size | Notes |
+|---|---|---|
+| `grooming-reel.mp4` | 1.9 MB | H.264 High, 1280x732, 12.5s, faststart |
+| `grooming-reel.webm` | 1.1 MB | VP9 fallback |
+| `reel-poster.jpg` | 36 KB | Frame at 11.4s |
+
+Both sources carry a full `codecs=` string. That is deliberate: a browser
+without an H.264 decoder (some Chromium builds) reports "maybe" for a bare
+`video/mp4` and will pick it and then fail, instead of falling through. With
+the exact codec declared it reports "" and moves cleanly to the VP9 source.
+
+**The audio was stripped.** Autoplay only works muted, so the track could never
+have been heard without a click — and the source was a screen recording whose
+music is of unknown origin, which is not something to publish on a commercial
+site by accident. If you own the audio and want an unmute control, say so.
+
+**Check the provenance before this goes live.** The file arrived as a screen
+recording, which usually means the footage was captured from something else
+playing rather than shot in-house. If it is licensed or borrowed, swap in your
+own footage before launch — the section is built to take any 16:9 clip.
+
+### Replacing the clip
+
+```bash
+ffmpeg -i new-clip.mov -t 12.5 -vf "scale=1280:-2" -an \
+  -c:v libx264 -crf 25 -preset slow -profile:v high -pix_fmt yuv420p \
+  -movflags +faststart assets/video/grooming-reel.mp4
+ffmpeg -i new-clip.mov -t 12.5 -vf "scale=1280:-2" -an \
+  -c:v libvpx-vp9 -crf 36 -b:v 0 -row-mt 1 assets/video/grooming-reel.webm
+ffmpeg -ss 11.4 -i new-clip.mov -frames:v 1 -vf "scale=1280:-2" -q:v 4 \
+  assets/video/reel-poster.jpg
+```
+
+Then update the `codecs=` string in `index.html` if the profile changes, and
+the Breed / Service / Runtime slate to match what the new clip actually shows.
+
 ## Slots
 
 | Slot | File | Ratio | What the photo should show |

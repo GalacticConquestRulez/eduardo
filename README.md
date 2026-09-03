@@ -21,9 +21,15 @@ python3 -m http.server 8000
 
 ## What's on the page
 
-Hero · Why us · Services · Before/after comparison sliders · Facility ·
-Locations · About · Groomer Artist Academy · Reviews · Gallery with lightbox ·
-Appointment form · Franchise CTA · Footer.
+Hero · Why us · Services · Before/after comparison sliders · Grooming film ·
+Facility · Locations · About · Groomer Artist Academy · Reviews · Gallery with
+lightbox · Appointment form · Franchise CTA · Footer.
+
+The film section reveals the footage through the heart from the logo mark, then
+drops the mask so the resting state is unmasked video. It plays muted on scroll
+into view and pauses when it leaves, so it costs nothing while the visitor is
+elsewhere on the page. See `IMAGES.md` for the encoding and a provenance
+warning about the supplied clip.
 
 ## Before it goes live
 

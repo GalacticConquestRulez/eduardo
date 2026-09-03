@@ -39,6 +39,9 @@
   --shadow-lg: 0 40px 90px -40px rgba(10, 36, 114, .48);
 
   --ease: cubic-bezier(.2, .7, .3, 1);
+
+  /* reel aperture: the heart from the logo mark */
+  --aperture: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='40.5 60.1 19 15.4'%3E%3Cpath d='M50 75.5 C44.2 71.1 40.5 68 40.5 64.4 C40.5 61.7 42.6 60.1 44.9 60.1 C46.8 60.1 48.5 61.2 50 62.9 C51.5 61.2 53.2 60.1 55.1 60.1 C57.4 60.1 59.5 61.7 59.5 64.4 C59.5 68 55.8 71.1 50 75.5 Z' fill='%23fff'/%3E%3C/svg%3E");
 }
 
 /* ---------- base ---------- */
@@ -705,6 +708,120 @@ address { font-style: normal; }
 }
 .lb-nav:hover, .lb-close:hover { background: rgba(255, 255, 255, .26); }
 .lb-close { position: absolute; top: 20px; right: 20px; font-size: 1.6rem; }
+
+/* ==========================================================================
+   Reel — the grooming film
+   A deeper ground than the navy sections so the band reads as a darkened room.
+   The footage is revealed through the heart from the logo mark, then the mask
+   is dropped entirely so the resting state is pristine, unmasked video.
+   ========================================================================== */
+.reel {
+  position: relative; overflow: hidden;
+  padding-block: var(--sect);
+  background: #04102E;
+  color: #fff;
+}
+.reel::before {                       /* ambient bloom behind the frame */
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background:
+    radial-gradient(46% 58% at 74% 34%, rgba(11, 91, 211, .38), transparent 68%),
+    radial-gradient(38% 46% at 12% 88%, rgba(244, 104, 27, .20), transparent 66%);
+}
+.reel .wrap { position: relative; }
+
+.reel-inner {
+  display: grid;
+  grid-template-columns: minmax(240px, .82fr) 1.18fr;
+  gap: clamp(30px, 4vw, 62px);
+  align-items: center;
+}
+.reel h2 { color: #fff; }
+.reel .eyebrow { color: var(--coral); }
+.reel .eyebrow::before { background: var(--coral); }
+.reel .section-sub { color: rgba(255, 255, 255, .74); }
+
+/* Shot-list metadata — reads as a slate, not as decoration. */
+.reel-meta {
+  display: flex; flex-wrap: wrap; gap: 14px 34px;
+  margin: 30px 0 32px; padding-top: 24px;
+  border-top: 1px solid rgba(255, 255, 255, .16);
+}
+.reel-meta div { display: flex; flex-direction: column; gap: 4px; }
+.reel-meta dt {
+  font-size: .68rem; font-weight: 700;
+  letter-spacing: .15em; text-transform: uppercase;
+  color: rgba(255, 255, 255, .5);
+}
+.reel-meta dd {
+  margin: 0; font-family: var(--display); font-weight: 600;
+  font-size: 1.02rem; color: #fff;
+}
+
+.reel-stage { margin: 0; }
+.reel-frame {
+  position: relative;
+  aspect-ratio: 1280 / 732;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+  background: #061838;
+  box-shadow: 0 50px 110px -44px rgba(0, 0, 0, .9);
+}
+.reel-video {
+  display: block; width: 100%; height: 100%;
+  object-fit: cover;
+}
+
+/* The aperture. `armed` paints the small heart, `open` grows it past the
+   frame; JS drops both classes on transitionend so the mask can never stick. */
+.reel-frame.armed .reel-video {
+  -webkit-mask-image: var(--aperture); mask-image: var(--aperture);
+  -webkit-mask-repeat: no-repeat;     mask-repeat: no-repeat;
+  -webkit-mask-position: center;      mask-position: center;
+  -webkit-mask-size: 26%;             mask-size: 26%;
+}
+.reel-frame.armed.open .reel-video {
+  -webkit-mask-size: 1500%; mask-size: 1500%;
+  -webkit-transition: -webkit-mask-size 1.5s cubic-bezier(.22, .92, .24, 1);
+  transition: mask-size 1.5s cubic-bezier(.22, .92, .24, 1);
+}
+
+.reel-toggle {
+  position: absolute; left: 18px; bottom: 18px; z-index: 2;
+  display: grid; place-items: center;
+  width: 52px; height: 52px; border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, .32);
+  background: rgba(4, 16, 46, .52);
+  backdrop-filter: blur(10px);
+  color: #fff; cursor: pointer;
+  transition: background .18s var(--ease), transform .18s var(--ease);
+}
+.reel-toggle:hover { background: var(--coral); border-color: var(--coral); transform: scale(1.06); }
+.reel-toggle svg { width: 20px; height: 20px; fill: currentColor; }
+.reel-toggle .i-play { display: none; margin-left: 3px; }
+.reel-toggle.paused .i-play  { display: block; }
+.reel-toggle.paused .i-pause { display: none; }
+
+.reel-progress {
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
+  height: 4px; background: rgba(255, 255, 255, .16);
+}
+.reel-progress span {
+  display: block; width: 0; height: 100%;
+  background: var(--coral);
+}
+.reel-stage figcaption {
+  margin-top: 16px;
+  font-size: .86rem; color: rgba(255, 255, 255, .56);
+}
+
+@media (max-width: 940px) {
+  .reel-inner { grid-template-columns: 1fr; }
+  .reel-stage { order: -1; }
+  .reel-meta { margin: 24px 0 26px; }
+}
+@media (max-width: 620px) {
+  .reel-toggle { width: 46px; height: 46px; left: 14px; bottom: 14px; }
+}
 
 /* ---------- reveal ----------
    Content is visible by default and only hidden once JS has confirmed it can

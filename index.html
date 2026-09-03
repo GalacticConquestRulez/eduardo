@@ -255,6 +255,46 @@
   </div>
 </section>
 
+<!-- ============================ REEL ============================ -->
+<section class="reel" id="reel">
+  <div class="wrap reel-inner">
+    <div class="reel-copy">
+      <p class="eyebrow reveal">On the table</p>
+      <h2 class="reveal">Twelve seconds in the chair.</h2>
+      <p class="section-sub reveal">The brush-out, the de-shed, the finish — the part most owners hand over at the door and never get to watch.</p>
+
+      <dl class="reel-meta reveal">
+        <div><dt>Breed</dt><dd>Bichon Frisé</dd></div>
+        <div><dt>Service</dt><dd>De-shed &amp; full finish</dd></div>
+        <div><dt>Runtime</dt><dd>0:12</dd></div>
+      </dl>
+
+      <a class="btn btn-primary reveal" href="#book" data-service="Dog Grooming">Book this groom</a>
+    </div>
+
+    <figure class="reel-stage reveal">
+      <div class="reel-frame" id="reelFrame">
+        <video id="reelVideo" class="reel-video"
+               poster="assets/video/reel-poster.jpg"
+               width="1280" height="732"
+               muted loop playsinline preload="metadata"
+               aria-label="A Bichon Frisé being brushed out, de-shed and finished on the grooming table">
+          <source src="assets/video/grooming-reel.mp4" type='video/mp4; codecs="avc1.640028"'>
+          <source src="assets/video/grooming-reel.webm" type='video/webm; codecs="vp9"'>
+        </video>
+
+        <button class="reel-toggle" id="reelToggle" type="button" aria-label="Pause the film">
+          <svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.2v13.6L19 12z"/></svg>
+          <svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M7 5h3.4v14H7zm6.6 0H17v14h-3.4z"/></svg>
+        </button>
+
+        <div class="reel-progress" aria-hidden="true"><span id="reelBar"></span></div>
+      </div>
+      <figcaption>Brush-out to finish, uncut. No sound &mdash; press pause any time.</figcaption>
+    </figure>
+  </div>
+</section>
+
 <!-- ============================ FACILITY ============================ -->
 <section class="section section-cream" id="facility">
   <div class="wrap">
