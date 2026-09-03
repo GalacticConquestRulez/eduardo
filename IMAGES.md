@@ -19,8 +19,8 @@ The logo itself is the client's supplied artwork and is used as delivered.
 
 ## The grooming film
 
-`assets/video/` holds the reel that runs in the **Twelve seconds in the chair**
-section, between the before/after sliders and the facility grid.
+`assets/video/` holds the reel that opens the page — the full-bleed band
+directly under the header, above the hero and its logo.
 
 | File | Size | Notes |
 |---|---|---|

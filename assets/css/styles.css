@@ -710,90 +710,87 @@ address { font-style: normal; }
 .lb-close { position: absolute; top: 20px; right: 20px; font-size: 1.6rem; }
 
 /* ==========================================================================
-   Reel — the grooming film
-   A deeper ground than the navy sections so the band reads as a darkened room.
-   The footage is revealed through the heart from the logo mark, then the mask
-   is dropped entirely so the resting state is pristine, unmasked video.
+   Reel — the grooming film, as the page opener
+   Full-bleed band directly under the header. The footage opens out of the
+   heart from the logo mark, then the mask is dropped so the resting state is
+   pristine, unmasked video.
    ========================================================================== */
-.reel {
-  position: relative; overflow: hidden;
-  padding-block: var(--sect);
-  background: #04102E;
-  color: #fff;
-}
-.reel::before {                       /* ambient bloom behind the frame */
-  content: ""; position: absolute; inset: 0; pointer-events: none;
-  background:
-    radial-gradient(46% 58% at 74% 34%, rgba(11, 91, 211, .38), transparent 68%),
-    radial-gradient(38% 46% at 12% 88%, rgba(244, 104, 27, .20), transparent 66%);
-}
-.reel .wrap { position: relative; }
+.reel { position: relative; background: #04102E; color: #fff; }
 
-.reel-inner {
-  display: grid;
-  grid-template-columns: minmax(240px, .82fr) 1.18fr;
-  gap: clamp(30px, 4vw, 62px);
-  align-items: center;
-}
-.reel h2 { color: #fff; }
-.reel .eyebrow { color: var(--coral); }
-.reel .eyebrow::before { background: var(--coral); }
-.reel .section-sub { color: rgba(255, 255, 255, .74); }
-
-/* Shot-list metadata — reads as a slate, not as decoration. */
-.reel-meta {
-  display: flex; flex-wrap: wrap; gap: 14px 34px;
-  margin: 30px 0 32px; padding-top: 24px;
-  border-top: 1px solid rgba(255, 255, 255, .16);
-}
-.reel-meta div { display: flex; flex-direction: column; gap: 4px; }
-.reel-meta dt {
-  font-size: .68rem; font-weight: 700;
-  letter-spacing: .15em; text-transform: uppercase;
-  color: rgba(255, 255, 255, .5);
-}
-.reel-meta dd {
-  margin: 0; font-family: var(--display); font-weight: 600;
-  font-size: 1.02rem; color: #fff;
-}
-
-.reel-stage { margin: 0; }
-.reel-frame {
+.reel-media {
   position: relative;
-  aspect-ratio: 1280 / 732;
-  border-radius: var(--r-lg);
+  height: clamp(360px, 56vh, 620px);
   overflow: hidden;
-  background: #061838;
-  box-shadow: 0 50px 110px -44px rgba(0, 0, 0, .9);
 }
 .reel-video {
   display: block; width: 100%; height: 100%;
-  object-fit: cover;
+  object-fit: cover; object-position: center 42%;
 }
 
-/* The aperture. `armed` paints the small heart, `open` grows it past the
-   frame; JS drops both classes on transitionend so the mask can never stick. */
-.reel-frame.armed .reel-video {
+/* Legibility ground for the overlay, weighted to the lower left. */
+.reel-scrim {
+  position: absolute; inset: 0; pointer-events: none;
+  background:
+    linear-gradient(to top, rgba(4, 16, 46, .92) 0%, rgba(4, 16, 46, .55) 26%, transparent 58%),
+    linear-gradient(to right, rgba(4, 16, 46, .68) 0%, transparent 52%);
+}
+
+/* The aperture. `armed` paints the small heart, `open` grows it past the frame;
+   JS drops both classes on transitionend so the mask can never stick. */
+.reel-media.armed .reel-video {
   -webkit-mask-image: var(--aperture); mask-image: var(--aperture);
-  -webkit-mask-repeat: no-repeat;     mask-repeat: no-repeat;
-  -webkit-mask-position: center;      mask-position: center;
-  -webkit-mask-size: 26%;             mask-size: 26%;
+  -webkit-mask-repeat: no-repeat;      mask-repeat: no-repeat;
+  -webkit-mask-position: center;       mask-position: center;
+  -webkit-mask-size: 22%;              mask-size: 22%;
 }
-.reel-frame.armed.open .reel-video {
-  -webkit-mask-size: 1500%; mask-size: 1500%;
-  -webkit-transition: -webkit-mask-size 1.5s cubic-bezier(.22, .92, .24, 1);
-  transition: mask-size 1.5s cubic-bezier(.22, .92, .24, 1);
+.reel-media.armed.open .reel-video {
+  -webkit-mask-size: 1600%; mask-size: 1600%;
+  -webkit-transition: -webkit-mask-size 1.6s cubic-bezier(.22, .92, .24, 1);
+  transition: mask-size 1.6s cubic-bezier(.22, .92, .24, 1);
 }
+
+.reel-overlay {
+  position: absolute; inset: auto 0 0 0; z-index: 2;
+  padding-bottom: clamp(26px, 4vw, 52px);
+  pointer-events: none;
+}
+.reel-overlay .eyebrow { color: var(--coral); margin-bottom: .7em; }
+.reel-overlay .eyebrow::before { background: var(--coral); }
+
+.reel-title {
+  margin: 0;
+  font-family: var(--display); font-weight: 800;
+  font-size: clamp(1.7rem, 3.6vw, 2.9rem);
+  letter-spacing: -.03em; line-height: 1.1;
+  color: #fff; text-wrap: balance;
+  text-shadow: 0 2px 24px rgba(4, 16, 46, .5);
+}
+
+.reel-slate {
+  display: flex; flex-wrap: wrap; align-items: center;
+  gap: 8px 10px; list-style: none;
+  margin: 18px 0 0; padding: 0;
+}
+.reel-slate li {
+  padding: 7px 14px; border-radius: 999px;
+  background: rgba(255, 255, 255, .12);
+  border: 1px solid rgba(255, 255, 255, .22);
+  backdrop-filter: blur(6px);
+  font-size: .72rem; font-weight: 700;
+  letter-spacing: .11em; text-transform: uppercase;
+  color: rgba(255, 255, 255, .92);
+}
+.reel-slate li:last-child { background: transparent; color: rgba(255, 255, 255, .58); }
 
 .reel-toggle {
-  position: absolute; left: 18px; bottom: 18px; z-index: 2;
+  position: absolute; right: clamp(16px, 3vw, 34px); bottom: clamp(26px, 4vw, 52px); z-index: 3;
   display: grid; place-items: center;
-  width: 52px; height: 52px; border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, .32);
-  background: rgba(4, 16, 46, .52);
+  width: 54px; height: 54px; border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, .34);
+  background: rgba(4, 16, 46, .5);
   backdrop-filter: blur(10px);
   color: #fff; cursor: pointer;
-  transition: background .18s var(--ease), transform .18s var(--ease);
+  transition: background .18s var(--ease), border-color .18s var(--ease), transform .18s var(--ease);
 }
 .reel-toggle:hover { background: var(--coral); border-color: var(--coral); transform: scale(1.06); }
 .reel-toggle svg { width: 20px; height: 20px; fill: currentColor; }
@@ -802,25 +799,21 @@ address { font-style: normal; }
 .reel-toggle.paused .i-pause { display: none; }
 
 .reel-progress {
-  position: absolute; left: 0; right: 0; bottom: 0; z-index: 2;
-  height: 4px; background: rgba(255, 255, 255, .16);
+  position: absolute; left: 0; right: 0; bottom: 0; z-index: 3;
+  height: 4px; background: rgba(255, 255, 255, .14);
 }
-.reel-progress span {
-  display: block; width: 0; height: 100%;
-  background: var(--coral);
-}
-.reel-stage figcaption {
-  margin-top: 16px;
-  font-size: .86rem; color: rgba(255, 255, 255, .56);
-}
+.reel-progress span { display: block; width: 0; height: 100%; background: var(--coral); }
 
+/* Below the desktop breakpoint the band shows the frame uncropped and the
+   copy sits under it, rather than overlaying an awkward crop. */
 @media (max-width: 940px) {
-  .reel-inner { grid-template-columns: 1fr; }
-  .reel-stage { order: -1; }
-  .reel-meta { margin: 24px 0 26px; }
-}
-@media (max-width: 620px) {
-  .reel-toggle { width: 46px; height: 46px; left: 14px; bottom: 14px; }
+  .reel-media { height: auto; aspect-ratio: 1280 / 732; }
+  .reel-scrim { background: linear-gradient(to top, rgba(4, 16, 46, .55), transparent 46%); }
+  .reel-overlay {
+    position: static; padding-block: clamp(22px, 5vw, 32px) clamp(26px, 6vw, 38px);
+  }
+  .reel-title { text-shadow: none; }
+  .reel-toggle { bottom: auto; top: 14px; right: 14px; width: 46px; height: 46px; }
 }
 
 /* ---------- reveal ----------
