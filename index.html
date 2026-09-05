@@ -241,7 +241,7 @@
     display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem;
   }
   .film__title { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: clamp(1.3rem, 2.6vw, 2rem); line-height: 1; }
-  .film__sub { font-family: var(--mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); margin-top: .4rem; }
+  .film__sub { display: block; font-family: var(--mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); margin-top: .4rem; }
   .film__play {
     flex: none; width: 3.25rem; height: 3.25rem; border-radius: 50%;
     display: grid; place-items: center;
@@ -259,7 +259,8 @@
   .film__caption a { color: var(--ink-muted); }
   .film__caption a:hover { color: var(--amber); }
 
-  .grid-3 { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+  .grid-2, .grid-3 { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+  @media (min-width: 720px) { .grid-2 { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
   @media (min-width: 720px) { .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
   .grid-3 .film__title { font-size: 1.25rem; }
   .grid-3 .film__play { width: 2.5rem; height: 2.5rem; }
@@ -406,7 +407,7 @@
       </div>
       <h1 data-i18n="hero.h1">Everything from our conversation, <em>in one frame.</em></h1>
       <p class="hero__lede" data-i18n="hero.lede">
-        The showcase film, the gallery, the <strong>Green Flash</strong> footage vault, three boutique films, and the plan — assembled on one page so you can review it in ten minutes, and we can spend Monday <strong>deciding, not searching</strong>.
+        The showcase film, your two locations, the gallery, the <strong>Green Flash</strong> footage vault, three boutique films, and the plan — assembled on one page so you can review it in ten minutes, and we can spend Monday <strong>deciding, not searching</strong>.
       </p>
       <div class="hero__cta">
         <a class="btn btn--fill" href="#reel">
@@ -453,12 +454,54 @@
     </div>
   </section>
 
-  <!-- ================= ROLL 02 — GALLERY + VAULT ================= -->
+  <!-- ================= ROLL 02 — EDUARDO'S LOCATIONS ================= -->
+  <section class="roll" id="locations">
+    <div class="wrap">
+      <div class="roll__head">
+        <div>
+          <span class="slate" data-i18n="loc.slate">Roll 02 · Your locations</span>
+          <h2 data-i18n="loc.h2">The flagship and Miami Lakes.</h2>
+        </div>
+        <div class="roll__note">
+          <p data-i18n="loc.note">Your two spaces, back to back: the new flagship while it's still under construction, and the primary Miami Lakes location as it runs today. The build and the working room are the two ends of the story we'd shoot — the before, and the standard it's growing toward.</p>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <!-- LINK: The new flagship — https://youtu.be/qpAtL332D4A -->
+        <figure class="film">
+          <button class="film__frame" type="button" data-yt="qpAtL332D4A" aria-label="Play the new flagship film" data-i18n-aria="play.loc1">
+            <img src="https://img.youtube.com/vi/qpAtL332D4A/maxresdefault.jpg" alt="" loading="lazy"
+                 onerror="this.onerror=null;this.src='https://img.youtube.com/vi/qpAtL332D4A/hqdefault.jpg'">
+            <span class="film__meta">
+              <span><span class="film__title" data-i18n="loc.f1.title">The new flagship</span><span class="film__sub" data-i18n="loc.f1.sub">In construction</span></span>
+              <span class="film__play" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z"/></svg></span>
+            </span>
+          </button>
+          <figcaption class="film__caption"><a href="https://youtu.be/qpAtL332D4A" target="_blank" rel="noopener">youtu.be/qpAtL332D4A ↗</a></figcaption>
+        </figure>
+        <!-- LINK: Miami Lakes — https://youtu.be/0LVlSfzjFSg -->
+        <figure class="film">
+          <button class="film__frame" type="button" data-yt="0LVlSfzjFSg" aria-label="Play the Miami Lakes film" data-i18n-aria="play.loc2">
+            <img src="https://img.youtube.com/vi/0LVlSfzjFSg/maxresdefault.jpg" alt="" loading="lazy"
+                 onerror="this.onerror=null;this.src='https://img.youtube.com/vi/0LVlSfzjFSg/hqdefault.jpg'">
+            <span class="film__meta">
+              <span><span class="film__title" data-i18n="loc.f2.title">Miami Lakes</span><span class="film__sub" data-i18n="loc.f2.sub">Primary location</span></span>
+              <span class="film__play" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z"/></svg></span>
+            </span>
+          </button>
+          <figcaption class="film__caption"><a href="https://youtu.be/0LVlSfzjFSg" target="_blank" rel="noopener">youtu.be/0LVlSfzjFSg ↗</a></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ROLL 03 — GALLERY + VAULT ================= -->
   <section class="roll" id="assets">
     <div class="wrap">
       <div class="roll__head">
         <div>
-          <span class="slate" data-i18n="r2.slate">Roll 02 · Stills &amp; raw footage</span>
+          <span class="slate" data-i18n="r2.slate">Roll 03 · Stills &amp; raw footage</span>
           <h2 data-i18n="r2.h2">The gallery and the vault.</h2>
         </div>
         <div class="roll__note">
@@ -503,12 +546,12 @@
     </div>
   </section>
 
-  <!-- ================= ROLL 03 — BOUTIQUE WORK ================= -->
+  <!-- ================= ROLL 04 — BOUTIQUE WORK ================= -->
   <section class="roll" id="boutique">
     <div class="wrap">
       <div class="roll__head">
         <div>
-          <span class="slate" data-i18n="r3.slate">Roll 03 · Boutique work</span>
+          <span class="slate" data-i18n="r3.slate">Roll 04 · Boutique work</span>
           <h2 data-i18n="r3.h2">Three films. Three different rooms.</h2>
         </div>
         <div class="roll__note">
@@ -732,6 +775,8 @@
           <thead><tr><th data-i18n="idx.th1">Asset</th><th data-i18n="idx.th2">Link</th></tr></thead>
           <tbody>
             <tr><td data-i18n="idx.r1">Showcase film</td><td><a href="https://youtu.be/wTxsZDPYdv8" target="_blank" rel="noopener">https://youtu.be/wTxsZDPYdv8</a></td></tr>
+            <tr><td data-i18n="idx.r4">New flagship (in construction)</td><td><a href="https://youtu.be/qpAtL332D4A" target="_blank" rel="noopener">https://youtu.be/qpAtL332D4A</a></td></tr>
+            <tr><td data-i18n="idx.r5">Miami Lakes location</td><td><a href="https://youtu.be/0LVlSfzjFSg" target="_blank" rel="noopener">https://youtu.be/0LVlSfzjFSg</a></td></tr>
             <tr><td data-i18n="idx.r2">Gallery</td><td><a href="https://dronegodmax.com/gallery/" target="_blank" rel="noopener">https://dronegodmax.com/gallery/</a></td></tr>
             <tr><td data-i18n="idx.r3">Green Flash vault (Drive)</td><td><a href="https://drive.google.com/drive/folders/1wPTnxE_FNwd1nFZSk1pwcAnhW26gUQ6p" target="_blank" rel="noopener">https://drive.google.com/drive/folders/1wPTnxE_FNwd1nFZSk1pwcAnhW26gUQ6p</a></td></tr>
             <tr><td>Boutique I</td><td><a href="https://youtu.be/urzfVdqW3Jo" target="_blank" rel="noopener">https://youtu.be/urzfVdqW3Jo</a></td></tr>
@@ -796,7 +841,7 @@
   "hero.kicker1": "Una propuesta para Eduardo",
   "hero.kicker2": "Septiembre 2026",
   "hero.h1": "Todo lo que hablamos, <em>en un solo cuadro.</em>",
-  "hero.lede": "El film de muestra, la galería, la bóveda de material <strong>Green Flash</strong>, tres films boutique y el plan — reunidos en una sola página para que lo revises en diez minutos, y el lunes lo dediquemos a <strong>decidir, no a buscar</strong>.",
+  "hero.lede": "El film de muestra, tus dos locales, la galería, la bóveda de material <strong>Green Flash</strong>, tres films boutique y el plan — reunidos en una sola página para que lo revises en diez minutos, y el lunes lo dediquemos a <strong>decidir, no a buscar</strong>.",
   "hero.cta1": "Ver el film de muestra",
   "hero.cta2": "Ver el plan",
   "r1.slate": "Rollo 01 · Film de muestra",
@@ -805,7 +850,7 @@
   "r1.title": "Film de muestra",
   "r1.sub": "Dron + Ronin 4D · Ejemplo de landing page",
   "r1.cap": "Haz clic para verlo aquí, o ábrelo en YouTube en máxima calidad.",
-  "r2.slate": "Rollo 02 · Fotos y material en bruto",
+  "r2.slate": "Rollo 03 · Fotos y material en bruto",
   "r2.h2": "La galería y la bóveda.",
   "r2.note": "La galería es trabajo terminado — así se ven las fotos después del etalonaje. La bóveda es lo contrario: material en bruto del dron y de la Ronin 4D del rodaje Green Flash, para que veas lo que captan las cámaras antes de cualquier pulido.",
   "gal.h3": "La Galería",
@@ -816,7 +861,7 @@
   "vault.tag3": "Sin etalonar",
   "vault.help": "Archivos grandes. Si Drive te pide iniciar sesión o no reproduce un clip, solo avisa — Max te lo envía de otra forma o te guía paso a paso.",
   "vault.foot": "Abrir la carpeta de Drive",
-  "r3.slate": "Rollo 03 · Trabajo boutique",
+  "r3.slate": "Rollo 04 · Trabajo boutique",
   "r3.h2": "Tres films. Tres espacios distintos.",
   "r3.note": "Producciones más pequeñas, cada una construida alrededor del espacio y el ritmo de una marca. Fíjate en cómo se mueve la cámara en interiores — eso es la Ronin 4D haciendo lo que antes requería un slider, un dolly y un equipo.",
   "offer.slate": "La oferta",
@@ -900,7 +945,18 @@
   "play.main": "Reproducir el film de muestra",
   "play.b1": "Reproducir film boutique uno",
   "play.b2": "Reproducir film boutique dos",
-  "play.b3": "Reproducir film boutique tres"
+  "play.b3": "Reproducir film boutique tres",
+  "loc.slate": "Rollo 02 · Tus locales",
+  "loc.h2": "El flagship y Miami Lakes.",
+  "loc.note": "Tus dos espacios, uno tras otro: el nuevo flagship mientras aún está en construcción, y el local principal de Miami Lakes tal como funciona hoy. La obra y la sala en marcha son los dos extremos de la historia que filmaríamos — el antes, y el estándar hacia el que crece.",
+  "loc.f1.title": "El nuevo flagship",
+  "loc.f1.sub": "En construcción",
+  "loc.f2.title": "Miami Lakes",
+  "loc.f2.sub": "Local principal",
+  "play.loc1": "Reproducir el film del nuevo flagship",
+  "play.loc2": "Reproducir el film de Miami Lakes",
+  "idx.r4": "Nuevo flagship (en construcción)",
+  "idx.r5": "Local de Miami Lakes"
  },
  "pt": {
   "title": "Eduardo × Drone God Max",
@@ -909,7 +965,7 @@
   "hero.kicker1": "Uma proposta para Eduardo",
   "hero.kicker2": "Setembro de 2026",
   "hero.h1": "Tudo o que conversamos, <em>em um só quadro.</em>",
-  "hero.lede": "O filme de apresentação, a galeria, o cofre de material <strong>Green Flash</strong>, três filmes boutique e o plano — reunidos em uma única página para você revisar em dez minutos, e a segunda-feira ser para <strong>decidir, não procurar</strong>.",
+  "hero.lede": "O filme de apresentação, suas duas unidades, a galeria, o cofre de material <strong>Green Flash</strong>, três filmes boutique e o plano — reunidos em uma única página para você revisar em dez minutos, e a segunda-feira ser para <strong>decidir, não procurar</strong>.",
   "hero.cta1": "Assistir ao filme de apresentação",
   "hero.cta2": "Ver o plano",
   "r1.slate": "Rolo 01 · Filme de apresentação",
@@ -918,7 +974,7 @@
   "r1.title": "Filme de apresentação",
   "r1.sub": "Drone + Ronin 4D · Exemplo de landing page",
   "r1.cap": "Clique para assistir aqui, ou abra no YouTube em qualidade máxima.",
-  "r2.slate": "Rolo 02 · Fotos e material bruto",
+  "r2.slate": "Rolo 03 · Fotos e material bruto",
   "r2.h2": "A galeria e o cofre.",
   "r2.note": "A galeria é trabalho finalizado — como as fotos ficam depois da correção de cor. O cofre é o oposto: material bruto do drone e da Ronin 4D da filmagem Green Flash, para você ver o que as câmeras capturam antes de qualquer acabamento.",
   "gal.h3": "A Galeria",
@@ -929,7 +985,7 @@
   "vault.tag3": "Sem tratamento",
   "vault.help": "Arquivos grandes. Se o Drive pedir login ou não reproduzir um clipe, é só avisar — o Max envia de outra forma ou te orienta passo a passo.",
   "vault.foot": "Abrir a pasta do Drive",
-  "r3.slate": "Rolo 03 · Trabalho boutique",
+  "r3.slate": "Rolo 04 · Trabalho boutique",
   "r3.h2": "Três filmes. Três espaços diferentes.",
   "r3.note": "Produções menores, cada uma construída em torno do espaço e do ritmo de uma marca. Repare em como a câmera se move nos interiores — é a Ronin 4D fazendo o que antes exigia slider, dolly e uma equipe.",
   "offer.slate": "A oferta",
@@ -1013,7 +1069,18 @@
   "play.main": "Reproduzir o filme de apresentação",
   "play.b1": "Reproduzir filme boutique um",
   "play.b2": "Reproduzir filme boutique dois",
-  "play.b3": "Reproduzir filme boutique três"
+  "play.b3": "Reproduzir filme boutique três",
+  "loc.slate": "Rolo 02 · Suas unidades",
+  "loc.h2": "A flagship e Miami Lakes.",
+  "loc.note": "Seus dois espaços, um atrás do outro: a nova flagship ainda em construção, e a unidade principal de Miami Lakes como funciona hoje. A obra e a sala em operação são as duas pontas da história que filmaríamos — o antes, e o padrão para o qual ela cresce.",
+  "loc.f1.title": "A nova flagship",
+  "loc.f1.sub": "Em construção",
+  "loc.f2.title": "Miami Lakes",
+  "loc.f2.sub": "Unidade principal",
+  "play.loc1": "Reproduzir o filme da nova flagship",
+  "play.loc2": "Reproduzir o filme de Miami Lakes",
+  "idx.r4": "Nova flagship (em construção)",
+  "idx.r5": "Unidade de Miami Lakes"
  },
  "ht": {
   "title": "Eduardo × Drone God Max",
@@ -1022,7 +1089,7 @@
   "hero.kicker1": "Yon pwopozisyon pou Eduardo",
   "hero.kicker2": "Septanm 2026",
   "hero.h1": "Tout sa nou te pale, <em>nan yon sèl kad.</em>",
-  "hero.lede": "Fim prezantasyon an, galri a, kòf videyo <strong>Green Flash</strong> la, twa fim boutik, ak plan an — tout rasanble sou yon sèl paj pou ou ka gade l nan dis minit, epi lendi nou pase tan an ap <strong>deside, pa ap chèche</strong>.",
+  "hero.lede": "Fim prezantasyon an, de espas ou yo, galri a, kòf videyo <strong>Green Flash</strong> la, twa fim boutik, ak plan an — tout rasanble sou yon sèl paj pou ou ka gade l nan dis minit, epi lendi nou pase tan an ap <strong>deside, pa ap chèche</strong>.",
   "hero.cta1": "Gade fim prezantasyon an",
   "hero.cta2": "Gade plan an",
   "r1.slate": "Bobin 01 · Fim prezantasyon",
@@ -1031,7 +1098,7 @@
   "r1.title": "Fim prezantasyon",
   "r1.sub": "Dwòn + Ronin 4D · Egzanp landing page",
   "r1.cap": "Klike pou gade l isit la, oswa louvri l sou YouTube nan pi bon kalite.",
-  "r2.slate": "Bobin 02 · Foto ak videyo brit",
+  "r2.slate": "Bobin 03 · Foto ak videyo brit",
   "r2.h2": "Galri a ak kòf la.",
   "r2.note": "Galri a se travay ki fini — jan foto yo parèt apre koreksyon koulè a. Kòf la se lekontrè: videyo brit dwòn nan ak Ronin 4D la soti nan tounaj Green Flash la, pou ou ka wè sa kamera yo kaptire anvan nenpòt finisyon.",
   "gal.h3": "Galri a",
@@ -1042,7 +1109,7 @@
   "vault.tag3": "San koreksyon",
   "vault.help": "Fichye yo gwo. Si Drive mande w konekte oswa li pa vle jwe yon klip, jis di sa — Max ap voye l yon lòt fason oswa l ap gide w etap pa etap.",
   "vault.foot": "Louvri dosye Drive la",
-  "r3.slate": "Bobin 03 · Travay boutik",
+  "r3.slate": "Bobin 04 · Travay boutik",
   "r3.h2": "Twa fim. Twa espas diferan.",
   "r3.note": "Pwodiksyon ki pi piti, chak bati sou espas ak ritm yon mak. Gade jan kamera a deplase anndan an — se Ronin 4D la k ap fè sa ki te konn mande yon slider, yon dolly ak yon ekip.",
   "offer.slate": "Òf la",
@@ -1126,7 +1193,18 @@
   "play.main": "Jwe fim prezantasyon an",
   "play.b1": "Jwe fim boutik en",
   "play.b2": "Jwe fim boutik de",
-  "play.b3": "Jwe fim boutik twa"
+  "play.b3": "Jwe fim boutik twa",
+  "loc.slate": "Bobin 02 · Espas ou yo",
+  "loc.h2": "Flagship la ak Miami Lakes.",
+  "loc.note": "De espas ou yo, youn apre lòt: nouvo flagship la pandan l toujou an konstriksyon, ak espas prensipal Miami Lakes la jan l ap fonksyone jodi a. Chantye a ak sal k ap travay la se de bout istwa nou ta filme a — anvan an, ak estanda l ap grandi pou rive a.",
+  "loc.f1.title": "Nouvo flagship la",
+  "loc.f1.sub": "An konstriksyon",
+  "loc.f2.title": "Miami Lakes",
+  "loc.f2.sub": "Espas prensipal",
+  "play.loc1": "Jwe fim nouvo flagship la",
+  "play.loc2": "Jwe fim Miami Lakes la",
+  "idx.r4": "Nouvo flagship (an konstriksyon)",
+  "idx.r5": "Espas Miami Lakes"
  }
 };
   (function () {
