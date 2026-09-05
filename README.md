@@ -4,7 +4,9 @@ A single-file landing page (`index.html`) that presents Max's proposal to Eduard
 
 ## Hosting
 
-No build step. Enable GitHub Pages on this branch (Settings → Pages → deploy from branch, root) or drop `index.html` on any static host.
+No build step. Every push to `main` runs `.github/workflows/pages.yml`, which publishes the repo root to GitHub Pages. The first run tries to enable Pages automatically; if it is refused, set Settings → Pages → Source to **GitHub Actions** once and re-run the workflow.
+
+Custom domain: point a `CNAME` record at `galacticconquestrulez.github.io` and enter the hostname under Settings → Pages → Custom domain.
 
 ## Editing
 
