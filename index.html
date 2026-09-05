@@ -1,0 +1,708 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eduardo × Drone God Max</title>
+<meta name="description" content="The reel, the gallery, the Green Flash footage vault, and the plan — assembled for Eduardo ahead of Monday, September 7 at 2:00 PM.">
+<meta name="robots" content="noindex">
+<meta property="og:title" content="Eduardo × Drone God Max">
+<meta property="og:description" content="Everything from our conversation, in one frame. Review in ten minutes; decide on Monday.">
+<meta property="og:image" content="https://img.youtube.com/vi/wTxsZDPYdv8/maxresdefault.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
+<style>
+  /* ------------------------------------------------------------------
+     EDIT ME — every link, name and date on this page lives in the HTML
+     below, each one exactly once. Search for "LINK:" to find them.
+     ------------------------------------------------------------------ */
+
+  :root {
+    --ground:      #0E0C0A;   /* warm charcoal, the room with the lights down */
+    --ground-2:    #171310;   /* raised surfaces */
+    --ground-3:    #211B16;   /* hover / pressed */
+    --line:        #2C251E;
+    --line-strong: #4A3E32;
+    --ink:         #EFE6D8;   /* sand */
+    --ink-2:       #C9BBA6;
+    --ink-muted:   #9A8B76;
+    --amber:       #E3A24F;   /* the horizon at golden hour */
+    --amber-deep:  #B8772A;
+    --amber-ink:   #1A1208;   /* text on amber */
+    --flash:       #58D8A8;   /* the green flash — used once */
+    --flash-dim:   rgba(88, 216, 168, .16);
+
+    --display: "Big Shoulders Display", "Oswald", "Arial Narrow", Impact, sans-serif;
+    --serif:   "Newsreader", "Iowan Old Style", Georgia, "Times New Roman", serif;
+    --mono:    "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
+
+    --measure: 62ch;
+    --gutter: clamp(1.25rem, 4vw, 3rem);
+    --wrap: 1180px;
+    --radius: 6px;
+  }
+
+  * { box-sizing: border-box; }
+  html { color-scheme: dark; scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    background: var(--ground);
+    color: var(--ink);
+    font-family: var(--serif);
+    font-size: clamp(1.05rem, 0.98rem + 0.3vw, 1.2rem);
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+  img { max-width: 100%; display: block; }
+  a { color: var(--amber); text-decoration-thickness: 1px; text-underline-offset: .18em; }
+  a:hover { color: var(--ink); }
+  :focus-visible { outline: 2px solid var(--amber); outline-offset: 3px; }
+  h1, h2, h3 { text-wrap: balance; margin: 0; }
+  p { margin: 0; max-width: var(--measure); }
+
+  .wrap { width: min(var(--wrap), 100% - 2 * var(--gutter)); margin-inline: auto; }
+
+  /* ---------- slate labels (mono, uppercase, spaced) ---------- */
+  .slate {
+    font-family: var(--mono);
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--ink-muted);
+    display: inline-flex; align-items: center; gap: .6em;
+  }
+  .slate::before {
+    content: ""; width: 1.6em; height: 1px; background: var(--amber-deep);
+  }
+  .slate--bare::before { display: none; }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--ground) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--line);
+  }
+  .topbar .wrap {
+    display: flex; align-items: center; justify-content: space-between; gap: 1rem;
+    min-height: 3.25rem;
+    font-family: var(--mono); font-size: .74rem; letter-spacing: .06em;
+  }
+  .topbar .brand { color: var(--ink); text-decoration: none; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; }
+  .topbar .when { color: var(--ink-muted); }
+  .topbar .when b { color: var(--amber); font-weight: 500; }
+  @media (max-width: 640px) { .topbar .when span { display: none; } }
+
+  /* ---------- hero: a letterboxed frame ---------- */
+  .hero { padding-block: clamp(2.5rem, 7vw, 5.5rem) clamp(2rem, 5vw, 3.5rem); position: relative; overflow: hidden; }
+  .hero__bg {
+    position: absolute; inset: 0; z-index: 0; pointer-events: none;
+    background:
+      radial-gradient(60% 50% at 70% 10%, rgba(227,162,79,.10), transparent 70%),
+      var(--ground);
+  }
+  .hero__bg img {
+    width: 100%; height: 100%; object-fit: cover; opacity: .22;
+    mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), transparent 90%);
+    -webkit-mask-image: linear-gradient(to bottom, rgba(0,0,0,.9), transparent 90%);
+  }
+  .hero .wrap { position: relative; z-index: 1; }
+  .hero__kicker { display: flex; flex-wrap: wrap; gap: .75rem 1.5rem; align-items: center; margin-bottom: 1.5rem; }
+  .hero h1 {
+    font-family: var(--display);
+    font-weight: 900;
+    font-size: clamp(3rem, 9.5vw, 8.25rem);
+    line-height: .9;
+    letter-spacing: -.005em;
+    text-transform: uppercase;
+    max-width: 12ch;
+  }
+  .hero h1 em { font-style: normal; color: var(--amber); }
+  .hero__lede {
+    margin-top: 1.75rem;
+    font-size: clamp(1.15rem, 1rem + .6vw, 1.45rem);
+    line-height: 1.45;
+    color: var(--ink-2);
+    max-width: 52ch;
+  }
+  .hero__lede strong { color: var(--ink); font-weight: 500; }
+  .hero__cta { display: flex; flex-wrap: wrap; gap: .75rem; margin-top: 2rem; }
+
+  /* the horizon line: flashes green once, then holds amber */
+  .horizon {
+    height: 2px; margin-top: clamp(2rem, 5vw, 3.5rem);
+    background: linear-gradient(90deg, transparent, var(--amber-deep) 15%, var(--amber) 50%, var(--amber-deep) 85%, transparent);
+    position: relative;
+  }
+  .horizon::after {
+    content: ""; position: absolute; inset: -6px 0; opacity: 0;
+    background: linear-gradient(90deg, transparent, var(--flash) 50%, transparent);
+    filter: blur(6px);
+  }
+  @media (prefers-reduced-motion: no-preference) {
+    .horizon::after { animation: greenflash 2.6s ease-out .4s 1; }
+    @keyframes greenflash {
+      0%   { opacity: 0; }
+      35%  { opacity: 1; }
+      100% { opacity: 0; }
+    }
+  }
+
+  /* ---------- buttons ---------- */
+  .btn {
+    display: inline-flex; align-items: center; gap: .6em;
+    font-family: var(--mono); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase;
+    padding: .9em 1.35em; border-radius: var(--radius);
+    text-decoration: none; border: 1px solid transparent; cursor: pointer;
+    transition: background-color .15s, border-color .15s, color .15s, transform .15s;
+  }
+  .btn--fill { background: var(--amber); color: var(--amber-ink); border-color: var(--amber); }
+  .btn--fill:hover { background: var(--ink); border-color: var(--ink); color: var(--amber-ink); }
+  .btn--line { color: var(--ink); border-color: var(--line-strong); background: transparent; }
+  .btn--line:hover { border-color: var(--amber); color: var(--amber); }
+  .btn svg { width: 1em; height: 1em; }
+
+  /* ---------- sections ---------- */
+  .roll { padding-block: clamp(3rem, 7vw, 5.5rem); border-top: 1px solid var(--line); }
+  .roll__head {
+    display: grid; gap: 1rem 3rem; align-items: end; margin-bottom: clamp(1.5rem, 4vw, 2.5rem);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 820px) { .roll__head { grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); } }
+  .roll h2 {
+    font-family: var(--display); font-weight: 700; text-transform: uppercase;
+    font-size: clamp(2.2rem, 5.5vw, 4.25rem); line-height: .95; letter-spacing: .005em;
+    margin-top: .5rem;
+  }
+  .roll__note { color: var(--ink-2); }
+  .roll__note p + p { margin-top: .75em; }
+
+  /* ---------- film frames (click to play) ---------- */
+  .film { margin: 0; }
+  .film__frame {
+    position: relative; display: block; width: 100%; padding: 0; border: 1px solid var(--line);
+    background: linear-gradient(135deg, var(--ground-3), var(--ground-2) 60%, #0B0908);
+    aspect-ratio: 16 / 9; overflow: hidden; cursor: pointer; border-radius: var(--radius);
+    color: var(--ink); text-align: left;
+  }
+  .film__frame--wide { aspect-ratio: 2.39 / 1; }
+  .film__frame img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; opacity: .85; transition: transform .6s ease, opacity .3s; }
+  .film__frame:hover img { transform: scale(1.025); opacity: 1; }
+  .film__frame::after {
+    content: ""; position: absolute; inset: 0;
+    background: linear-gradient(to top, rgba(14,12,10,.85), rgba(14,12,10,.05) 55%);
+    pointer-events: none;
+  }
+  .film__meta {
+    position: absolute; left: 1.25rem; right: 1.25rem; bottom: 1.1rem; z-index: 2;
+    display: flex; align-items: flex-end; justify-content: space-between; gap: 1rem;
+  }
+  .film__title { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: clamp(1.3rem, 2.6vw, 2rem); line-height: 1; }
+  .film__sub { font-family: var(--mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-2); margin-top: .4rem; }
+  .film__play {
+    flex: none; width: 3.25rem; height: 3.25rem; border-radius: 50%;
+    display: grid; place-items: center;
+    background: var(--amber); color: var(--amber-ink);
+    transition: transform .15s, background-color .15s;
+  }
+  .film__play svg { width: 1.1rem; height: 1.1rem; margin-left: .15rem; }
+  .film__frame:hover .film__play { transform: scale(1.06); background: var(--ink); }
+  .film__frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .film__frame.is-playing::after, .film__frame.is-playing .film__meta { display: none; }
+  .film__caption {
+    display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.5rem;
+    margin-top: .8rem; font-family: var(--mono); font-size: .72rem; letter-spacing: .06em; color: var(--ink-muted);
+  }
+  .film__caption a { color: var(--ink-muted); }
+  .film__caption a:hover { color: var(--amber); }
+
+  .grid-3 { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+  @media (min-width: 720px) { .grid-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .grid-3 .film__title { font-size: 1.25rem; }
+  .grid-3 .film__play { width: 2.5rem; height: 2.5rem; }
+  .grid-3 .film__play svg { width: .85rem; height: .85rem; }
+
+  /* ---------- asset cards: gallery + vault ---------- */
+  .assets { display: grid; gap: 1.5rem; grid-template-columns: 1fr; }
+  @media (min-width: 820px) { .assets { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+  .asset {
+    display: flex; flex-direction: column; gap: 1.25rem; justify-content: space-between;
+    padding: clamp(1.5rem, 3vw, 2.25rem);
+    border: 1px solid var(--line); border-radius: var(--radius); background: var(--ground-2);
+    text-decoration: none; color: var(--ink); min-height: 18rem; position: relative; overflow: hidden;
+    transition: border-color .15s, background-color .15s;
+  }
+  .asset:hover { border-color: var(--line-strong); background: var(--ground-3); color: var(--ink); }
+  .asset h3 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(2.4rem, 5vw, 3.6rem); line-height: .9; }
+  .asset p { color: var(--ink-2); font-size: 1rem; }
+  .asset__foot { display: flex; align-items: center; justify-content: space-between; gap: 1rem; font-family: var(--mono); font-size: .72rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); }
+  .asset__arrow { width: 2.25rem; height: 2.25rem; border: 1px solid var(--line-strong); border-radius: 50%; display: grid; place-items: center; transition: border-color .15s, color .15s; }
+  .asset__arrow svg { width: 1rem; height: 1rem; }
+  .asset:hover .asset__arrow { border-color: var(--amber); color: var(--amber); }
+  .asset--flash { border-color: rgba(88,216,168,.35); }
+  .asset--flash::before {
+    content: ""; position: absolute; inset: 0; pointer-events: none;
+    background: radial-gradient(70% 60% at 100% 0%, var(--flash-dim), transparent 70%);
+  }
+  .asset--flash h3 em { font-style: normal; color: var(--flash); }
+  .asset--flash:hover { border-color: var(--flash); }
+  .asset--flash:hover .asset__arrow { border-color: var(--flash); color: var(--flash); }
+  .tags { display: flex; flex-wrap: wrap; gap: .5rem; }
+  .tag { font-family: var(--mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; padding: .35em .7em; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--ink-2); }
+  .asset--flash .tag { border-color: rgba(88,216,168,.4); color: var(--flash); }
+  .asset__help { font-family: var(--mono); font-size: .72rem; color: var(--ink-muted); letter-spacing: .04em; max-width: none; }
+
+  /* ---------- the offer: a delivery spec ---------- */
+  .spec { border-top: 1px solid var(--line-strong); }
+  .spec__row {
+    display: grid; gap: .5rem 2rem; padding: 1.5rem 0; border-bottom: 1px solid var(--line);
+    grid-template-columns: 1fr;
+  }
+  @media (min-width: 720px) { .spec__row { grid-template-columns: 14rem minmax(0, 1fr); } }
+  .spec__key { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: 1.6rem; line-height: 1; color: var(--ink); }
+  .spec__key small { display: block; font-family: var(--mono); font-weight: 400; text-transform: uppercase; font-size: .68rem; letter-spacing: .12em; color: var(--ink-muted); margin-top: .5rem; }
+  .spec__val { color: var(--ink-2); max-width: var(--measure); }
+  .spec__val strong { color: var(--ink); font-weight: 500; }
+
+  /* ---------- the sequence ---------- */
+  .seq { list-style: none; margin: 0; padding: 0; counter-reset: step; display: grid; gap: 0; }
+  .seq li {
+    counter-increment: step;
+    display: grid; gap: .35rem 1.5rem; padding: 1.4rem 0; border-top: 1px solid var(--line);
+    grid-template-columns: 3.5rem minmax(0, 1fr);
+  }
+  .seq li:last-child { border-bottom: 1px solid var(--line); }
+  .seq li::before {
+    content: counter(step, decimal-leading-zero);
+    font-family: var(--display); font-weight: 900; font-size: 2.2rem; line-height: 1; color: var(--amber);
+    grid-row: 1 / span 2;
+  }
+  .seq h3 { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: 1.5rem; line-height: 1; }
+  .seq h3 span { font-family: var(--mono); font-weight: 400; text-transform: uppercase; font-size: .68rem; letter-spacing: .12em; color: var(--ink-muted); margin-left: .9rem; }
+  .seq p { color: var(--ink-2); font-size: 1rem; }
+  .seq li.is-next h3 { color: var(--amber); }
+
+  /* ---------- tiers ---------- */
+  .tiers { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+  @media (min-width: 820px) { .tiers { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .tier { padding: clamp(1.4rem, 2.5vw, 2rem); border: 1px solid var(--line); border-radius: var(--radius); background: var(--ground-2); display: flex; flex-direction: column; gap: 1.1rem; }
+  .tier--lead { border-color: var(--amber-deep); }
+  .tier h3 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: 2.2rem; line-height: .95; }
+  .tier__for { color: var(--ink-2); font-size: 1rem; }
+  .tier ul { margin: 0; padding: 0; list-style: none; display: grid; gap: .55rem; font-size: .98rem; color: var(--ink-2); }
+  .tier li { padding-left: 1.2rem; position: relative; }
+  .tier li::before { content: ""; position: absolute; left: 0; top: .62em; width: .5rem; height: 1px; background: var(--amber); }
+  .tier__price { margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--line); font-family: var(--mono); font-size: .74rem; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-muted); }
+  .tier__price b { display: block; color: var(--ink); font-weight: 500; font-size: 1rem; letter-spacing: .02em; margin-top: .25rem; text-transform: none; }
+
+  /* ---------- close ---------- */
+  .close { padding-block: clamp(3.5rem, 8vw, 6.5rem); border-top: 1px solid var(--line); background: linear-gradient(to bottom, var(--ground), #0A0806); }
+  .close h2 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(3rem, 9vw, 7.5rem); line-height: .9; max-width: 12ch; }
+  .close h2 em { font-style: normal; color: var(--amber); }
+  .close__when { margin-top: 1.5rem; font-family: var(--mono); font-size: .8rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-2); display: flex; flex-wrap: wrap; gap: .5rem 1.5rem; }
+  .close__when b { color: var(--amber); font-weight: 500; }
+  .close p { margin-top: 1.25rem; color: var(--ink-2); }
+  .sig { margin-top: 2.5rem; display: grid; gap: .25rem; }
+  .sig .name { font-family: var(--display); font-weight: 700; font-size: 1.6rem; text-transform: uppercase; line-height: 1; }
+  .sig .role { font-family: var(--mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); }
+
+  /* ---------- link index ---------- */
+  .index { padding-block: 2.5rem 3.5rem; border-top: 1px solid var(--line); }
+  .index table { border-collapse: collapse; width: 100%; font-family: var(--mono); font-size: .76rem; letter-spacing: .02em; }
+  .index th, .index td { text-align: left; padding: .7rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .index th { color: var(--ink-muted); font-weight: 400; text-transform: uppercase; letter-spacing: .12em; font-size: .66rem; }
+  .index td:first-child { color: var(--ink-2); white-space: nowrap; padding-right: 1.5rem; }
+  .index a { word-break: break-all; }
+  .index .scroll { overflow-x: auto; }
+
+  footer { padding: 1.5rem 0 2.5rem; font-family: var(--mono); font-size: .68rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); display: flex; flex-wrap: wrap; justify-content: space-between; gap: .5rem 1.5rem; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap">
+    <a class="brand" href="#top">Drone God Max</a>
+    <div class="when">Prepared for Eduardo <span>· Follow-up</span> <b>Mon Sep 7 · 2:00 PM</b></div>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero">
+    <div class="hero__bg" aria-hidden="true">
+      <!-- still from the showcase film; the page holds fine if it never loads -->
+      <img src="https://img.youtube.com/vi/wTxsZDPYdv8/maxresdefault.jpg" alt="" loading="eager"
+           onerror="this.onerror=null;this.src='https://img.youtube.com/vi/wTxsZDPYdv8/hqdefault.jpg'">
+    </div>
+    <div class="wrap">
+      <div class="hero__kicker">
+        <span class="slate slate--bare">A proposal for Eduardo</span>
+        <span class="slate">September 2026</span>
+      </div>
+      <h1>Everything from our conversation, <em>in one frame.</em></h1>
+      <p class="hero__lede">
+        The showcase film, the gallery, the <strong>Green Flash</strong> footage vault, three boutique films, and the plan — assembled on one page so you can review it in ten minutes, and we can spend Monday <strong>deciding, not searching</strong>.
+      </p>
+      <div class="hero__cta">
+        <a class="btn btn--fill" href="#reel">
+          <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>
+          Watch the showcase film
+        </a>
+        <a class="btn btn--line" href="#plan">See the plan</a>
+      </div>
+      <div class="horizon" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  <!-- ================= ROLL 01 — SHOWCASE FILM ================= -->
+  <section class="roll" id="reel">
+    <div class="wrap">
+      <div class="roll__head">
+        <div>
+          <span class="slate">Roll 01 · Showcase film</span>
+          <h2>Start here. This is the standard.</h2>
+        </div>
+        <div class="roll__note">
+          <p>Aerials from the drone, ground work on the Ronin 4D, cut and graded to one look. Watch it full-screen with the sound up — this is what your project will feel like when it's finished.</p>
+        </div>
+      </div>
+
+      <figure class="film">
+        <!-- LINK: showcase film — https://youtu.be/wTxsZDPYdv8 -->
+        <button class="film__frame film__frame--wide" type="button" data-yt="wTxsZDPYdv8" aria-label="Play the showcase film">
+          <img src="https://img.youtube.com/vi/wTxsZDPYdv8/maxresdefault.jpg" alt="" loading="lazy"
+               onerror="this.onerror=null;this.src='https://img.youtube.com/vi/wTxsZDPYdv8/hqdefault.jpg'">
+          <span class="film__meta">
+            <span>
+              <span class="film__title">Showcase film</span>
+              <span class="film__sub">Drone + Ronin 4D · Landing-page example</span>
+            </span>
+            <span class="film__play" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z"/></svg></span>
+          </span>
+        </button>
+        <figcaption class="film__caption">
+          <span>Click to play here, or open it in YouTube for full quality.</span>
+          <a href="https://youtu.be/wTxsZDPYdv8" target="_blank" rel="noopener">youtu.be/wTxsZDPYdv8 ↗</a>
+        </figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <!-- ================= ROLL 02 — GALLERY + VAULT ================= -->
+  <section class="roll" id="assets">
+    <div class="wrap">
+      <div class="roll__head">
+        <div>
+          <span class="slate">Roll 02 · Stills &amp; raw footage</span>
+          <h2>The gallery and the vault.</h2>
+        </div>
+        <div class="roll__note">
+          <p>The gallery is finished work — what the stills look like when they've been through the grade. The vault is the opposite: raw drone and Ronin 4D footage from the Green Flash shoot, so you can see what the cameras capture before any polish.</p>
+        </div>
+      </div>
+
+      <div class="assets">
+        <!-- LINK: gallery — https://dronegodmax.com/gallery/ -->
+        <a class="asset" href="https://dronegodmax.com/gallery/" target="_blank" rel="noopener">
+          <div>
+            <span class="slate">dronegodmax.com</span>
+            <h3 style="margin-top:.75rem">The Gallery</h3>
+          </div>
+          <p>Aerial and ground stills, graded and delivered. Browse it the way a client would — on a phone, in one sitting.</p>
+          <div class="asset__foot">
+            <span>Open the gallery</span>
+            <span class="asset__arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 13L13 3M6 3h7v7"/></svg></span>
+          </div>
+        </a>
+
+        <!-- LINK: Green Flash footage vault — Google Drive -->
+        <a class="asset asset--flash" href="https://drive.google.com/drive/folders/1wPTnxE_FNwd1nFZSk1pwcAnhW26gUQ6p" target="_blank" rel="noopener">
+          <div>
+            <span class="slate">Google Drive · Raw footage</span>
+            <h3 style="margin-top:.75rem"><em>Green Flash</em> Vault</h3>
+          </div>
+          <div>
+            <div class="tags" style="margin-bottom:1rem">
+              <span class="tag">Drone</span>
+              <span class="tag">Ronin 4D</span>
+              <span class="tag">Ungraded</span>
+            </div>
+            <p class="asset__help">Large files. If Drive asks you to sign in or won't preview a clip, just say the word — Max will send it another way or walk you through it.</p>
+          </div>
+          <div class="asset__foot">
+            <span>Open the Drive folder</span>
+            <span class="asset__arrow"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M3 13L13 3M6 3h7v7"/></svg></span>
+          </div>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ROLL 03 — BOUTIQUE WORK ================= -->
+  <section class="roll" id="boutique">
+    <div class="wrap">
+      <div class="roll__head">
+        <div>
+          <span class="slate">Roll 03 · Boutique work</span>
+          <h2>Three films. Three different rooms.</h2>
+        </div>
+        <div class="roll__note">
+          <p>Smaller productions, each built around one brand's space and pace. Watch for how the camera moves inside — that's the Ronin 4D doing what a slider and a dolly used to need a crew for.</p>
+        </div>
+      </div>
+
+      <div class="grid-3">
+        <!-- LINK: boutique film 1 — https://youtu.be/urzfVdqW3Jo -->
+        <figure class="film">
+          <button class="film__frame" type="button" data-yt="urzfVdqW3Jo" aria-label="Play boutique film one">
+            <img src="https://img.youtube.com/vi/urzfVdqW3Jo/maxresdefault.jpg" alt="" loading="lazy"
+                 onerror="this.onerror=null;this.src='https://img.youtube.com/vi/urzfVdqW3Jo/hqdefault.jpg'">
+            <span class="film__meta">
+              <span><span class="film__title">Boutique I</span><span class="film__sub">Ronin 4D</span></span>
+              <span class="film__play" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z"/></svg></span>
+            </span>
+          </button>
+          <figcaption class="film__caption"><a href="https://youtu.be/urzfVdqW3Jo" target="_blank" rel="noopener">youtu.be/urzfVdqW3Jo ↗</a></figcaption>
+        </figure>
+
+        <!-- LINK: boutique film 2 — https://youtu.be/OvFY-KKLDTc -->
+        <figure class="film">
+          <button class="film__frame" type="button" data-yt="OvFY-KKLDTc" aria-label="Play boutique film two">
+            <img src="https://img.youtube.com/vi/OvFY-KKLDTc/maxresdefault.jpg" alt="" loading="lazy"
+                 onerror="this.onerror=null;this.src='https://img.youtube.com/vi/OvFY-KKLDTc/hqdefault.jpg'">
+            <span class="film__meta">
+              <span><span class="film__title">Boutique II</span><span class="film__sub">Ronin 4D</span></span>
+              <span class="film__play" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z"/></svg></span>
+            </span>
+          </button>
+          <figcaption class="film__caption"><a href="https://youtu.be/OvFY-KKLDTc" target="_blank" rel="noopener">youtu.be/OvFY-KKLDTc ↗</a></figcaption>
+        </figure>
+
+        <!-- LINK: boutique film 3 — https://youtu.be/s099hVuAXms -->
+        <figure class="film">
+          <button class="film__frame" type="button" data-yt="s099hVuAXms" aria-label="Play boutique film three">
+            <img src="https://img.youtube.com/vi/s099hVuAXms/maxresdefault.jpg" alt="" loading="lazy"
+                 onerror="this.onerror=null;this.src='https://img.youtube.com/vi/s099hVuAXms/hqdefault.jpg'">
+            <span class="film__meta">
+              <span><span class="film__title">Boutique III</span><span class="film__sub">Ronin 4D</span></span>
+              <span class="film__play" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z"/></svg></span>
+            </span>
+          </button>
+          <figcaption class="film__caption"><a href="https://youtu.be/s099hVuAXms" target="_blank" rel="noopener">youtu.be/s099hVuAXms ↗</a></figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= THE OFFER ================= -->
+  <section class="roll" id="offer">
+    <div class="wrap">
+      <div class="roll__head">
+        <div>
+          <span class="slate">The offer</span>
+          <h2>What we build for you.</h2>
+        </div>
+        <div class="roll__note">
+          <p>Every piece of this is something you just watched. Nothing on this list is theoretical — it's the same cameras, the same edit, the same grade, pointed at your brand.</p>
+        </div>
+      </div>
+
+      <div class="spec">
+        <div class="spec__row">
+          <div class="spec__key">Aerials <small>Drone</small></div>
+          <div class="spec__val">Establishing shots, reveals, orbits and top-downs that place your location in its world. <strong>Golden hour is scheduled, not hoped for.</strong></div>
+        </div>
+        <div class="spec__row">
+          <div class="spec__key">Ground cinema <small>Ronin 4D</small></div>
+          <div class="spec__val">Full-frame cinema on a four-axis gimbal: walk-throughs, product moves and portraits that float. <strong>Interiors, people, and detail — the part aerials can't do.</strong></div>
+        </div>
+        <div class="spec__row">
+          <div class="spec__key">Stills <small>Gallery-grade</small></div>
+          <div class="spec__val">A dedicated photo pass on shoot day, graded to match the film, delivered as a gallery like the one above — web-ready and print-ready.</div>
+        </div>
+        <div class="spec__row">
+          <div class="spec__key">Delivery <small>Masters + cuts</small></div>
+          <div class="spec__val">4K masters. One <strong>2.39:1 hero cut</strong>, a 16:9 web cut, and 9:16 vertical cuts for social. Color graded, licensed music, captions on the social versions.</div>
+        </div>
+        <div class="spec__row">
+          <div class="spec__key">Landing page <small>Web</small></div>
+          <div class="spec__val">A single page, like this one, built to hold the film and convert the visitor. Fast, mobile-first, yours to keep.</div>
+        </div>
+        <div class="spec__row">
+          <div class="spec__key">Boutique &amp; merch <small>Optional</small></div>
+          <div class="spec__val">Product and merchandising direction so the film, the stills, the page and the shelf all speak with one voice.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= THE PLAN (a real sequence) ================= -->
+  <section class="roll" id="plan">
+    <div class="wrap">
+      <div class="roll__head">
+        <div>
+          <span class="slate">The plan</span>
+          <h2>From Monday to launch.</h2>
+        </div>
+        <div class="roll__note">
+          <p>Five steps, in order. The first one is already on your calendar.</p>
+        </div>
+      </div>
+
+      <ol class="seq">
+        <li class="is-next">
+          <h3>Follow-up call <span>Mon Sep 7 · 2:00 PM</span></h3>
+          <p>Lock scope, locations and dates. You bring the must-have shots; Max brings the shot list from what you've watched here.</p>
+        </li>
+        <li>
+          <h3>Shot plan <span>Within 48 hours of the call</span></h3>
+          <p>A written shot list, schedule, and music direction for your sign-off. Nothing gets filmed that you haven't seen on paper.</p>
+        </li>
+        <li>
+          <h3>Shoot days <span>Drone + Ronin 4D</span></h3>
+          <p>Aerials and ground cinema on the same days, so the light and the look match. Stills pass included.</p>
+        </li>
+        <li>
+          <h3>Edit &amp; grade <span>First cut, then two revision rounds</span></h3>
+          <p>You review a private link, mark timestamps, and we cut again. Color, sound and titles are finished before the final master is rendered.</p>
+        </li>
+        <li>
+          <h3>Launch <span>Masters, cuts, gallery, page</span></h3>
+          <p>Everything delivered in one folder, the landing page live, social cuts ready to schedule.</p>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ================= PACKAGES ================= -->
+  <section class="roll" id="packages">
+    <div class="wrap">
+      <div class="roll__head">
+        <div>
+          <span class="slate">Three ways in</span>
+          <h2>Pick the size of the story.</h2>
+        </div>
+        <div class="roll__note">
+          <p>Each package is a complete production, not a starting point with add-ons. Investment for each is presented on Monday's call, once we've matched it to your locations and dates.</p>
+        </div>
+      </div>
+
+      <div class="tiers">
+        <div class="tier">
+          <h3>Launch</h3>
+          <p class="tier__for">One location, one day, one film that does the job.</p>
+          <ul>
+            <li>1 shoot day · drone + Ronin 4D</li>
+            <li>60–90s hero film, 2.39:1 and 16:9</li>
+            <li>1 vertical social cut</li>
+            <li>10 graded stills</li>
+          </ul>
+          <!-- EDIT: replace the text below with a number when pricing is set -->
+          <div class="tier__price">Investment <b>Presented Mon Sep 7</b></div>
+        </div>
+
+        <div class="tier tier--lead">
+          <h3>Feature</h3>
+          <p class="tier__for">The full brand film, plus the page that carries it.</p>
+          <ul>
+            <li>2 shoot days · drone + Ronin 4D</li>
+            <li>2–3 min brand film + 60s cut</li>
+            <li>3 vertical social cuts</li>
+            <li>30 graded stills, delivered as a gallery</li>
+            <li>Landing page — designed, built, live</li>
+          </ul>
+          <div class="tier__price">Investment <b>Presented Mon Sep 7</b></div>
+        </div>
+
+        <div class="tier">
+          <h3>Flagship</h3>
+          <p class="tier__for">A campaign, not a video. Multiple locations and a series.</p>
+          <ul>
+            <li>Multi-day production, multiple locations</li>
+            <li>Brand film + a 3-part short series</li>
+            <li>Full social cut package</li>
+            <li>Complete gallery + print masters</li>
+            <li>Landing page + boutique &amp; merch direction</li>
+            <li>Launch-week support</li>
+          </ul>
+          <div class="tier__price">Investment <b>Presented Mon Sep 7</b></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= CLOSE ================= -->
+  <section class="close" id="monday">
+    <div class="wrap">
+      <span class="slate">Next step</span>
+      <h2 style="margin-top:.75rem">Monday. <em>2:00 PM.</em> It's already on your calendar.</h2>
+      <div class="close__when">
+        <span><b>Mon · September 7, 2026</b></span>
+        <span>2:00 PM · Follow-up with Max</span>
+        <span>Booked through your calendar</span>
+      </div>
+      <p>Come with the shots you can't live without and the one you think is impossible. Bring questions about the Drive footage if anything wouldn't open. Everything else is on this page.</p>
+      <div class="hero__cta">
+        <!-- LINK: add-to-calendar (Google Calendar template; time is in the viewer's local timezone) -->
+        <a class="btn btn--fill" target="_blank" rel="noopener"
+           href="https://calendar.google.com/calendar/render?action=TEMPLATE&amp;text=Follow-up%20with%20Max%20%E2%80%94%20Drone%20God%20Max&amp;dates=20260907T140000/20260907T150000&amp;details=Proposal%20page%3A%20the%20reel%2C%20gallery%2C%20Green%20Flash%20footage%20and%20the%20plan.">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="3" width="12" height="11" rx="1.5"/><path d="M2 7h12M5 1.5v3M11 1.5v3"/></svg>
+          Add Monday to calendar
+        </a>
+        <a class="btn btn--line" href="#reel">Watch the film again</a>
+      </div>
+      <div class="sig">
+        <span class="name">Max</span>
+        <span class="role">Drone God Max · Aerial &amp; Ronin 4D cinematography</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= LINK INDEX (every link, verbatim) ================= -->
+  <section class="index" id="links">
+    <div class="wrap">
+      <span class="slate">Every link on this page</span>
+      <div class="scroll" style="margin-top:1rem">
+        <table>
+          <thead><tr><th>Asset</th><th>Link</th></tr></thead>
+          <tbody>
+            <tr><td>Showcase film</td><td><a href="https://youtu.be/wTxsZDPYdv8" target="_blank" rel="noopener">https://youtu.be/wTxsZDPYdv8</a></td></tr>
+            <tr><td>Gallery</td><td><a href="https://dronegodmax.com/gallery/" target="_blank" rel="noopener">https://dronegodmax.com/gallery/</a></td></tr>
+            <tr><td>Green Flash vault (Drive)</td><td><a href="https://drive.google.com/drive/folders/1wPTnxE_FNwd1nFZSk1pwcAnhW26gUQ6p" target="_blank" rel="noopener">https://drive.google.com/drive/folders/1wPTnxE_FNwd1nFZSk1pwcAnhW26gUQ6p</a></td></tr>
+            <tr><td>Boutique I</td><td><a href="https://youtu.be/urzfVdqW3Jo" target="_blank" rel="noopener">https://youtu.be/urzfVdqW3Jo</a></td></tr>
+            <tr><td>Boutique II</td><td><a href="https://youtu.be/OvFY-KKLDTc" target="_blank" rel="noopener">https://youtu.be/OvFY-KKLDTc</a></td></tr>
+            <tr><td>Boutique III</td><td><a href="https://youtu.be/s099hVuAXms" target="_blank" rel="noopener">https://youtu.be/s099hVuAXms</a></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <footer class="wrap">
+    <span>Prepared for Eduardo · Private link, not for distribution</span>
+    <span>Drone God Max · 2026</span>
+  </footer>
+</main>
+
+<script>
+  // Click-to-play: swap the poster frame for the YouTube player only when asked.
+  document.querySelectorAll('.film__frame[data-yt]').forEach(function (frame) {
+    frame.addEventListener('click', function () {
+      if (frame.classList.contains('is-playing')) return;
+      var id = frame.getAttribute('data-yt');
+      var iframe = document.createElement('iframe');
+      iframe.src = 'https://www.youtube-nocookie.com/embed/' + id + '?autoplay=1&rel=0&modestbranding=1';
+      iframe.title = frame.getAttribute('aria-label') || 'Video';
+      iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; fullscreen';
+      iframe.setAttribute('allowfullscreen', '');
+      frame.classList.add('is-playing');
+      frame.appendChild(iframe);
+      frame.setAttribute('aria-label', iframe.title + ' (playing)');
+    });
+  });
+</script>
+</body>
+</html>
