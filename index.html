@@ -328,6 +328,38 @@
   .seq p { color: var(--ink-2); font-size: 1rem; }
   .seq li.is-next h3 { color: var(--amber); }
 
+  /* ---------- plan blocks, lists, platform table, investment ---------- */
+  .roll--scope { border-top: 2px solid var(--amber-deep); }
+  .scope__kicker { display: block; margin-bottom: 1.25rem; color: var(--ink-2); }
+  .cols { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
+  @media (min-width: 820px) { .cols { grid-template-columns: repeat(2, minmax(0, 1fr)); } .cols--3 { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+  .block { padding: clamp(1.4rem, 2.5vw, 2rem); border: 1px solid var(--line); border-radius: var(--radius); background: var(--ground-2); display: flex; flex-direction: column; gap: 1rem; }
+  .block--lead { border-color: var(--amber-deep); }
+  .block h3 { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: 1.9rem; line-height: .95; }
+  .block__p { color: var(--ink-2); font-size: 1rem; }
+  .block ul, .list { margin: 0; padding: 0; list-style: none; display: grid; gap: .6rem; font-size: .98rem; color: var(--ink-2); }
+  .block li, .list li { padding-left: 1.2rem; position: relative; }
+  .block li::before, .list li::before { content: ""; position: absolute; left: 0; top: .62em; width: .5rem; height: 1px; background: var(--amber); }
+  .list--wide { max-width: var(--measure); font-size: 1.05rem; gap: .8rem; }
+  .list--wide li { color: var(--ink); }
+  .roll__foot { margin-top: 1.5rem; color: var(--ink-2); font-size: 1rem; }
+  .plat { border-collapse: collapse; width: 100%; }
+  .plat th, .plat td { text-align: left; padding: .9rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .plat th { font-family: var(--mono); color: var(--ink-muted); font-weight: 400; text-transform: uppercase; letter-spacing: .12em; font-size: .66rem; }
+  .plat td:first-child { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: 1.35rem; line-height: 1; color: var(--ink); white-space: nowrap; padding-right: 2rem; width: 14rem; }
+  .plat td:last-child { color: var(--ink-2); font-size: 1rem; }
+  .scroll { overflow-x: auto; }
+  @media (max-width: 720px) {
+    .plat thead { display: none; }
+    .plat tr, .plat td { display: block; }
+    .plat td:first-child { width: auto; white-space: normal; padding: 1rem 0 .3rem; border-bottom: 0; }
+    .plat td:last-child { padding: 0 0 1rem; }
+  }
+  .invest { margin-top: 2rem; padding: clamp(1.4rem, 2.5vw, 2rem); border: 1px solid var(--amber-deep); border-radius: var(--radius); background: var(--ground-2); display: flex; flex-wrap: wrap; align-items: flex-end; justify-content: space-between; gap: 1rem 2rem; }
+  .invest__label { display: block; font-family: var(--mono); font-size: .74rem; letter-spacing: .1em; text-transform: uppercase; color: var(--ink-muted); }
+  .invest__val { display: block; font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1; color: var(--amber); margin-top: .35rem; }
+  .invest__tag { font-family: var(--serif); font-style: italic; color: var(--ink-2); font-size: 1.1rem; }
+
   /* ---------- tiers ---------- */
   .tiers { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
   @media (min-width: 820px) { .tiers { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
@@ -377,7 +409,7 @@
 
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="#top">Drone God Max</a>
+    <a class="brand" href="#top">Green Flash × Drone God Max</a>
     <div class="topbar__right">
       <div class="when" data-i18n="top.prepared">Prepared for Eduardo <span>· Follow-up</span> <b>Mon Sep 7 · 2:00 PM</b></div>
       <div class="lang" id="lang">
@@ -409,14 +441,14 @@
       </div>
       <h1 data-i18n="hero.h1">Our conversation <em>in one frame</em></h1>
       <p class="hero__lede" data-i18n="hero.lede">
-        The showcase film, your two locations, the gallery, the <strong>Green Flash</strong> footage vault, three boutique films, and the plan — assembled on one page so you can review it in ten minutes, and we can spend Monday <strong>deciding, not searching</strong>.
+        The showcase film, your two locations, the gallery, the <strong>Green Flash</strong> footage vault, three boutique films, and the growth plan — assembled on one page so you can review it in ten minutes, and we can spend Monday <strong>deciding, not searching</strong>.
       </p>
       <div class="hero__cta">
         <a class="btn btn--fill" href="#reel">
           <svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>
           <span data-i18n="hero.cta1">Watch the showcase film</span>
         </a>
-        <a class="btn btn--line" href="#plan" data-i18n="hero.cta2">See the plan</a>
+        <a class="btn btn--line" href="#scope" data-i18n="hero.cta2">See the plan</a>
       </div>
       <div class="horizon" aria-hidden="true"></div>
     </div>
@@ -604,139 +636,247 @@
     </div>
   </section>
 
-  <!-- ================= THE OFFER ================= -->
-  <section class="roll" id="offer">
+  <!-- ================= THE PLAN — from the Green Flash growth plan ================= -->
+  <section class="roll roll--scope" id="scope">
     <div class="wrap">
+      <span class="slate slate--bare scope__kicker" data-i18n="scope.kicker">Prepared by Green Flash Advertising for Eduardo Hernado · Video production by Drone God Max</span>
       <div class="roll__head">
         <div>
-          <span class="slate" data-i18n="offer.slate">The offer</span>
-          <h2 data-i18n="offer.h2">What we build for you.</h2>
+          <span class="slate" data-i18n="scope.slate">Scope of work</span>
+          <h2 data-i18n="scope.h2">Growth &amp; investor confidence plan.</h2>
         </div>
         <div class="roll__note">
-          <p data-i18n="offer.note">Every piece of this is something you just watched. Nothing on this list is theoretical — it's the same cameras, the same edit, the same grade, pointed at your brand.</p>
-        </div>
-      </div>
-
-      <div class="spec">
-        <div class="spec__row">
-          <div class="spec__key"><span data-i18n="s1.k">Aerials</span> <small data-i18n="s1.s">Drone</small></div>
-          <div class="spec__val" data-i18n="s1.v">Establishing shots, reveals, orbits and top-downs that place your location in its world. <strong>Golden hour is scheduled, not hoped for.</strong></div>
-        </div>
-        <div class="spec__row">
-          <div class="spec__key"><span data-i18n="s2.k">Ground cinema</span> <small data-i18n="s2.s">Ronin 4D</small></div>
-          <div class="spec__val" data-i18n="s2.v">Full-frame cinema on a four-axis gimbal: walk-throughs, product moves and portraits that float. <strong>Interiors, people, and detail — the part aerials can't do.</strong></div>
-        </div>
-        <div class="spec__row">
-          <div class="spec__key"><span data-i18n="s3.k">Stills</span> <small data-i18n="s3.s">Gallery-grade</small></div>
-          <div class="spec__val" data-i18n="s3.v">A dedicated photo pass on shoot day, graded to match the film, delivered as a gallery like the one above — web-ready and print-ready.</div>
-        </div>
-        <div class="spec__row">
-          <div class="spec__key"><span data-i18n="s4.k">Delivery</span> <small data-i18n="s4.s">Masters + cuts</small></div>
-          <div class="spec__val" data-i18n="s4.v">4K masters. One <strong>2.39:1 hero cut</strong>, a 16:9 web cut, and 9:16 vertical cuts for social. Color graded, licensed music, captions on the social versions.</div>
-        </div>
-        <div class="spec__row">
-          <div class="spec__key"><span data-i18n="s5.k">Landing page</span> <small data-i18n="s5.s">Web</small></div>
-          <div class="spec__val" data-i18n="s5.v">A single page, like this one, built to hold the film and convert the visitor. Fast, mobile-first, yours to keep.</div>
-        </div>
-        <div class="spec__row">
-          <div class="spec__key"><span data-i18n="s6.k">Boutique &amp; merch</span> <small data-i18n="s6.s">Optional</small></div>
-          <div class="spec__val" data-i18n="s6.v">Product and merchandising direction so the film, the stills, the page and the shelf all speak with one voice.</div>
+          <p data-i18n="scope.note">Green Flash Advertising's execution plan for Dog Grooming USA and Groomer Artist Academy across three fronts: client acquisition at each location, investor-facing brand assets, and a managed presence across every major advertising and social platform. It also details the operational systems Green Flash will deploy and maintain.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ================= THE PLAN (a real sequence) ================= -->
-  <section class="roll" id="plan">
+  <section class="roll" id="pillar-1">
     <div class="wrap">
       <div class="roll__head">
         <div>
-          <span class="slate" data-i18n="plan.slate">The plan</span>
-          <h2 data-i18n="plan.h2">From Monday to launch.</h2>
+          <span class="slate" data-i18n="p1.slate">Pillar 1 · Client acquisition</span>
+          <h2 data-i18n="p1.h2">A funnel for every door.</h2>
         </div>
         <div class="roll__note">
-          <p data-i18n="plan.note">Five steps, in order. The first one is already on your calendar.</p>
+          <p data-i18n="p1.note">Each location receives its own dedicated acquisition funnel, managed and optimized by Green Flash on a continuous basis. Groomer Artist Academy receives a fully independent funnel, built and managed to one objective: enrolling new artists.</p>
         </div>
       </div>
-
-      <ol class="seq">
-        <li class="is-next">
-          <h3><span data-i18n="p1.h">Follow-up call</span> <span data-i18n="p1.s">Mon Sep 7 · 2:00 PM</span></h3>
-          <p data-i18n="p1.p">Lock scope, locations and dates. You bring the must-have shots; Max brings the shot list from what you've watched here.</p>
-        </li>
-        <li>
-          <h3><span data-i18n="p2.h">Shot plan</span> <span data-i18n="p2.s">Within 48 hours of the call</span></h3>
-          <p data-i18n="p2.p">A written shot list, schedule, and music direction for your sign-off. Once approved, we render production as envisioned.</p>
-        </li>
-        <li>
-          <h3><span data-i18n="p3.h">Shoot days</span> <span data-i18n="p3.s">Drone + Ronin 4D</span></h3>
-          <p data-i18n="p3.p">Aerials and ground cinema on the same days, so the light and the look match. Stills pass included.</p>
-        </li>
-        <li>
-          <h3><span data-i18n="p4.h">Edit &amp; grade</span> <span data-i18n="p4.s">First cut, then two revision rounds</span></h3>
-          <p data-i18n="p4.p">You review a private link, mark timestamps, and we cut again. Color, sound and titles are finished before the final master is rendered.</p>
-        </li>
-        <li>
-          <h3><span data-i18n="p5.h">Launch</span> <span data-i18n="p5.s">Masters, cuts, gallery, page</span></h3>
-          <p data-i18n="p5.p">Everything delivered in one folder, the landing page live, social cuts ready to schedule.</p>
-        </li>
-      </ol>
+      <div class="cols">
+        <div class="block">
+          <h3 data-i18n="p1a.h">Location funnel</h3>
+          <ul>
+            <li data-i18n="p1a.l1">Geo-targeted ad campaigns per location, refined against booking data as it accumulates</li>
+            <li data-i18n="p1a.l2">High-definition landing page per location, built as a single-action conversion portal separate from the main site</li>
+            <li data-i18n="p1a.l3">Per-location local SEO so organic and paid traffic both resolve to the correct store page</li>
+            <li data-i18n="p1a.l4">Retargeting sequences for visitors who did not book</li>
+          </ul>
+        </div>
+        <div class="block">
+          <h3 data-i18n="p1b.h">Academy funnel</h3>
+          <ul>
+            <li data-i18n="p1b.l1">Campaigns placed within grooming and trade-content audiences rather than generic education targeting</li>
+            <li data-i18n="p1b.l2">The training film as the centerpiece creative across every Academy campaign</li>
+            <li data-i18n="p1b.l3">Dedicated enrollment landing page with a single conversion path</li>
+            <li data-i18n="p1b.l4">AI scheduling agent handling enrollment inquiries and booking consultations in real time</li>
+            <li data-i18n="p1b.l5">Graduate work and student results captured and repurposed as recruiting creative for subsequent cohorts</li>
+          </ul>
+        </div>
+      </div>
     </div>
   </section>
 
-  <!-- ================= PACKAGES ================= -->
-  <section class="roll" id="packages">
+  <section class="roll" id="pillar-2">
     <div class="wrap">
       <div class="roll__head">
         <div>
-          <span class="slate" data-i18n="pk.slate">Three ways in</span>
-          <h2 data-i18n="pk.h2">Pick the size of the story.</h2>
+          <span class="slate" data-i18n="p2.slate">Pillar 2 · Investor-facing assets</span>
+          <h2 data-i18n="p2.h2">Assets that carry the investor conversation.</h2>
         </div>
         <div class="roll__note">
-          <p data-i18n="pk.note">Each package is a complete production, not a starting point with add-ons. Investment for each is presented on Monday's call, once we've matched it to your locations and dates.</p>
+          <p data-i18n="p2.note">Green Flash and Drone God Max will produce and maintain the brand assets that carry investor conversations.</p>
         </div>
       </div>
+      <ul class="list list--wide">
+            <li data-i18n="p2.l1">Investor film — drone cinematography, Ronin 4D 6K, custom graphics; produced by Drone God Max</li>
+            <li data-i18n="p2.l2">Corporate website presenting the full footprint, the vet-group relationship, and both revenue streams in one place</li>
+            <li data-i18n="p2.l3">One-tap language switch on both websites and every landing page — English, Spanish, Haitian Creole, and Portuguese</li>
+            <li data-i18n="p2.l4">Consistent daily publishing across all accounts, demonstrating active momentum whenever an investor looks</li>
+            <li data-i18n="p2.l5">Unified brand execution across site, social, and video</li>
+      </ul>
+    </div>
+  </section>
 
-      <div class="tiers">
-        <div class="tier">
-          <h3>Launch</h3>
-          <p class="tier__for" data-i18n="t1.for">One location, one day, one film that does the job.</p>
-          <ul>
-            <li data-i18n="t1.l1">1 shoot day · drone + Ronin 4D</li>
-            <li data-i18n="t1.l2">60–90s hero film, 2.39:1 and 16:9</li>
-            <li data-i18n="t1.l3">1 vertical social cut</li>
-            <li data-i18n="t1.l4">10 graded stills</li>
-          </ul>
-          <!-- EDIT: replace the text below with a number when pricing is set -->
-          <div class="tier__price"><span data-i18n="price.label">Investment</span> <b data-i18n="price.val">Presentation on September 7th, 2pm</b></div>
+  <section class="roll" id="pillar-3">
+    <div class="wrap">
+      <div class="roll__head">
+        <div>
+          <span class="slate" data-i18n="p3.slate">Pillar 3 · Social media &amp; platform presence</span>
+          <h2 data-i18n="p3.h2">Every platform, with a job.</h2>
         </div>
+        <div class="roll__note">
+          <p data-i18n="p3.note">Green Flash will establish and manage a presence across every major platform, each assigned a defined role in the funnel.</p>
+        </div>
+      </div>
+      <div class="scroll">
+        <table class="plat">
+          <thead><tr><th data-i18n="p3.th1">Platform</th><th data-i18n="p3.th2">Role in the strategy</th></tr></thead>
+          <tbody>
+            <tr><td data-i18n="p3.r1k">Facebook &amp; Instagram</td><td data-i18n="p3.r1v">Primary local booking and enrollment campaigns (Meta), plus daily organic posts and stories per account</td></tr>
+            <tr><td data-i18n="p3.r2k">TikTok</td><td data-i18n="p3.r2v">Short-form technique clips, transformations, and behind-the-scenes content built for reach and audience growth</td></tr>
+            <tr><td data-i18n="p3.r3k">Google</td><td data-i18n="p3.r3v">Search campaigns capturing active local intent, plus Google Business Profile management per location</td></tr>
+            <tr><td data-i18n="p3.r4k">Reddit</td><td data-i18n="p3.r4v">Targeted placement in local and pet-owner communities</td></tr>
+            <tr><td data-i18n="p3.r5k">Snapchat</td><td data-i18n="p3.r5v">Younger local reach for both the salons and Academy enrollment</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cols cols--3" style="margin-top:1.5rem">
+        <div class="block">
+          <h3 data-i18n="p3a.h">Account structure</h3>
+          <p class="block__p" data-i18n="p3a.p">Fully separate social profiles and separate Meta ad accounts for Groomer Artist Academy and for the grooming locations — independent creative, independent budgets, and clean reporting on each.</p>
+        </div>
+        <div class="block">
+          <h3 data-i18n="p3b.h">Content production</h3>
+          <p class="block__p" data-i18n="p3b.p">Green Flash will script, film, edit, and schedule all content, testing formats for each location and the Academy, and scaling what performs.</p>
+          <ul>
+            <li data-i18n="p3b.l1">Comedic content built for shares and organic reach</li>
+            <li data-i18n="p3b.l2">Scripted content centered on the brand's grooming and hair-care techniques</li>
+            <li data-i18n="p3b.l3">Client testimonials and before-and-after showcases</li>
+            <li data-i18n="p3b.l4">User-generated-style video native to each platform</li>
+            <li data-i18n="p3b.l5">Drone and cinematic visuals from Drone God Max for every location and landing page</li>
+          </ul>
+        </div>
+        <div class="block">
+          <h3 data-i18n="p3c.h">Proprietary content engine</h3>
+          <p class="block__p" data-i18n="p3c.p">Green Flash operates proprietary in-house software that ingests client content, edits it, and schedules posting across every account. The daily posting commitment is systematized rather than dependent on manual effort.</p>
+          <ul>
+            <li data-i18n="p3c.l1">Ingests raw footage from shoots and staff uploads, edits it, and schedules posts across all accounts</li>
+            <li data-i18n="p3c.l2">Analyzes top-performing content in the category and generates comparable concepts</li>
+            <li data-i18n="p3c.l3">Surfaces content ideas and assists with scripting for every location and the Academy</li>
+            <li data-i18n="p3c.l4">Tracks organic performance so ad spend is placed behind content that has already proven itself</li>
+          </ul>
+        </div>
+      </div>
+      <p class="roll__foot" data-i18n="p3c.foot">Paid promotion is applied only to posts with demonstrated organic traction, so budget amplifies what is working instead of testing from zero.</p>
+    </div>
+  </section>
 
-        <div class="tier tier--lead">
-          <h3>Feature</h3>
-          <p class="tier__for" data-i18n="t2.for">The full brand film, plus the page that carries it.</p>
-          <ul>
-            <li data-i18n="t2.l1">2 shoot days · drone + Ronin 4D</li>
-            <li data-i18n="t2.l2">2–3 min brand film + 60s cut</li>
-            <li data-i18n="t2.l3">3 vertical social cuts</li>
-            <li data-i18n="t2.l4">30 graded stills, delivered as a gallery</li>
-            <li data-i18n="t2.l5">Landing page — designed, built, live</li>
-          </ul>
-          <div class="tier__price"><span data-i18n="price.label">Investment</span> <b data-i18n="price.val">Presentation on September 7th, 2pm</b></div>
+  <section class="roll" id="production">
+    <div class="wrap">
+      <div class="roll__head">
+        <div>
+          <span class="slate" data-i18n="prod.slate">Production cadence</span>
+          <h2 data-i18n="prod.h2">Biweekly shoots. Fly-Throughs. Wag-Throughs.</h2>
         </div>
+        <div class="roll__note">
+          <p data-i18n="prod.note">Drone God Max will shoot on site every two weeks at each location, and will train staff to capture and upload content to a shared Google Drive between shoots, so content is captured continuously.</p>
+        </div>
+      </div>
+      <div class="cols">
+        <div class="block">
+          <h3 data-i18n="proda.h">Biweekly shoots &amp; staff training</h3>
+          <ul>
+            <li data-i18n="proda.l1">In-person shoot every two weeks per location</li>
+            <li data-i18n="proda.l2">Hands-on training for employees on filming and uploading to Google Drive</li>
+            <li data-i18n="proda.l3">Staff-captured footage folded into the editing and scheduling pipeline</li>
+          </ul>
+        </div>
+        <div class="block block--lead">
+          <h3 data-i18n="prodb.h">Fly-Throughs &amp; Wag-Throughs</h3>
+          <p class="block__p" data-i18n="prodb.p">Every location receives two signature pieces: a drone Fly-Through and a Wag-Through — a camera mounted on Cashews for a first-person run through the space.</p>
+          <ul>
+            <li data-i18n="prodb.l1">Wag-Through and Fly-Through of the new flagship location</li>
+            <li data-i18n="prodb.l2">Wag-Through and Fly-Through of the existing Miami Lakes location</li>
+            <li data-i18n="prodb.l3">Both produced as standard for every future location</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
 
-        <div class="tier">
-          <h3>Flagship</h3>
-          <p class="tier__for" data-i18n="t3.for">A campaign, not a video. Multiple locations and a series.</p>
-          <ul>
-            <li data-i18n="t3.l1">Multi-day production, multiple locations</li>
-            <li data-i18n="t3.l2">Brand film + a 3-part short series</li>
-            <li data-i18n="t3.l3">Full social cut package</li>
-            <li data-i18n="t3.l4">Complete gallery + print masters</li>
-            <li data-i18n="t3.l5">Landing page + boutique &amp; merch direction</li>
-            <li data-i18n="t3.l6">Launch-week support</li>
-          </ul>
-          <div class="tier__price"><span data-i18n="price.label">Investment</span> <b data-i18n="price.val">Presentation on September 7th, 2pm</b></div>
+  <section class="roll" id="systems">
+    <div class="wrap">
+      <div class="roll__head">
+        <div>
+          <span class="slate" data-i18n="sys.slate">Operational systems</span>
+          <h2 data-i18n="sys.h2">From ad to paid booking in one path.</h2>
         </div>
+        <div class="roll__note">
+          <p data-i18n="sys.note">The systems Green Flash will configure, connect, and run so a customer moves from ad to landing page to paid booking without a gap, and no inquiry waits on an email.</p>
+        </div>
+      </div>
+      <div class="cols cols--3">
+        <div class="block">
+          <h3 data-i18n="sysa.h">Calendly — booking &amp; payments</h3>
+          <ul>
+            <li data-i18n="sysa.l1">Per-location booking embedded on each store page and landing page</li>
+            <li data-i18n="sysa.l2">Facebook integration for booking directly from ads and the Facebook page</li>
+            <li data-i18n="sysa.l3">Payment collected at time of booking</li>
+            <li data-i18n="sysa.l4">Automated confirmations and reminders</li>
+            <li data-i18n="sysa.l5">Booking conversions reported back to ad platforms, so optimization is driven by completed bookings rather than clicks</li>
+          </ul>
+        </div>
+        <div class="block">
+          <h3 data-i18n="sysb.h">AI scheduling agent</h3>
+          <ul>
+            <li data-i18n="sysb.l1">Immediate 24/7 response to booking and enrollment inquiries</li>
+            <li data-i18n="sysb.l2">Handles standard questions on services, pricing, and course details</li>
+            <li data-i18n="sysb.l3">Books directly into Calendly</li>
+            <li data-i18n="sysb.l4">Scales across additional locations with no added headcount</li>
+          </ul>
+        </div>
+        <div class="block">
+          <h3 data-i18n="sysc.h">Ad platform management</h3>
+          <p class="block__p" data-i18n="sysc.p">All ad accounts set up, connected, and managed under a single point of control.</p>
+          <ul>
+            <li data-i18n="sysc.l1">Facebook &amp; Instagram (Meta Ads Manager)</li>
+            <li data-i18n="sysc.l2">Google Ads</li>
+            <li data-i18n="sysc.l3">TikTok Ads</li>
+            <li data-i18n="sysc.l4">Reddit Ads</li>
+            <li data-i18n="sysc.l5">Snapchat Ads</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="roll" id="merch">
+    <div class="wrap">
+      <div class="roll__head">
+        <div>
+          <span class="slate" data-i18n="merch.slate">Included at no charge</span>
+          <h2 data-i18n="merch.h2">Complimentary merch &amp; FlashTap.</h2>
+        </div>
+        <div class="roll__note">
+          <p data-i18n="merch.note">A custom-designed FlashTap and a branded merch line, drop-shipped directly to the purchaser with no inventory or fulfillment required from Dog Grooming USA.</p>
+        </div>
+      </div>
+      <ul class="list list--wide">
+            <li data-i18n="merch.l1">Custom FlashTap design</li>
+            <li data-i18n="merch.l2">Branded merch line, drop-ship fulfilled</li>
+            <li data-i18n="merch.l3">Storefront integration on the website</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="roll" id="summary">
+    <div class="wrap">
+      <div class="roll__head">
+        <div>
+          <span class="slate" data-i18n="sum.slate">Summary</span>
+          <h2 data-i18n="sum.h2">One team running the full stack.</h2>
+        </div>
+        <div class="roll__note">
+          <p data-i18n="sum.p">Drone God Max delivers the two flagship films, the Fly-Throughs and Wag-Throughs, and all drone cinematography. Green Flash Advertising delivers and manages the websites, landing pages, local SEO, ad accounts, social media, content production, booking systems, and AI scheduling — one team running the full stack, reporting on completed bookings and enrollments.</p>
+        </div>
+      </div>
+      <div class="invest">
+        <div>
+          <span class="invest__label" data-i18n="price.label">Investment</span>
+          <b class="invest__val" data-i18n="price.val">Presentation on September 7th, 2pm</b>
+        </div>
+        <span class="invest__tag" data-i18n="sum.tag">More clicks. More customers. More growth.</span>
       </div>
     </div>
   </section>
@@ -751,7 +891,7 @@
         <span data-i18n="close.w2">2:00 PM · Follow-up with Max</span>
         <span data-i18n="close.w3">Booked through your calendar</span>
       </div>
-      <p data-i18n="close.p">Come with the shots you can't live without and the one you think is impossible. Bring questions about the Drive footage if anything wouldn't open. Everything else is on this page.</p>
+      <p data-i18n="close.p">Come with your questions on the plan and on the two locations. Bring anything from the Drive footage that wouldn't open. Everything else is on this page.</p>
       <div class="hero__cta">
         <!-- LINK: add-to-calendar (Google Calendar template; time is in the viewer's local timezone) -->
         <a class="btn btn--fill" target="_blank" rel="noopener"
@@ -763,7 +903,7 @@
       </div>
       <div class="sig">
         <span class="name">Max</span>
-        <span class="role" data-i18n="sig.role">Drone God Max · Aerial &amp; Ronin 4D cinematography</span>
+        <span class="role" data-i18n="sig.role">Drone God Max · Video production, with Green Flash Advertising</span>
       </div>
     </div>
   </section>
@@ -792,7 +932,7 @@
 
   <footer class="wrap">
     <span data-i18n="ft.1">Prepared for Eduardo · Private link, not for distribution</span>
-    <span>Drone God Max · 2026</span>
+    <span>Green Flash Advertising × Drone God Max · 2026</span>
   </footer>
 </main>
 
@@ -843,7 +983,7 @@
   "hero.kicker1": "Una propuesta para Eduardo",
   "hero.kicker2": "Septiembre 2026",
   "hero.h1": "Nuestra conversación <em>en un solo cuadro</em>",
-  "hero.lede": "El film de muestra, tus dos locales, la galería, la bóveda de material <strong>Green Flash</strong>, tres films boutique y el plan — reunidos en una sola página para que lo revises en diez minutos, y el lunes lo dediquemos a <strong>decidir, no a buscar</strong>.",
+  "hero.lede": "El film de muestra, tus dos locales, la galería, la bóveda de material <strong>Green Flash</strong>, tres films boutique y el plan de crecimiento — reunidos en una sola página para que lo revises en diez minutos, y el lunes lo dediquemos a <strong>decidir, no a buscar</strong>.",
   "hero.cta1": "Ver el film de muestra",
   "hero.cta2": "Ver el plan",
   "r1.slate": "Rollo 01 · Film de muestra",
@@ -866,66 +1006,6 @@
   "r3.slate": "Rollo 04 · Trabajo boutique",
   "r3.h2": "Tres films. Tres espacios distintos.",
   "r3.note": "Producciones más pequeñas, cada una construida alrededor del espacio y el ritmo de una marca. Fíjate en cómo se mueve la cámara en interiores — eso es la Ronin 4D haciendo lo que antes requería un slider, un dolly y un equipo.",
-  "offer.slate": "La oferta",
-  "offer.h2": "Lo que construimos para ti.",
-  "offer.note": "Cada pieza de esta lista es algo que acabas de ver. Nada aquí es teórico — son las mismas cámaras, la misma edición, el mismo etalonaje, apuntando a tu marca.",
-  "s1.k": "Aéreas",
-  "s1.s": "Dron",
-  "s1.v": "Planos generales, revelaciones, órbitas y cenitales que sitúan tu local en su mundo. <strong>La hora dorada se programa, no se espera.</strong>",
-  "s2.k": "Cine en tierra",
-  "s2.s": "Ronin 4D",
-  "s2.v": "Cine full-frame en un gimbal de cuatro ejes: recorridos, movimientos de producto y retratos que flotan. <strong>Interiores, personas y detalle — lo que las aéreas no pueden hacer.</strong>",
-  "s3.k": "Fotos",
-  "s3.s": "Calidad de galería",
-  "s3.v": "Una sesión de fotos dedicada el día del rodaje, etalonada para coincidir con el film, entregada como una galería igual a la de arriba — lista para web y para imprimir.",
-  "s4.k": "Entrega",
-  "s4.s": "Másteres + cortes",
-  "s4.v": "Másteres en 4K. Un <strong>corte principal en 2.39:1</strong>, un corte web en 16:9 y cortes verticales en 9:16 para redes. Etalonado, con música licenciada y subtítulos en las versiones para redes.",
-  "s5.k": "Landing page",
-  "s5.s": "Web",
-  "s5.v": "Una sola página, como esta, hecha para sostener el film y convertir al visitante. Rápida, pensada primero para móvil, y tuya para siempre.",
-  "s6.k": "Boutique y merch",
-  "s6.s": "Opcional",
-  "s6.v": "Dirección de producto y merchandising para que el film, las fotos, la página y el estante hablen con una sola voz.",
-  "plan.slate": "El plan",
-  "plan.h2": "Del lunes al lanzamiento.",
-  "plan.note": "Cinco pasos, en orden. El primero ya está en tu calendario.",
-  "p1.h": "Llamada de seguimiento",
-  "p1.s": "Lun 7 sep · 2:00 PM",
-  "p1.p": "Cerramos alcance, locaciones y fechas. Tú traes las tomas imprescindibles; Max trae la lista de planos a partir de lo que viste aquí.",
-  "p2.h": "Plan de rodaje",
-  "p2.s": "Dentro de las 48 horas tras la llamada",
-  "p2.p": "Lista de planos, cronograma y dirección musical por escrito para tu aprobación. Una vez aprobado, ejecutamos la producción tal como fue concebida.",
-  "p3.h": "Días de rodaje",
-  "p3.s": "Dron + Ronin 4D",
-  "p3.p": "Aéreas y cine en tierra los mismos días, para que la luz y el look coincidan. Sesión de fotos incluida.",
-  "p4.h": "Edición y etalonaje",
-  "p4.s": "Primer corte, luego dos rondas de revisión",
-  "p4.p": "Revisas un enlace privado, marcas los tiempos y volvemos a cortar. Color, sonido y títulos quedan terminados antes de renderizar el máster final.",
-  "p5.h": "Lanzamiento",
-  "p5.s": "Másteres, cortes, galería, página",
-  "p5.p": "Todo entregado en una sola carpeta, la landing page en línea y los cortes para redes listos para programar.",
-  "pk.slate": "Tres formas de entrar",
-  "pk.h2": "Elige el tamaño de la historia.",
-  "pk.note": "Cada paquete es una producción completa, no un punto de partida con extras. La inversión de cada uno se presenta en la llamada del lunes, una vez ajustada a tus locaciones y fechas.",
-  "t1.for": "Una locación, un día, un film que cumple.",
-  "t1.l1": "1 día de rodaje · dron + Ronin 4D",
-  "t1.l2": "Film principal de 60–90 s, en 2.39:1 y 16:9",
-  "t1.l3": "1 corte vertical para redes",
-  "t1.l4": "10 fotos etalonadas",
-  "t2.for": "El film de marca completo, más la página que lo sostiene.",
-  "t2.l1": "2 días de rodaje · dron + Ronin 4D",
-  "t2.l2": "Film de marca de 2–3 min + corte de 60 s",
-  "t2.l3": "3 cortes verticales para redes",
-  "t2.l4": "30 fotos etalonadas, entregadas como galería",
-  "t2.l5": "Landing page — diseñada, construida, en línea",
-  "t3.for": "Una campaña, no un video. Varias locaciones y una serie.",
-  "t3.l1": "Producción de varios días, varias locaciones",
-  "t3.l2": "Film de marca + serie corta de 3 partes",
-  "t3.l3": "Paquete completo de cortes para redes",
-  "t3.l4": "Galería completa + másteres para impresión",
-  "t3.l5": "Landing page + dirección de boutique y merch",
-  "t3.l6": "Acompañamiento en la semana de lanzamiento",
   "price.label": "Inversión",
   "price.val": "Presentación el 7 de septiembre, 2pm",
   "close.slate": "Siguiente paso",
@@ -933,10 +1013,10 @@
   "close.w1": "<b>Lun · 7 de septiembre de 2026</b>",
   "close.w2": "2:00 PM · Seguimiento con Max",
   "close.w3": "Agendado en tu calendario",
-  "close.p": "Ven con las tomas sin las que no puedes vivir y con la que crees imposible. Trae tus dudas sobre el material de Drive si algo no abrió. Todo lo demás está en esta página.",
+  "close.p": "Ven con tus preguntas sobre el plan y sobre los dos locales. Trae lo que no haya abierto del material de Drive. Todo lo demás está en esta página.",
   "close.cta1": "Agregar el lunes al calendario",
   "close.cta2": "Ver el film otra vez",
-  "sig.role": "Drone God Max · Cinematografía aérea y con Ronin 4D",
+  "sig.role": "Drone God Max · Producción de video, con Green Flash Advertising",
   "idx.slate": "Todos los enlaces de esta página",
   "idx.th1": "Recurso",
   "idx.th2": "Enlace",
@@ -958,7 +1038,107 @@
   "play.loc1": "Reproducir el film del nuevo flagship",
   "play.loc2": "Reproducir el film de Miami Lakes",
   "idx.r4": "Nuevo flagship (en construcción)",
-  "idx.r5": "Local de Miami Lakes"
+  "idx.r5": "Local de Miami Lakes",
+  "scope.kicker": "Preparado por Green Flash Advertising para Eduardo Hernado · Producción de video por Drone God Max",
+  "scope.slate": "Alcance del trabajo",
+  "scope.h2": "Plan de crecimiento y confianza para inversionistas.",
+  "scope.note": "El plan de ejecución de Green Flash Advertising para Dog Grooming USA y Groomer Artist Academy en tres frentes: captación de clientes en cada local, activos de marca orientados a inversionistas, y una presencia gestionada en todas las grandes plataformas de publicidad y redes sociales. También detalla los sistemas operativos que Green Flash implementará y mantendrá.",
+  "p1.slate": "Pilar 1 · Captación de clientes",
+  "p1.h2": "Un embudo para cada puerta.",
+  "p1.note": "Cada local recibe su propio embudo de captación, gestionado y optimizado por Green Flash de forma continua. Groomer Artist Academy recibe un embudo totalmente independiente, construido y gestionado con un solo objetivo: inscribir nuevos artistas.",
+  "p1a.h": "Embudo por local",
+  "p1a.l1": "Campañas de anuncios geolocalizadas por local, ajustadas con los datos de reservas a medida que se acumulan",
+  "p1a.l2": "Landing page en alta definición por local, construida como portal de conversión de una sola acción, separada del sitio principal",
+  "p1a.l3": "SEO local por local, para que el tráfico orgánico y el pagado lleguen a la página de la tienda correcta",
+  "p1a.l4": "Secuencias de retargeting para visitantes que no reservaron",
+  "p1b.h": "Embudo de la Academia",
+  "p1b.l1": "Campañas ubicadas en audiencias de grooming y contenido del oficio, no en segmentación educativa genérica",
+  "p1b.l2": "El film de formación como creatividad central en todas las campañas de la Academia",
+  "p1b.l3": "Landing page de inscripción dedicada, con una sola ruta de conversión",
+  "p1b.l4": "Agente de agenda con IA que atiende consultas de inscripción y reserva asesorías en tiempo real",
+  "p1b.l5": "Trabajos de graduados y resultados de alumnos capturados y reutilizados como creatividad de reclutamiento para las siguientes cohortes",
+  "p2.slate": "Pilar 2 · Activos para inversionistas",
+  "p2.h2": "Activos que sostienen la conversación con inversionistas.",
+  "p2.note": "Green Flash y Drone God Max producirán y mantendrán los activos de marca que sostienen las conversaciones con inversionistas.",
+  "p2.l1": "Film para inversionistas — cinematografía con dron, Ronin 4D 6K, gráficos a medida; producido por Drone God Max",
+  "p2.l2": "Sitio web corporativo que presenta toda la huella, la relación con el grupo veterinario y ambas líneas de ingresos en un solo lugar",
+  "p2.l3": "Cambio de idioma con un toque en ambos sitios y en cada landing page — inglés, español, criollo haitiano y portugués",
+  "p2.l4": "Publicación diaria constante en todas las cuentas, demostrando impulso activo cada vez que un inversionista mira",
+  "p2.l5": "Ejecución de marca unificada en sitio, redes y video",
+  "p3.slate": "Pilar 3 · Redes sociales y presencia en plataformas",
+  "p3.h2": "Cada plataforma, con una función.",
+  "p3.note": "Green Flash establecerá y gestionará una presencia en todas las grandes plataformas, cada una con un rol definido en el embudo.",
+  "p3.th1": "Plataforma",
+  "p3.th2": "Rol en la estrategia",
+  "p3.r1k": "Facebook e Instagram",
+  "p3.r1v": "Campañas principales de reservas locales e inscripción (Meta), más publicaciones e historias orgánicas diarias por cuenta",
+  "p3.r2k": "TikTok",
+  "p3.r2v": "Clips cortos de técnica, transformaciones y contenido detrás de escena, hechos para alcance y crecimiento de audiencia",
+  "p3.r3k": "Google",
+  "p3.r3v": "Campañas de búsqueda que captan intención local activa, más gestión del Perfil de Negocio de Google por local",
+  "p3.r4k": "Reddit",
+  "p3.r4v": "Ubicación segmentada en comunidades locales y de dueños de mascotas",
+  "p3.r5k": "Snapchat",
+  "p3.r5v": "Alcance local joven, tanto para los salones como para la inscripción en la Academia",
+  "p3a.h": "Estructura de cuentas",
+  "p3a.p": "Perfiles sociales totalmente separados y cuentas publicitarias de Meta separadas para Groomer Artist Academy y para los locales de grooming — creatividad independiente, presupuestos independientes y reportes limpios de cada uno.",
+  "p3b.h": "Producción de contenido",
+  "p3b.p": "Green Flash escribirá, filmará, editará y programará todo el contenido, probando formatos para cada local y para la Academia, y escalando lo que funciona.",
+  "p3b.l1": "Contenido de humor hecho para compartirse y alcanzar orgánicamente",
+  "p3b.l2": "Contenido con guion centrado en las técnicas de grooming y cuidado del pelo de la marca",
+  "p3b.l3": "Testimonios de clientes y muestras de antes y después",
+  "p3b.l4": "Video estilo contenido de usuario, nativo de cada plataforma",
+  "p3b.l5": "Visuales con dron y cinematográficos de Drone God Max para cada local y landing page",
+  "p3c.h": "Motor de contenido propio",
+  "p3c.p": "Green Flash opera un software propio que ingesta el contenido del cliente, lo edita y programa la publicación en todas las cuentas. El compromiso de publicación diaria está sistematizado, no depende del esfuerzo manual.",
+  "p3c.l1": "Ingesta material en bruto de los rodajes y subidas del personal, lo edita y programa publicaciones en todas las cuentas",
+  "p3c.l2": "Analiza el contenido de mejor rendimiento en la categoría y genera conceptos comparables",
+  "p3c.l3": "Propone ideas de contenido y ayuda con los guiones para cada local y la Academia",
+  "p3c.l4": "Mide el rendimiento orgánico para que la inversión publicitaria se ponga detrás de contenido que ya demostró funcionar",
+  "p3c.foot": "La promoción pagada se aplica solo a publicaciones con tracción orgánica demostrada, de modo que el presupuesto amplifica lo que funciona en lugar de probar desde cero.",
+  "prod.slate": "Cadencia de producción",
+  "prod.h2": "Rodajes quincenales. Fly-Throughs. Wag-Throughs.",
+  "prod.note": "Drone God Max filmará en sitio cada dos semanas en cada local, y capacitará al personal para capturar y subir contenido a un Google Drive compartido entre rodajes, de modo que el contenido se capture de forma continua.",
+  "proda.h": "Rodajes quincenales y capacitación del personal",
+  "proda.l1": "Rodaje presencial cada dos semanas por local",
+  "proda.l2": "Capacitación práctica a empleados para filmar y subir a Google Drive",
+  "proda.l3": "Material capturado por el personal integrado al flujo de edición y programación",
+  "prodb.h": "Fly-Throughs y Wag-Throughs",
+  "prodb.p": "Cada local recibe dos piezas de firma: un Fly-Through con dron y un Wag-Through — una cámara montada en Cashews para un recorrido en primera persona por el espacio.",
+  "prodb.l1": "Wag-Through y Fly-Through del nuevo flagship",
+  "prodb.l2": "Wag-Through y Fly-Through del local actual de Miami Lakes",
+  "prodb.l3": "Ambos producidos como estándar para cada local futuro",
+  "sys.slate": "Sistemas operativos",
+  "sys.h2": "Del anuncio a la reserva pagada en un solo camino.",
+  "sys.note": "Los sistemas que Green Flash configurará, conectará y operará para que un cliente pase del anuncio a la landing page y a la reserva pagada sin cortes, y ninguna consulta espere un correo.",
+  "sysa.h": "Calendly — reservas y pagos",
+  "sysa.l1": "Reserva por local integrada en cada página de tienda y landing page",
+  "sysa.l2": "Integración con Facebook para reservar directamente desde los anuncios y la página de Facebook",
+  "sysa.l3": "Pago cobrado al momento de reservar",
+  "sysa.l4": "Confirmaciones y recordatorios automáticos",
+  "sysa.l5": "Conversiones de reserva reportadas a las plataformas de anuncios, para que la optimización se guíe por reservas completadas y no por clics",
+  "sysb.h": "Agente de agenda con IA",
+  "sysb.l1": "Respuesta inmediata 24/7 a consultas de reservas e inscripción",
+  "sysb.l2": "Atiende preguntas frecuentes sobre servicios, precios y detalles de los cursos",
+  "sysb.l3": "Reserva directamente en Calendly",
+  "sysb.l4": "Escala a más locales sin sumar personal",
+  "sysc.h": "Gestión de plataformas publicitarias",
+  "sysc.p": "Todas las cuentas publicitarias configuradas, conectadas y gestionadas desde un único punto de control.",
+  "sysc.l1": "Facebook e Instagram (Meta Ads Manager)",
+  "sysc.l2": "Google Ads",
+  "sysc.l3": "TikTok Ads",
+  "sysc.l4": "Reddit Ads",
+  "sysc.l5": "Snapchat Ads",
+  "merch.slate": "Incluido sin costo",
+  "merch.h2": "Merch de cortesía y FlashTap.",
+  "merch.note": "Un FlashTap de diseño personalizado y una línea de merch de marca, enviada directamente al comprador sin inventario ni logística por parte de Dog Grooming USA.",
+  "merch.l1": "Diseño de FlashTap personalizado",
+  "merch.l2": "Línea de merch de marca, con envío directo",
+  "merch.l3": "Integración de tienda en el sitio web",
+  "sum.slate": "Resumen",
+  "sum.h2": "Un solo equipo operando todo.",
+  "sum.p": "Drone God Max entrega los dos films principales, los Fly-Throughs y Wag-Throughs, y toda la cinematografía con dron. Green Flash Advertising entrega y gestiona los sitios web, las landing pages, el SEO local, las cuentas publicitarias, las redes sociales, la producción de contenido, los sistemas de reservas y la agenda con IA — un solo equipo operando todo, reportando reservas e inscripciones completadas.",
+  "sum.tag": "Más clics. Más clientes. Más crecimiento."
  },
  "pt": {
   "title": "Eduardo × Drone God Max",
@@ -967,7 +1147,7 @@
   "hero.kicker1": "Uma proposta para Eduardo",
   "hero.kicker2": "Setembro de 2026",
   "hero.h1": "Nossa conversa <em>em um só quadro</em>",
-  "hero.lede": "O filme de apresentação, suas duas unidades, a galeria, o cofre de material <strong>Green Flash</strong>, três filmes boutique e o plano — reunidos em uma única página para você revisar em dez minutos, e a segunda-feira ser para <strong>decidir, não procurar</strong>.",
+  "hero.lede": "O filme de apresentação, suas duas unidades, a galeria, o cofre de material <strong>Green Flash</strong>, três filmes boutique e o plano de crescimento — reunidos em uma única página para você revisar em dez minutos, e a segunda-feira ser para <strong>decidir, não procurar</strong>.",
   "hero.cta1": "Assistir ao filme de apresentação",
   "hero.cta2": "Ver o plano",
   "r1.slate": "Rolo 01 · Filme de apresentação",
@@ -990,66 +1170,6 @@
   "r3.slate": "Rolo 04 · Trabalho boutique",
   "r3.h2": "Três filmes. Três espaços diferentes.",
   "r3.note": "Produções menores, cada uma construída em torno do espaço e do ritmo de uma marca. Repare em como a câmera se move nos interiores — é a Ronin 4D fazendo o que antes exigia slider, dolly e uma equipe.",
-  "offer.slate": "A oferta",
-  "offer.h2": "O que construímos para você.",
-  "offer.note": "Cada item desta lista é algo que você acabou de assistir. Nada aqui é teórico — são as mesmas câmeras, a mesma montagem, o mesmo tratamento de cor, apontados para a sua marca.",
-  "s1.k": "Aéreas",
-  "s1.s": "Drone",
-  "s1.v": "Planos gerais, revelações, órbitas e tomadas de cima que colocam o seu espaço no mundo dele. <strong>A golden hour é agendada, não esperada.</strong>",
-  "s2.k": "Cinema em solo",
-  "s2.s": "Ronin 4D",
-  "s2.v": "Cinema full-frame em um gimbal de quatro eixos: passeios pelo espaço, movimentos de produto e retratos que flutuam. <strong>Interiores, pessoas e detalhes — a parte que as aéreas não fazem.</strong>",
-  "s3.k": "Fotos",
-  "s3.s": "Qualidade de galeria",
-  "s3.v": "Uma sessão de fotos dedicada no dia da filmagem, tratada para combinar com o filme, entregue como uma galeria igual à de cima — pronta para web e para impressão.",
-  "s4.k": "Entrega",
-  "s4.s": "Masters + cortes",
-  "s4.v": "Masters em 4K. Um <strong>corte principal em 2.39:1</strong>, um corte web em 16:9 e cortes verticais em 9:16 para redes sociais. Cor tratada, música licenciada e legendas nas versões para redes.",
-  "s5.k": "Landing page",
-  "s5.s": "Web",
-  "s5.v": "Uma única página, como esta, feita para sustentar o filme e converter o visitante. Rápida, pensada primeiro para o celular, e sua para sempre.",
-  "s6.k": "Boutique e merch",
-  "s6.s": "Opcional",
-  "s6.v": "Direção de produto e merchandising para que o filme, as fotos, a página e a prateleira falem com uma só voz.",
-  "plan.slate": "O plano",
-  "plan.h2": "De segunda-feira ao lançamento.",
-  "plan.note": "Cinco etapas, em ordem. A primeira já está no seu calendário.",
-  "p1.h": "Reunião de acompanhamento",
-  "p1.s": "Seg 7 set · 14h",
-  "p1.p": "Fechamos escopo, locações e datas. Você traz as cenas indispensáveis; o Max traz a lista de planos a partir do que você viu aqui.",
-  "p2.h": "Plano de filmagem",
-  "p2.s": "Até 48 horas após a reunião",
-  "p2.p": "Lista de planos, cronograma e direção musical por escrito para a sua aprovação. Uma vez aprovado, executamos a produção exatamente como foi concebida.",
-  "p3.h": "Dias de filmagem",
-  "p3.s": "Drone + Ronin 4D",
-  "p3.p": "Aéreas e cinema em solo nos mesmos dias, para que a luz e o look combinem. Sessão de fotos incluída.",
-  "p4.h": "Montagem e cor",
-  "p4.s": "Primeiro corte, depois duas rodadas de revisão",
-  "p4.p": "Você revisa um link privado, marca os tempos e nós cortamos de novo. Cor, som e títulos ficam prontos antes de renderizar o master final.",
-  "p5.h": "Lançamento",
-  "p5.s": "Masters, cortes, galeria, página",
-  "p5.p": "Tudo entregue em uma única pasta, a landing page no ar e os cortes para redes prontos para agendar.",
-  "pk.slate": "Três caminhos",
-  "pk.h2": "Escolha o tamanho da história.",
-  "pk.note": "Cada pacote é uma produção completa, não um ponto de partida com extras. O investimento de cada um é apresentado na reunião de segunda-feira, depois de ajustado às suas locações e datas.",
-  "t1.for": "Uma locação, um dia, um filme que resolve.",
-  "t1.l1": "1 dia de filmagem · drone + Ronin 4D",
-  "t1.l2": "Filme principal de 60–90 s, em 2.39:1 e 16:9",
-  "t1.l3": "1 corte vertical para redes",
-  "t1.l4": "10 fotos tratadas",
-  "t2.for": "O filme de marca completo, mais a página que o sustenta.",
-  "t2.l1": "2 dias de filmagem · drone + Ronin 4D",
-  "t2.l2": "Filme de marca de 2–3 min + corte de 60 s",
-  "t2.l3": "3 cortes verticais para redes",
-  "t2.l4": "30 fotos tratadas, entregues como galeria",
-  "t2.l5": "Landing page — desenhada, construída, no ar",
-  "t3.for": "Uma campanha, não um vídeo. Várias locações e uma série.",
-  "t3.l1": "Produção de vários dias, várias locações",
-  "t3.l2": "Filme de marca + série curta em 3 partes",
-  "t3.l3": "Pacote completo de cortes para redes",
-  "t3.l4": "Galeria completa + masters para impressão",
-  "t3.l5": "Landing page + direção de boutique e merch",
-  "t3.l6": "Suporte na semana de lançamento",
   "price.label": "Investimento",
   "price.val": "Apresentação em 7 de setembro, 14h",
   "close.slate": "Próximo passo",
@@ -1057,10 +1177,10 @@
   "close.w1": "<b>Seg · 7 de setembro de 2026</b>",
   "close.w2": "14h · Reunião com o Max",
   "close.w3": "Agendado pelo seu calendário",
-  "close.p": "Venha com as cenas sem as quais você não vive e com aquela que acha impossível. Traga dúvidas sobre o material do Drive se algo não abriu. Todo o resto está nesta página.",
+  "close.p": "Venha com suas dúvidas sobre o plano e sobre as duas unidades. Traga o que não abriu do material do Drive. Todo o resto está nesta página.",
   "close.cta1": "Adicionar segunda ao calendário",
   "close.cta2": "Assistir ao filme de novo",
-  "sig.role": "Drone God Max · Cinematografia aérea e com Ronin 4D",
+  "sig.role": "Drone God Max · Produção de vídeo, com Green Flash Advertising",
   "idx.slate": "Todos os links desta página",
   "idx.th1": "Item",
   "idx.th2": "Link",
@@ -1082,7 +1202,107 @@
   "play.loc1": "Reproduzir o filme da nova flagship",
   "play.loc2": "Reproduzir o filme de Miami Lakes",
   "idx.r4": "Nova flagship (em construção)",
-  "idx.r5": "Unidade de Miami Lakes"
+  "idx.r5": "Unidade de Miami Lakes",
+  "scope.kicker": "Preparado pela Green Flash Advertising para Eduardo Hernado · Produção de vídeo por Drone God Max",
+  "scope.slate": "Escopo do trabalho",
+  "scope.h2": "Plano de crescimento e confiança para investidores.",
+  "scope.note": "O plano de execução da Green Flash Advertising para a Dog Grooming USA e a Groomer Artist Academy em três frentes: aquisição de clientes em cada unidade, ativos de marca voltados a investidores, e uma presença gerenciada em todas as grandes plataformas de publicidade e redes sociais. Também detalha os sistemas operacionais que a Green Flash vai implantar e manter.",
+  "p1.slate": "Pilar 1 · Aquisição de clientes",
+  "p1.h2": "Um funil para cada porta.",
+  "p1.note": "Cada unidade recebe seu próprio funil de aquisição, gerenciado e otimizado pela Green Flash de forma contínua. A Groomer Artist Academy recebe um funil totalmente independente, construído e gerenciado com um único objetivo: matricular novos artistas.",
+  "p1a.h": "Funil por unidade",
+  "p1a.l1": "Campanhas de anúncios geolocalizadas por unidade, refinadas com os dados de agendamento à medida que se acumulam",
+  "p1a.l2": "Landing page em alta definição por unidade, construída como portal de conversão de ação única, separada do site principal",
+  "p1a.l3": "SEO local por unidade, para que o tráfego orgânico e o pago cheguem à página da loja correta",
+  "p1a.l4": "Sequências de retargeting para visitantes que não agendaram",
+  "p1b.h": "Funil da Academy",
+  "p1b.l1": "Campanhas posicionadas em audiências de grooming e conteúdo do ofício, não em segmentação educacional genérica",
+  "p1b.l2": "O filme de treinamento como peça criativa central em todas as campanhas da Academy",
+  "p1b.l3": "Landing page de matrícula dedicada, com um único caminho de conversão",
+  "p1b.l4": "Agente de agendamento com IA atendendo dúvidas de matrícula e marcando consultorias em tempo real",
+  "p1b.l5": "Trabalhos de formados e resultados de alunos capturados e reaproveitados como criativo de recrutamento para as próximas turmas",
+  "p2.slate": "Pilar 2 · Ativos para investidores",
+  "p2.h2": "Ativos que sustentam a conversa com investidores.",
+  "p2.note": "A Green Flash e a Drone God Max vão produzir e manter os ativos de marca que sustentam as conversas com investidores.",
+  "p2.l1": "Filme para investidores — cinematografia com drone, Ronin 4D 6K, gráficos personalizados; produzido pela Drone God Max",
+  "p2.l2": "Site corporativo apresentando toda a presença, a relação com o grupo veterinário e as duas fontes de receita em um só lugar",
+  "p2.l3": "Troca de idioma com um toque nos dois sites e em cada landing page — inglês, espanhol, crioulo haitiano e português",
+  "p2.l4": "Publicação diária constante em todas as contas, demonstrando movimento ativo sempre que um investidor olhar",
+  "p2.l5": "Execução de marca unificada em site, redes e vídeo",
+  "p3.slate": "Pilar 3 · Redes sociais e presença em plataformas",
+  "p3.h2": "Cada plataforma, com uma função.",
+  "p3.note": "A Green Flash vai estabelecer e gerenciar presença em todas as grandes plataformas, cada uma com um papel definido no funil.",
+  "p3.th1": "Plataforma",
+  "p3.th2": "Papel na estratégia",
+  "p3.r1k": "Facebook e Instagram",
+  "p3.r1v": "Campanhas principais de agendamento local e matrícula (Meta), mais posts e stories orgânicos diários por conta",
+  "p3.r2k": "TikTok",
+  "p3.r2v": "Clipes curtos de técnica, transformações e bastidores, feitos para alcance e crescimento de audiência",
+  "p3.r3k": "Google",
+  "p3.r3v": "Campanhas de pesquisa que capturam intenção local ativa, mais gestão do Perfil da Empresa no Google por unidade",
+  "p3.r4k": "Reddit",
+  "p3.r4v": "Posicionamento segmentado em comunidades locais e de tutores de pets",
+  "p3.r5k": "Snapchat",
+  "p3.r5v": "Alcance local jovem, tanto para os salões quanto para a matrícula na Academy",
+  "p3a.h": "Estrutura de contas",
+  "p3a.p": "Perfis sociais totalmente separados e contas de anúncios Meta separadas para a Groomer Artist Academy e para as unidades de grooming — criativo independente, orçamentos independentes e relatórios limpos de cada um.",
+  "p3b.h": "Produção de conteúdo",
+  "p3b.p": "A Green Flash vai roteirizar, filmar, editar e agendar todo o conteúdo, testando formatos para cada unidade e para a Academy, e escalando o que funciona.",
+  "p3b.l1": "Conteúdo de humor feito para compartilhamento e alcance orgânico",
+  "p3b.l2": "Conteúdo roteirizado centrado nas técnicas de grooming e cuidado com o pelo da marca",
+  "p3b.l3": "Depoimentos de clientes e vitrines de antes e depois",
+  "p3b.l4": "Vídeo no estilo conteúdo de usuário, nativo de cada plataforma",
+  "p3b.l5": "Visuais com drone e cinematográficos da Drone God Max para cada unidade e landing page",
+  "p3c.h": "Motor de conteúdo proprietário",
+  "p3c.p": "A Green Flash opera um software próprio que recebe o conteúdo do cliente, edita e agenda a publicação em todas as contas. O compromisso de publicação diária é sistematizado, não depende de esforço manual.",
+  "p3c.l1": "Recebe material bruto das filmagens e uploads da equipe, edita e agenda posts em todas as contas",
+  "p3c.l2": "Analisa o conteúdo de melhor desempenho na categoria e gera conceitos comparáveis",
+  "p3c.l3": "Sugere ideias de conteúdo e ajuda nos roteiros para cada unidade e para a Academy",
+  "p3c.l4": "Acompanha o desempenho orgânico para que a verba de anúncios vá para conteúdo que já provou funcionar",
+  "p3c.foot": "A promoção paga é aplicada apenas a posts com tração orgânica comprovada, para que o orçamento amplifique o que está funcionando em vez de testar do zero.",
+  "prod.slate": "Cadência de produção",
+  "prod.h2": "Filmagens quinzenais. Fly-Throughs. Wag-Throughs.",
+  "prod.note": "A Drone God Max vai filmar no local a cada duas semanas em cada unidade, e treinar a equipe para capturar e enviar conteúdo a um Google Drive compartilhado entre as filmagens, para que o conteúdo seja capturado continuamente.",
+  "proda.h": "Filmagens quinzenais e treinamento da equipe",
+  "proda.l1": "Filmagem presencial a cada duas semanas por unidade",
+  "proda.l2": "Treinamento prático dos funcionários para filmar e enviar ao Google Drive",
+  "proda.l3": "Material capturado pela equipe incorporado ao fluxo de edição e agendamento",
+  "prodb.h": "Fly-Throughs e Wag-Throughs",
+  "prodb.p": "Cada unidade recebe duas peças assinatura: um Fly-Through com drone e um Wag-Through — uma câmera montada no Cashews para um passeio em primeira pessoa pelo espaço.",
+  "prodb.l1": "Wag-Through e Fly-Through da nova flagship",
+  "prodb.l2": "Wag-Through e Fly-Through da unidade atual de Miami Lakes",
+  "prodb.l3": "Ambos produzidos como padrão para cada futura unidade",
+  "sys.slate": "Sistemas operacionais",
+  "sys.h2": "Do anúncio ao agendamento pago em um só caminho.",
+  "sys.note": "Os sistemas que a Green Flash vai configurar, conectar e operar para que o cliente vá do anúncio à landing page e ao agendamento pago sem interrupção, e nenhuma dúvida fique esperando um e-mail.",
+  "sysa.h": "Calendly — agendamento e pagamentos",
+  "sysa.l1": "Agendamento por unidade incorporado em cada página de loja e landing page",
+  "sysa.l2": "Integração com o Facebook para agendar direto dos anúncios e da página do Facebook",
+  "sysa.l3": "Pagamento cobrado no momento do agendamento",
+  "sysa.l4": "Confirmações e lembretes automáticos",
+  "sysa.l5": "Conversões de agendamento reportadas às plataformas de anúncios, para que a otimização seja guiada por agendamentos concluídos e não por cliques",
+  "sysb.h": "Agente de agendamento com IA",
+  "sysb.l1": "Resposta imediata 24/7 a dúvidas de agendamento e matrícula",
+  "sysb.l2": "Responde perguntas padrão sobre serviços, preços e detalhes dos cursos",
+  "sysb.l3": "Agenda diretamente no Calendly",
+  "sysb.l4": "Escala para novas unidades sem aumentar a equipe",
+  "sysc.h": "Gestão de plataformas de anúncios",
+  "sysc.p": "Todas as contas de anúncios configuradas, conectadas e gerenciadas a partir de um único ponto de controle.",
+  "sysc.l1": "Facebook e Instagram (Meta Ads Manager)",
+  "sysc.l2": "Google Ads",
+  "sysc.l3": "TikTok Ads",
+  "sysc.l4": "Reddit Ads",
+  "sysc.l5": "Snapchat Ads",
+  "merch.slate": "Incluído sem custo",
+  "merch.h2": "Merch de cortesia e FlashTap.",
+  "merch.note": "Um FlashTap de design personalizado e uma linha de merch da marca, enviada diretamente ao comprador sem estoque nem logística por parte da Dog Grooming USA.",
+  "merch.l1": "Design de FlashTap personalizado",
+  "merch.l2": "Linha de merch da marca, com envio direto",
+  "merch.l3": "Integração de loja no site",
+  "sum.slate": "Resumo",
+  "sum.h2": "Uma só equipe operando tudo.",
+  "sum.p": "A Drone God Max entrega os dois filmes principais, os Fly-Throughs e Wag-Throughs, e toda a cinematografia com drone. A Green Flash Advertising entrega e gerencia os sites, as landing pages, o SEO local, as contas de anúncios, as redes sociais, a produção de conteúdo, os sistemas de agendamento e o agente de IA — uma só equipe operando tudo, reportando agendamentos e matrículas concluídos.",
+  "sum.tag": "Mais cliques. Mais clientes. Mais crescimento."
  },
  "ht": {
   "title": "Eduardo × Drone God Max",
@@ -1091,7 +1311,7 @@
   "hero.kicker1": "Yon pwopozisyon pou Eduardo",
   "hero.kicker2": "Septanm 2026",
   "hero.h1": "Konvèsasyon nou <em>nan yon sèl kad</em>",
-  "hero.lede": "Fim prezantasyon an, de espas ou yo, galri a, kòf videyo <strong>Green Flash</strong> la, twa fim boutik, ak plan an — tout rasanble sou yon sèl paj pou ou ka gade l nan dis minit, epi lendi nou pase tan an ap <strong>deside, pa ap chèche</strong>.",
+  "hero.lede": "Fim prezantasyon an, de espas ou yo, galri a, kòf videyo <strong>Green Flash</strong> la, twa fim boutik, ak plan kwasans lan — tout rasanble sou yon sèl paj pou ou ka gade l nan dis minit, epi lendi nou pase tan an ap <strong>deside, pa ap chèche</strong>.",
   "hero.cta1": "Gade fim prezantasyon an",
   "hero.cta2": "Gade plan an",
   "r1.slate": "Bobin 01 · Fim prezantasyon",
@@ -1114,66 +1334,6 @@
   "r3.slate": "Bobin 04 · Travay boutik",
   "r3.h2": "Twa fim. Twa espas diferan.",
   "r3.note": "Pwodiksyon ki pi piti, chak bati sou espas ak ritm yon mak. Gade jan kamera a deplase anndan an — se Ronin 4D la k ap fè sa ki te konn mande yon slider, yon dolly ak yon ekip.",
-  "offer.slate": "Òf la",
-  "offer.h2": "Sa nou bati pou ou.",
-  "offer.note": "Chak pyès nan lis sa a se yon bagay ou fèk gade. Anyen isit la pa teyorik — se menm kamera yo, menm montaj la, menm koreksyon koulè a, vire sou mak ou a.",
-  "s1.k": "Imaj ayeryèn",
-  "s1.s": "Dwòn",
-  "s1.v": "Plan jeneral, revelasyon, òbit ak vi anlè ki mete espas ou a nan monn li. <strong>Lè doré a pwograme, li pa espere.</strong>",
-  "s2.k": "Sinema atè",
-  "s2.s": "Ronin 4D",
-  "s2.v": "Sinema full-frame sou yon gimbal kat aks: pwomnad nan espas la, mouvman pwodwi ak pòtrè ki flote. <strong>Enteryè, moun ak detay — pati imaj ayeryèn yo pa ka fè a.</strong>",
-  "s3.k": "Foto",
-  "s3.s": "Kalite galri",
-  "s3.v": "Yon seyans foto apa jou tounaj la, koulè yo trete pou matche ak fim nan, livre kòm yon galri tankou sa ki anwo a — pare pou wèb ak pou enprime.",
-  "s4.k": "Livrezon",
-  "s4.s": "Master + koup",
-  "s4.v": "Master 4K. Yon <strong>koup prensipal 2.39:1</strong>, yon koup wèb 16:9, ak koup vètikal 9:16 pou rezo sosyal. Koulè trete, mizik ak lisans, soutit sou vèsyon rezo sosyal yo.",
-  "s5.k": "Landing page",
-  "s5.s": "Wèb",
-  "s5.v": "Yon sèl paj, tankou sa a, bati pou kenbe fim nan epi konvèti vizitè a. Rapid, panse pou telefòn anvan, epi se pou ou nèt.",
-  "s6.k": "Boutik ak mèch",
-  "s6.s": "Opsyonèl",
-  "s6.v": "Direksyon pwodwi ak merchandising pou fim nan, foto yo, paj la ak etajè a tout pale ak yon sèl vwa.",
-  "plan.slate": "Plan an",
-  "plan.h2": "Soti lendi rive nan lansman.",
-  "plan.note": "Senk etap, nan lòd. Premye a deja sou kalandriye ou.",
-  "p1.h": "Apèl swivi",
-  "p1.s": "Lendi 7 sept · 2:00 PM",
-  "p1.p": "Nou fikse pòte, kote ak dat yo. Ou pote sèn ou pa ka manke yo; Max pote lis plan yo dapre sa ou gade isit la.",
-  "p2.h": "Plan tounaj",
-  "p2.s": "Nan 48 èdtan apre apèl la",
-  "p2.p": "Yon lis plan, yon orè ak yon direksyon mizik alekri pou ou apwouve. Yon fwa li apwouve, nou reyalize pwodiksyon an jan nou te imajine l la.",
-  "p3.h": "Jou tounaj",
-  "p3.s": "Dwòn + Ronin 4D",
-  "p3.p": "Imaj ayeryèn ak sinema atè menm jou yo, pou limyè a ak estil la matche. Seyans foto enkli.",
-  "p4.h": "Montaj ak koulè",
-  "p4.s": "Premye koup, apre sa de tou revizyon",
-  "p4.p": "Ou revize yon lyen prive, ou make tan yo, epi nou koupe ankò. Koulè, son ak tit fini anvan master final la rann.",
-  "p5.h": "Lansman",
-  "p5.s": "Master, koup, galri, paj",
-  "p5.p": "Tout bagay livre nan yon sèl dosye, landing page la an liy, epi koup rezo sosyal yo pare pou pwograme.",
-  "pk.slate": "Twa fason pou antre",
-  "pk.h2": "Chwazi gwosè istwa a.",
-  "pk.note": "Chak pakè se yon pwodiksyon konplè, pa yon pwen depa ak ekstra. Envestisman pou chak prezante nan apèl lendi a, yon fwa nou ajiste l ak kote ak dat ou yo.",
-  "t1.for": "Yon kote, yon jou, yon fim ki fè travay la.",
-  "t1.l1": "1 jou tounaj · dwòn + Ronin 4D",
-  "t1.l2": "Fim prensipal 60–90 s, nan 2.39:1 ak 16:9",
-  "t1.l3": "1 koup vètikal pou rezo sosyal",
-  "t1.l4": "10 foto ak koulè trete",
-  "t2.for": "Fim mak konplè a, plis paj ki pote l la.",
-  "t2.l1": "2 jou tounaj · dwòn + Ronin 4D",
-  "t2.l2": "Fim mak 2–3 min + koup 60 s",
-  "t2.l3": "3 koup vètikal pou rezo sosyal",
-  "t2.l4": "30 foto ak koulè trete, livre kòm yon galri",
-  "t2.l5": "Landing page — konsevwa, bati, an liy",
-  "t3.for": "Yon kanpay, pa yon videyo. Plizyè kote ak yon seri.",
-  "t3.l1": "Pwodiksyon plizyè jou, plizyè kote",
-  "t3.l2": "Fim mak + yon seri kout 3 pati",
-  "t3.l3": "Pakè konplè koup pou rezo sosyal",
-  "t3.l4": "Galri konplè + master pou enprime",
-  "t3.l5": "Landing page + direksyon boutik ak mèch",
-  "t3.l6": "Sipò semèn lansman an",
   "price.label": "Envestisman",
   "price.val": "Prezantasyon 7 septanm, 2pm",
   "close.slate": "Pwochen etap",
@@ -1181,10 +1341,10 @@
   "close.w1": "<b>Lendi · 7 septanm 2026</b>",
   "close.w2": "2:00 PM · Swivi ak Max",
   "close.w3": "Rezève nan kalandriye ou",
-  "close.p": "Vini ak sèn ou pa ka viv san yo ak sa ou panse ki enposib la. Pote kesyon ou sou videyo Drive yo si yon bagay pa t louvri. Tout rès la sou paj sa a.",
+  "close.p": "Vini ak kesyon ou sou plan an ak sou de espas yo. Pote sa ki pa t louvri nan videyo Drive yo. Tout rès la sou paj sa a.",
   "close.cta1": "Ajoute lendi nan kalandriye a",
   "close.cta2": "Gade fim nan ankò",
-  "sig.role": "Drone God Max · Sinematografi ayeryèn ak Ronin 4D",
+  "sig.role": "Drone God Max · Pwodiksyon videyo, ak Green Flash Advertising",
   "idx.slate": "Tout lyen ki sou paj sa a",
   "idx.th1": "Resous",
   "idx.th2": "Lyen",
@@ -1206,7 +1366,107 @@
   "play.loc1": "Jwe fim nouvo flagship la",
   "play.loc2": "Jwe fim Miami Lakes la",
   "idx.r4": "Nouvo flagship (an konstriksyon)",
-  "idx.r5": "Espas Miami Lakes"
+  "idx.r5": "Espas Miami Lakes",
+  "scope.kicker": "Prepare pa Green Flash Advertising pou Eduardo Hernado · Pwodiksyon videyo pa Drone God Max",
+  "scope.slate": "Pòte travay la",
+  "scope.h2": "Plan kwasans ak konfyans pou envestisè.",
+  "scope.note": "Plan egzekisyon Green Flash Advertising pou Dog Grooming USA ak Groomer Artist Academy sou twa fwon: jwenn kliyan nan chak espas, byen mak pou envestisè, ak yon prezans jere sou tout gwo platfòm piblisite ak rezo sosyal yo. Li detaye tou sistèm operasyonèl Green Flash pral mete an plas epi kenbe.",
+  "p1.slate": "Pilye 1 · Jwenn kliyan",
+  "p1.h2": "Yon antonwa pou chak pòt.",
+  "p1.note": "Chak espas resevwa pwòp antonwa akizisyon pa l, Green Flash jere l epi optimize l san rete. Groomer Artist Academy resevwa yon antonwa nèt endepandan, bati epi jere pou yon sèl objektif: enskri nouvo atis.",
+  "p1a.h": "Antonwa pa espas",
+  "p1a.l1": "Kanpay piblisite sible pa zòn pou chak espas, ajiste ak done rezèvasyon yo pandan y ap akimile",
+  "p1a.l2": "Landing page wo definisyon pou chak espas, bati kòm yon pòtay konvèsyon yon sèl aksyon, apa de sit prensipal la",
+  "p1a.l3": "SEO lokal pou chak espas, pou trafik òganik ak trafik peye tou de rive sou bon paj boutik la",
+  "p1a.l4": "Sekans retargeting pou vizitè ki pa t rezève",
+  "p1b.h": "Antonwa Akademi an",
+  "p1b.l1": "Kanpay plase nan odyans grooming ak kontni metye a, pa nan siblaj edikasyon jeneral",
+  "p1b.l2": "Fim fòmasyon an kòm kreyatif santral nan chak kanpay Akademi an",
+  "p1b.l3": "Landing page enskripsyon dedye, ak yon sèl chemen konvèsyon",
+  "p1b.l4": "Ajan pwogramasyon AI k ap reponn kesyon enskripsyon epi rezève konsiltasyon an tan reyèl",
+  "p1b.l5": "Travay gradye ak rezilta elèv kaptire epi reitilize kòm kreyatif rekritman pou pwochen gwoup yo",
+  "p2.slate": "Pilye 2 · Byen pou envestisè",
+  "p2.h2": "Byen ki pote konvèsasyon ak envestisè yo.",
+  "p2.note": "Green Flash ak Drone God Max pral pwodui epi kenbe byen mak ki pote konvèsasyon ak envestisè yo.",
+  "p2.l1": "Fim pou envestisè — sinematografi dwòn, Ronin 4D 6K, grafik sou mezi; pwodui pa Drone God Max",
+  "p2.l2": "Sit wèb kòporatif ki prezante tout anprent lan, relasyon ak gwoup veterinè a, ak tou de sous revni yo yon sèl kote",
+  "p2.l3": "Chanje lang ak yon sèl tap sou tou de sit yo ak chak landing page — angle, panyòl, kreyòl ayisyen ak pòtigè",
+  "p2.l4": "Piblikasyon chak jou san rete sou tout kont yo, ki montre mouvman aktif chak fwa yon envestisè gade",
+  "p2.l5": "Egzekisyon mak inifye sou sit, rezo sosyal ak videyo",
+  "p3.slate": "Pilye 3 · Rezo sosyal ak prezans sou platfòm",
+  "p3.h2": "Chak platfòm, ak yon wòl.",
+  "p3.note": "Green Flash pral etabli epi jere yon prezans sou tout gwo platfòm yo, chak ak yon wòl defini nan antonwa a.",
+  "p3.th1": "Platfòm",
+  "p3.th2": "Wòl nan estrateji a",
+  "p3.r1k": "Facebook ak Instagram",
+  "p3.r1v": "Kanpay prensipal rezèvasyon lokal ak enskripsyon (Meta), plis pòs ak istwa òganik chak jou pou chak kont",
+  "p3.r2k": "TikTok",
+  "p3.r2v": "Ti klip teknik, transfòmasyon ak kontni dèyè kamera, fèt pou rive lwen ak fè odyans grandi",
+  "p3.r3k": "Google",
+  "p3.r3v": "Kanpay rechèch ki kaptire entansyon lokal aktif, plis jesyon Pwofil Biznis Google pou chak espas",
+  "p3.r4k": "Reddit",
+  "p3.r4v": "Plasman sible nan kominote lokal ak kominote mèt bèt",
+  "p3.r5k": "Snapchat",
+  "p3.r5v": "Rive sou jèn moun lokal, ni pou salon yo ni pou enskripsyon Akademi an",
+  "p3a.h": "Estrikti kont yo",
+  "p3a.p": "Pwofil sosyal nèt separe ak kont piblisite Meta separe pou Groomer Artist Academy ak pou espas grooming yo — kreyatif endepandan, bidjè endepandan, ak rapò klè sou chak.",
+  "p3b.h": "Pwodiksyon kontni",
+  "p3b.p": "Green Flash pral ekri, filme, monte epi pwograme tout kontni, teste fòma pou chak espas ak Akademi an, epi grandi sa ki mache.",
+  "p3b.l1": "Kontni komik fèt pou pataje ak pou rive lwen òganikman",
+  "p3b.l2": "Kontni ak senaryo santre sou teknik grooming ak swen cheve mak la",
+  "p3b.l3": "Temwayaj kliyan ak montaj anvan ak apre",
+  "p3b.l4": "Videyo estil kontni itilizatè, natif pou chak platfòm",
+  "p3b.l5": "Imaj dwòn ak imaj sinema Drone God Max pou chak espas ak landing page",
+  "p3c.h": "Motè kontni pwopriyetè",
+  "p3c.p": "Green Flash opere yon lojisyèl pa l ki resevwa kontni kliyan an, monte l, epi pwograme piblikasyon sou tout kont yo. Angajman piblikasyon chak jou a sistematize, li pa depann de efò manyèl.",
+  "p3c.l1": "Resevwa videyo brit tounaj yo ak sa anplwaye yo voye, monte yo, epi pwograme pòs sou tout kont yo",
+  "p3c.l2": "Analize kontni ki pi mache nan kategori a epi kreye konsèp menm jan",
+  "p3c.l3": "Pwopoze lide kontni epi ede ak senaryo pou chak espas ak Akademi an",
+  "p3c.l4": "Swiv pèfòmans òganik pou depans piblisite a ale dèyè kontni ki deja pwouve tèt li",
+  "p3c.foot": "Pwomosyon peye aplike sèlman sou pòs ki deja montre traksyon òganik, pou bidjè a anplifye sa k ap mache olye l teste depi zewo.",
+  "prod.slate": "Kadans pwodiksyon",
+  "prod.h2": "Tounaj chak de semèn. Fly-Through. Wag-Through.",
+  "prod.note": "Drone God Max pral filme sou plas chak de semèn nan chak espas, epi l ap fòme anplwaye yo pou kaptire ak voye kontni sou yon Google Drive pataje ant tounaj yo, pou kontni kaptire san rete.",
+  "proda.h": "Tounaj chak de semèn ak fòmasyon anplwaye",
+  "proda.l1": "Tounaj an pèsòn chak de semèn pou chak espas",
+  "proda.l2": "Fòmasyon pratik pou anplwaye sou filme ak voye sou Google Drive",
+  "proda.l3": "Videyo anplwaye yo kaptire antre nan chèn montaj ak pwogramasyon an",
+  "prodb.h": "Fly-Through ak Wag-Through",
+  "prodb.p": "Chak espas resevwa de pyès siyati: yon Fly-Through ak dwòn ak yon Wag-Through — yon kamera monte sou Cashews pou yon kous premye moun nan espas la.",
+  "prodb.l1": "Wag-Through ak Fly-Through nouvo flagship la",
+  "prodb.l2": "Wag-Through ak Fly-Through espas Miami Lakes ki egziste a",
+  "prodb.l3": "Tou de pwodui kòm estanda pou chak espas k ap vini",
+  "sys.slate": "Sistèm operasyonèl",
+  "sys.h2": "Soti nan piblisite rive nan rezèvasyon peye, yon sèl chemen.",
+  "sys.note": "Sistèm Green Flash pral konfigire, konekte epi fè mache pou yon kliyan pase soti nan piblisite a, rive sou landing page la, rive nan rezèvasyon peye san koupe, epi okenn kesyon pa tann yon imèl.",
+  "sysa.h": "Calendly — rezèvasyon ak peman",
+  "sysa.l1": "Rezèvasyon pa espas entegre sou chak paj boutik ak landing page",
+  "sysa.l2": "Entegrasyon Facebook pou rezève dirèk soti nan piblisite yo ak paj Facebook la",
+  "sysa.l3": "Peman kolekte nan moman rezèvasyon an",
+  "sysa.l4": "Konfimasyon ak rapèl otomatik",
+  "sysa.l5": "Konvèsyon rezèvasyon rapòte tounen bay platfòm piblisite yo, pou optimizasyon baze sou rezèvasyon ki fini olye de klik",
+  "sysb.h": "Ajan pwogramasyon AI",
+  "sysb.l1": "Repons imedya 24/7 pou kesyon rezèvasyon ak enskripsyon",
+  "sysb.l2": "Reponn kesyon estanda sou sèvis, pri ak detay kou yo",
+  "sysb.l3": "Rezève dirèk nan Calendly",
+  "sysb.l4": "Grandi sou plis espas san ajoute pèsonèl",
+  "sysc.h": "Jesyon platfòm piblisite",
+  "sysc.p": "Tout kont piblisite yo konfigire, konekte epi jere anba yon sèl pwen kontwòl.",
+  "sysc.l1": "Facebook ak Instagram (Meta Ads Manager)",
+  "sysc.l2": "Google Ads",
+  "sysc.l3": "TikTok Ads",
+  "sysc.l4": "Reddit Ads",
+  "sysc.l5": "Snapchat Ads",
+  "merch.slate": "Enkli san frè",
+  "merch.h2": "Mèch gratis ak FlashTap.",
+  "merch.note": "Yon FlashTap konsevwa sou mezi ak yon liy mèch ak mak la, voye dirèk bay achtè a san Dog Grooming USA pa bezwen okenn estòk ni livrezon.",
+  "merch.l1": "Konsepsyon FlashTap sou mezi",
+  "merch.l2": "Liy mèch ak mak la, livre dirèk",
+  "merch.l3": "Entegrasyon boutik sou sit wèb la",
+  "sum.slate": "Rezime",
+  "sum.h2": "Yon sèl ekip k ap fè tout bagay mache.",
+  "sum.p": "Drone God Max livre de fim prensipal yo, Fly-Through ak Wag-Through yo, ak tout sinematografi dwòn. Green Flash Advertising livre epi jere sit wèb yo, landing page yo, SEO lokal, kont piblisite yo, rezo sosyal, pwodiksyon kontni, sistèm rezèvasyon ak pwogramasyon AI — yon sèl ekip k ap fè tout bagay mache, ki rapòte rezèvasyon ak enskripsyon ki fini.",
+  "sum.tag": "Plis klik. Plis kliyan. Plis kwasans."
  }
 };
   (function () {
