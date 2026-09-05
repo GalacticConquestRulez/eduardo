@@ -21,3 +21,7 @@ Every link, name and date lives in `index.html` exactly once. Search for `LINK:`
 | `bg-*.jpg` | Poster frames: instant paint, and the still shown when the viewer prefers reduced motion | |
 
 The page picks the file for the viewport orientation and swaps on rotation. To replace the footage, re-encode with the same names.
+
+## Languages
+
+The top-bar switcher offers English, Spanish, Portuguese and Haitian Creole. English is the HTML itself; the other three live in the `I18N` table at the bottom of `index.html`, keyed by each element's `data-i18n` attribute. Append `?lang=es`, `?lang=pt` or `?lang=ht` to the URL to send a link that opens already translated. The viewer's choice is remembered in their browser.
