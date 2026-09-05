@@ -4,9 +4,13 @@ A single-file landing page (`index.html`) that presents Max's proposal to Eduard
 
 ## Hosting
 
-No build step. Every push to `main` runs `.github/workflows/pages.yml`, which publishes the repo root to GitHub Pages. The first run tries to enable Pages automatically; if it is refused, set Settings → Pages → Source to **GitHub Actions** once and re-run the workflow.
+The site runs on our own server at `eduardo.greenflashusa.com` (the `eduardo` A record points at it). One-time setup, as root on the server:
 
-Custom domain: point a `CNAME` record at `galacticconquestrulez.github.io` and enter the hostname under Settings → Pages → Custom domain.
+```
+curl -fsSL https://raw.githubusercontent.com/GalacticConquestRulez/eduardo/main/deploy/setup-server.sh -o setup.sh && bash setup.sh
+```
+
+That installs nginx, clones this repo to `/var/www/eduardo`, issues a Let's Encrypt certificate, and installs a cron job that pulls `main` every 5 minutes. After that, pushing to `main` is the deploy. To update immediately, run `deploy-eduardo` on the server.
 
 ## Editing
 
