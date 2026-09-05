@@ -3,10 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Eduardo × Drone God Max</title>
+<title>Green Flash × Dog Grooming USA</title>
 <meta name="description" content="The reel, the gallery, the Green Flash footage vault, and the plan — assembled for Eduardo ahead of Monday, September 7 at 2:00 PM.">
 <meta name="robots" content="noindex">
-<meta property="og:title" content="Eduardo × Drone God Max">
+<meta property="og:title" content="Green Flash × Dog Grooming USA">
 <meta property="og:description" content="Our conversation in one frame. Review in ten minutes; decide on Monday.">
 <meta property="og:image" content="https://eduardo.greenflashusa.com/media/bg-landscape.jpg">
 <meta property="og:url" content="https://eduardo.greenflashusa.com/">
@@ -109,9 +109,10 @@
     font-family: var(--mono); font-size: .74rem; letter-spacing: .06em;
   }
   .topbar .brand { color: var(--ink); text-decoration: none; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
-  .topbar .when { color: var(--ink-muted); text-align: right; }
+  .topbar .when { color: var(--ink-muted); text-align: left; }
   .topbar .when b { color: var(--amber); font-weight: 500; }
-  .topbar__right { display: flex; align-items: center; gap: 1.25rem; min-width: 0; }
+  .topbar__left { display: flex; align-items: center; gap: 1.5rem; min-width: 0; }
+  .topbar__right { display: flex; align-items: center; gap: 1.25rem; min-width: 0; flex: none; }
   @media (max-width: 720px) { .topbar .when span { display: none; } }
   @media (max-width: 560px) { .topbar .when { display: none; } }
 
@@ -133,6 +134,18 @@
     box-shadow: 0 16px 40px rgba(0,0,0,.5);
   }
   .lang__menu[hidden] { display: none; }
+  .lang__hint {
+    position: absolute; right: .35rem; top: calc(100% + .3rem);
+    display: flex; flex-direction: column; align-items: flex-end; gap: .05rem;
+    color: var(--amber); font-family: var(--mono); font-size: .66rem; letter-spacing: .14em; text-transform: uppercase;
+    white-space: nowrap; pointer-events: none;
+  }
+  .lang__hint svg { width: 1.1rem; height: 1.5rem; }
+  .lang.is-used .lang__hint { display: none; }
+  @media (prefers-reduced-motion: no-preference) {
+    .lang__hint { animation: hintbob 1.8s ease-in-out infinite; }
+    @keyframes hintbob { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
+  }
   .lang__menu button {
     width: 100%; text-align: left; font: inherit; letter-spacing: .06em; color: var(--ink-2);
     background: transparent; border: 0; border-radius: 4px; padding: .6em .8em; cursor: pointer;
@@ -398,7 +411,7 @@
 </head>
 <body>
 
-<!-- Background film: the Ronin 4D footage, looping, muted. Landscape for wide viewports,
+<!-- Background film: the salon footage, looping, muted. Landscape for wide viewports,
      a 9:16 center crop for phones. Both files live in /media next to this page. -->
 <div class="bgfilm" id="bgfilm" aria-hidden="true"
      data-landscape="media/bg-landscape.mp4" data-landscape-poster="media/bg-landscape.jpg"
@@ -409,15 +422,21 @@
 
 <header class="topbar">
   <div class="wrap">
-    <a class="brand" href="#top">Green Flash × Drone God Max</a>
-    <div class="topbar__right">
+    <div class="topbar__left">
+      <a class="brand" href="#top">Green Flash</a>
       <div class="when" data-i18n="top.prepared">Prepared for Eduardo <span>· Follow-up</span> <b>Mon Sep 7 · 2:00 PM</b></div>
+    </div>
+    <div class="topbar__right">
       <div class="lang" id="lang">
         <button class="lang__btn" type="button" aria-haspopup="listbox" aria-expanded="false" aria-label="Language">
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.3" aria-hidden="true"><circle cx="8" cy="8" r="6.3"/><path d="M1.7 8h12.6M8 1.7c2.2 2.3 2.2 10.3 0 12.6M8 1.7C5.8 4 5.8 12 8 14.3"/></svg>
           <span class="lang__cur">English</span>
           <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M4 6.5l4 4 4-4"/></svg>
         </button>
+        <span class="lang__hint" aria-hidden="true">
+          <svg viewBox="0 0 24 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 30c10-4 14-12 12-25"/><path d="M12 10l5-6 4 6"/></svg>
+          <span data-i18n="lang.hint">Try me</span>
+        </span>
         <ul class="lang__menu" role="listbox" hidden>
           <li><button type="button" role="option" data-lang="en" aria-selected="true">English</button></li>
           <li><button type="button" role="option" data-lang="es" aria-selected="false">Español</button></li>
@@ -436,12 +455,12 @@
     <div class="hero__bg" aria-hidden="true"></div>
     <div class="wrap">
       <div class="hero__kicker">
-        <span class="slate slate--bare" data-i18n="hero.kicker1">A proposal for Eduardo</span>
+        <span class="slate slate--bare" data-i18n="hero.kicker1">A proposal for Dog Grooming USA</span>
         <span class="slate" data-i18n="hero.kicker2">September 2026</span>
       </div>
       <h1 data-i18n="hero.h1">Our conversation <em>in one frame</em></h1>
       <p class="hero__lede" data-i18n="hero.lede">
-        The showcase film, your two locations, the gallery, the <strong>Green Flash</strong> footage vault, three boutique films, and the growth plan — assembled on one page so you can review it in ten minutes, and we can spend Monday <strong>deciding, not searching</strong>.
+        The showcase film, both locations, gallery, <strong>Green Flash</strong> footage vault, three boutique films, and growth plan are all organized on one page for an easy review before Monday, so we can spend our time <strong>deciding, not searching</strong>.
       </p>
       <div class="hero__cta">
         <a class="btn btn--fill" href="#reel">
@@ -463,7 +482,7 @@
           <h2 data-i18n="r1.h2">Start here. This is the standard.</h2>
         </div>
         <div class="roll__note">
-          <p data-i18n="r1.note">Aerials from the drone, ground work on the Ronin 4D, cut and graded to one look. Watch it full-screen with the sound up — this is what your project will feel like when it's finished.</p>
+          <p data-i18n="r1.note">Aerials and ground work, cut and graded to one look. Watch it full-screen with the sound up — this is what your project will feel like when it's finished.</p>
         </div>
       </div>
 
@@ -475,7 +494,7 @@
           <span class="film__meta">
             <span>
               <span class="film__title" data-i18n="r1.title">Showcase Video: Palm Oasis</span>
-              <span class="film__sub" data-i18n="r1.sub">Drone + Ronin 4D · Landing-page example</span>
+              <span class="film__sub" data-i18n="r1.sub">Landing-page example</span>
             </span>
             <span class="film__play" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z"/></svg></span>
           </span>
@@ -539,7 +558,7 @@
           <h2 data-i18n="r2.h2">The gallery and the vault.</h2>
         </div>
         <div class="roll__note">
-          <p data-i18n="r2.note">The gallery is finished work — what the stills look like when they've been through the grade. The vault is the opposite: the raw drone and Ronin 4D footage in the Green Flash Drive folder, so you can see what the cameras capture before any polish.</p>
+          <p data-i18n="r2.note">The gallery is finished work — what the stills look like when they've been through the grade. The vault is the opposite: the raw footage in the Green Flash Drive folder, so you can see what the cameras capture before any polish.</p>
         </div>
       </div>
 
@@ -566,10 +585,10 @@
           <div>
             <div class="tags" style="margin-bottom:1rem">
               <span class="tag">Drone</span>
-              <span class="tag">Ronin 4D</span>
+              <span class="tag" data-i18n="vault.tag2">Ground</span>
               <span class="tag" data-i18n="vault.tag3">Ungraded</span>
             </div>
-            <p class="asset__help" data-i18n="vault.help">Large files. If Drive asks you to sign in or won't preview a clip, just say the word — Max will send it another way or walk you through it.</p>
+            <p class="asset__help" data-i18n="vault.help">Large files. If Drive asks you to sign in or won't preview a clip, just say the word — we'll send it another way or walk you through it.</p>
           </div>
           <div class="asset__foot">
             <span data-i18n="vault.foot">Open the Drive folder</span>
@@ -589,7 +608,7 @@
           <h2 data-i18n="r3.h2">Three films. Three different rooms.</h2>
         </div>
         <div class="roll__note">
-          <p data-i18n="r3.note">Smaller productions, each built around one brand's space and pace. Watch for how the camera moves inside — that's the Ronin 4D doing what a slider and a dolly used to need a crew for.</p>
+          <p data-i18n="r3.note">Smaller productions, each built around one brand's space and pace. Watch for how the camera moves inside — the kind of movement that used to need a slider, a dolly and a crew.</p>
         </div>
       </div>
 
@@ -600,7 +619,7 @@
             <img src="https://img.youtube.com/vi/urzfVdqW3Jo/maxresdefault.jpg" alt="" loading="lazy"
                  onerror="this.onerror=null;this.src='https://img.youtube.com/vi/urzfVdqW3Jo/hqdefault.jpg'">
             <span class="film__meta">
-              <span><span class="film__title">Johnnie Walker Blue Label</span><span class="film__sub">Ronin 4D</span></span>
+              <span><span class="film__title">Johnnie Walker Blue Label</span></span>
               <span class="film__play" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z"/></svg></span>
             </span>
           </button>
@@ -613,7 +632,7 @@
             <img src="https://img.youtube.com/vi/OvFY-KKLDTc/maxresdefault.jpg" alt="" loading="lazy"
                  onerror="this.onerror=null;this.src='https://img.youtube.com/vi/OvFY-KKLDTc/hqdefault.jpg'">
             <span class="film__meta">
-              <span><span class="film__title">Music Meets Media</span><span class="film__sub">Ronin 4D</span></span>
+              <span><span class="film__title">Music Meets Media</span></span>
               <span class="film__play" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z"/></svg></span>
             </span>
           </button>
@@ -626,7 +645,7 @@
             <img src="https://img.youtube.com/vi/s099hVuAXms/maxresdefault.jpg" alt="" loading="lazy"
                  onerror="this.onerror=null;this.src='https://img.youtube.com/vi/s099hVuAXms/hqdefault.jpg'">
             <span class="film__meta">
-              <span><span class="film__title">Community Collaboration</span><span class="film__sub">Ronin 4D</span></span>
+              <span><span class="film__title">Community Collaboration</span></span>
               <span class="film__play" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z"/></svg></span>
             </span>
           </button>
@@ -699,7 +718,7 @@
         </div>
       </div>
       <ul class="list list--wide">
-            <li data-i18n="p2.l1">Investor film — drone cinematography, Ronin 4D 6K, custom graphics; produced by Drone God Max</li>
+            <li data-i18n="p2.l1">Investor film — drone cinematography, Ronin 6K, custom graphics; produced by Drone God Max</li>
             <li data-i18n="p2.l2">Corporate website presenting the full footprint, the vet-group relationship, and both revenue streams in one place</li>
             <li data-i18n="p2.l3">One-tap language switch on both websites and every landing page — English, Spanish, Haitian Creole, and Portuguese</li>
             <li data-i18n="p2.l4">Consistent daily publishing across all accounts, demonstrating active momentum whenever an investor looks</li>
@@ -888,7 +907,7 @@
       <h2 style="margin-top:.75rem" data-i18n="close.h2">Monday. <em>2:00 PM.</em> It's already on your calendar.</h2>
       <div class="close__when">
         <span data-i18n="close.w1"><b>Mon · September 7, 2026</b></span>
-        <span data-i18n="close.w2">2:00 PM · Follow-up with Max</span>
+        <span data-i18n="close.w2">2:00 PM · Follow-up with Green Flash</span>
         <span data-i18n="close.w3">Booked through your calendar</span>
       </div>
       <p data-i18n="close.p">Come with your questions on the plan and on the two locations. Bring anything from the Drive footage that wouldn't open. Everything else is on this page.</p>
@@ -902,8 +921,8 @@
         <a class="btn btn--line" href="#reel" data-i18n="close.cta2">Watch the film again</a>
       </div>
       <div class="sig">
-        <span class="name">Max</span>
-        <span class="role" data-i18n="sig.role">Drone God Max · Video production, with Green Flash Advertising</span>
+        <span class="name">Green Flash Advertising</span>
+        <span class="role" data-i18n="sig.role">Video production by Drone God Max · dronegodmax.com</span>
       </div>
     </div>
   </section>
@@ -931,8 +950,8 @@
   </section>
 
   <footer class="wrap">
-    <span data-i18n="ft.1">Prepared for Eduardo · Private link, not for distribution</span>
-    <span>Green Flash Advertising × Drone God Max · 2026</span>
+    <span data-i18n="ft.1">Prepared for Dog Grooming USA · Private link, not for distribution</span>
+    <span>Green Flash Advertising · 2026</span>
   </footer>
 </main>
 
@@ -977,53 +996,53 @@
   // Choice persists in the URL (?lang=es) so a link can open already translated, and in localStorage.
   var I18N = {
  "es": {
-  "title": "Eduardo × Drone God Max",
+  "title": "Green Flash × Dog Grooming USA",
   "lang": "Español",
   "top.prepared": "Preparado para Eduardo <span>· Seguimiento</span> <b>Lun 7 sep · 2:00 PM</b>",
-  "hero.kicker1": "Una propuesta para Eduardo",
+  "hero.kicker1": "Una propuesta para Dog Grooming USA",
   "hero.kicker2": "Septiembre 2026",
   "hero.h1": "Nuestra conversación <em>en un solo cuadro</em>",
-  "hero.lede": "El film de muestra, tus dos locales, la galería, la bóveda de material <strong>Green Flash</strong>, tres films boutique y el plan de crecimiento — reunidos en una sola página para que lo revises en diez minutos, y el lunes lo dediquemos a <strong>decidir, no a buscar</strong>.",
+  "hero.lede": "El film de muestra, ambos locales, la galería, la bóveda de material <strong>Green Flash</strong>, tres films boutique y el plan de crecimiento están organizados en una sola página para una revisión fácil antes del lunes, así dedicamos nuestro tiempo a <strong>decidir, no a buscar</strong>.",
   "hero.cta1": "Ver el film de muestra",
   "hero.cta2": "Ver el plan",
   "r1.slate": "Rollo 01 · Film de muestra",
   "r1.h2": "Empieza aquí. Este es el estándar.",
-  "r1.note": "Tomas aéreas con el dron, trabajo en tierra con la Ronin 4D, editado y etalonado con un solo look. Míralo en pantalla completa y con el sonido alto — así se sentirá tu proyecto cuando esté terminado.",
+  "r1.note": "Tomas aéreas y trabajo en tierra, editado y etalonado con un solo look. Míralo en pantalla completa y con el sonido alto — así se sentirá tu proyecto cuando esté terminado.",
   "r1.title": "Video de muestra: Palm Oasis",
-  "r1.sub": "Dron + Ronin 4D · Ejemplo de landing page",
+  "r1.sub": "Ejemplo de landing page",
   "r1.cap": "Haz clic para verlo aquí, o ábrelo en YouTube en máxima calidad.",
   "r2.slate": "Rollo 03 · Fotos y material en bruto",
   "r2.h2": "La galería y la bóveda.",
-  "r2.note": "La galería es trabajo terminado — así se ven las fotos después del etalonaje. La bóveda es lo contrario: el material en bruto del dron y de la Ronin 4D en la carpeta de Drive de Green Flash, para que veas lo que captan las cámaras antes de cualquier pulido.",
+  "r2.note": "La galería es trabajo terminado — así se ven las fotos después del etalonaje. La bóveda es lo contrario: el material en bruto en la carpeta de Drive de Green Flash, para que veas lo que captan las cámaras antes de cualquier pulido.",
   "gal.h3": "La Galería",
   "gal.p": "Fotos aéreas y en tierra, etalonadas y entregadas. Recórrela como lo haría un cliente — en el teléfono, de una sentada.",
   "gal.foot": "Abrir la galería",
   "vault.slate": "Google Drive · Material en bruto",
   "vault.h3": "Bóveda <em>Green Flash</em>",
   "vault.tag3": "Sin etalonar",
-  "vault.help": "Archivos grandes. Si Drive te pide iniciar sesión o no reproduce un clip, solo avisa — Max te lo envía de otra forma o te guía paso a paso.",
+  "vault.help": "Archivos grandes. Si Drive te pide iniciar sesión o no reproduce un clip, solo avisa — te lo enviamos de otra forma o te guiamos paso a paso.",
   "vault.foot": "Abrir la carpeta de Drive",
   "r3.slate": "Rollo 04 · Trabajo boutique",
   "r3.h2": "Tres films. Tres espacios distintos.",
-  "r3.note": "Producciones más pequeñas, cada una construida alrededor del espacio y el ritmo de una marca. Fíjate en cómo se mueve la cámara en interiores — eso es la Ronin 4D haciendo lo que antes requería un slider, un dolly y un equipo.",
+  "r3.note": "Producciones más pequeñas, cada una construida alrededor del espacio y el ritmo de una marca. Fíjate en cómo se mueve la cámara en interiores — el tipo de movimiento que antes requería un slider, un dolly y un equipo.",
   "price.label": "Inversión",
   "price.val": "Presentación el 7 de septiembre, 2pm",
   "close.slate": "Siguiente paso",
   "close.h2": "Lunes. <em>2:00 PM.</em> Ya está en tu calendario.",
   "close.w1": "<b>Lun · 7 de septiembre de 2026</b>",
-  "close.w2": "2:00 PM · Seguimiento con Max",
+  "close.w2": "2:00 PM · Seguimiento con Green Flash",
   "close.w3": "Agendado en tu calendario",
   "close.p": "Ven con tus preguntas sobre el plan y sobre los dos locales. Trae lo que no haya abierto del material de Drive. Todo lo demás está en esta página.",
   "close.cta1": "Agregar el lunes al calendario",
   "close.cta2": "Ver el film otra vez",
-  "sig.role": "Drone God Max · Producción de video, con Green Flash Advertising",
+  "sig.role": "Producción de video por Drone God Max · dronegodmax.com",
   "idx.slate": "Todos los enlaces de esta página",
   "idx.th1": "Recurso",
   "idx.th2": "Enlace",
   "idx.r1": "Video de muestra: Palm Oasis",
   "idx.r2": "Galería",
   "idx.r3": "Bóveda Green Flash (Drive)",
-  "ft.1": "Preparado para Eduardo · Enlace privado, no distribuir",
+  "ft.1": "Preparado para Dog Grooming USA · Enlace privado, no distribuir",
   "play.main": "Reproducir el film de muestra",
   "play.b1": "Reproducir Johnnie Walker Blue Label",
   "play.b2": "Reproducir Music Meets Media",
@@ -1060,7 +1079,7 @@
   "p2.slate": "Pilar 2 · Activos para inversionistas",
   "p2.h2": "Activos que sostienen la conversación con inversionistas.",
   "p2.note": "Green Flash y Drone God Max producirán y mantendrán los activos de marca que sostienen las conversaciones con inversionistas.",
-  "p2.l1": "Film para inversionistas — cinematografía con dron, Ronin 4D 6K, gráficos a medida; producido por Drone God Max",
+  "p2.l1": "Film para inversionistas — cinematografía con dron, Ronin 6K, gráficos a medida; producido por Drone God Max",
   "p2.l2": "Sitio web corporativo que presenta toda la huella, la relación con el grupo veterinario y ambas líneas de ingresos en un solo lugar",
   "p2.l3": "Cambio de idioma con un toque en ambos sitios y en cada landing page — inglés, español, criollo haitiano y portugués",
   "p2.l4": "Publicación diaria constante en todas las cuentas, demostrando impulso activo cada vez que un inversionista mira",
@@ -1138,56 +1157,58 @@
   "sum.slate": "Resumen",
   "sum.h2": "Un solo equipo operando todo.",
   "sum.p": "Drone God Max entrega los dos films principales, los Fly-Throughs y Wag-Throughs, y toda la cinematografía con dron. Green Flash Advertising entrega y gestiona los sitios web, las landing pages, el SEO local, las cuentas publicitarias, las redes sociales, la producción de contenido, los sistemas de reservas y la agenda con IA — un solo equipo operando todo, reportando reservas e inscripciones completadas.",
-  "sum.tag": "Más clics. Más clientes. Más crecimiento."
+  "sum.tag": "Más clics. Más clientes. Más crecimiento.",
+  "lang.hint": "Pruébame",
+  "vault.tag2": "Tierra"
  },
  "pt": {
-  "title": "Eduardo × Drone God Max",
+  "title": "Green Flash × Dog Grooming USA",
   "lang": "Português",
   "top.prepared": "Preparado para Eduardo <span>· Reunião</span> <b>Seg 7 set · 14h</b>",
-  "hero.kicker1": "Uma proposta para Eduardo",
+  "hero.kicker1": "Uma proposta para Dog Grooming USA",
   "hero.kicker2": "Setembro de 2026",
   "hero.h1": "Nossa conversa <em>em um só quadro</em>",
-  "hero.lede": "O filme de apresentação, suas duas unidades, a galeria, o cofre de material <strong>Green Flash</strong>, três filmes boutique e o plano de crescimento — reunidos em uma única página para você revisar em dez minutos, e a segunda-feira ser para <strong>decidir, não procurar</strong>.",
+  "hero.lede": "O filme de apresentação, as duas unidades, a galeria, o cofre de material <strong>Green Flash</strong>, três filmes boutique e o plano de crescimento estão organizados em uma única página para uma revisão fácil antes de segunda-feira, para que o nosso tempo seja para <strong>decidir, não procurar</strong>.",
   "hero.cta1": "Assistir ao filme de apresentação",
   "hero.cta2": "Ver o plano",
   "r1.slate": "Rolo 01 · Filme de apresentação",
   "r1.h2": "Comece por aqui. Este é o padrão.",
-  "r1.note": "Imagens aéreas com o drone, trabalho em solo com a Ronin 4D, montado e tratado em um único look. Assista em tela cheia e com o som alto — é assim que o seu projeto vai parecer quando estiver pronto.",
+  "r1.note": "Imagens aéreas e trabalho em solo, montado e tratado em um único look. Assista em tela cheia e com o som alto — é assim que o seu projeto vai parecer quando estiver pronto.",
   "r1.title": "Vídeo de apresentação: Palm Oasis",
-  "r1.sub": "Drone + Ronin 4D · Exemplo de landing page",
+  "r1.sub": "Exemplo de landing page",
   "r1.cap": "Clique para assistir aqui, ou abra no YouTube em qualidade máxima.",
   "r2.slate": "Rolo 03 · Fotos e material bruto",
   "r2.h2": "A galeria e o cofre.",
-  "r2.note": "A galeria é trabalho finalizado — como as fotos ficam depois da correção de cor. O cofre é o oposto: o material bruto do drone e da Ronin 4D na pasta do Drive da Green Flash, para você ver o que as câmeras capturam antes de qualquer acabamento.",
+  "r2.note": "A galeria é trabalho finalizado — como as fotos ficam depois da correção de cor. O cofre é o oposto: o material bruto na pasta do Drive da Green Flash, para você ver o que as câmeras capturam antes de qualquer acabamento.",
   "gal.h3": "A Galeria",
   "gal.p": "Fotos aéreas e em solo, tratadas e entregues. Navegue como um cliente faria — no celular, de uma vez só.",
   "gal.foot": "Abrir a galeria",
   "vault.slate": "Google Drive · Material bruto",
   "vault.h3": "Cofre <em>Green Flash</em>",
   "vault.tag3": "Sem tratamento",
-  "vault.help": "Arquivos grandes. Se o Drive pedir login ou não reproduzir um clipe, é só avisar — o Max envia de outra forma ou te orienta passo a passo.",
+  "vault.help": "Arquivos grandes. Se o Drive pedir login ou não reproduzir um clipe, é só avisar — enviamos de outra forma ou te orientamos passo a passo.",
   "vault.foot": "Abrir a pasta do Drive",
   "r3.slate": "Rolo 04 · Trabalho boutique",
   "r3.h2": "Três filmes. Três espaços diferentes.",
-  "r3.note": "Produções menores, cada uma construída em torno do espaço e do ritmo de uma marca. Repare em como a câmera se move nos interiores — é a Ronin 4D fazendo o que antes exigia slider, dolly e uma equipe.",
+  "r3.note": "Produções menores, cada uma construída em torno do espaço e do ritmo de uma marca. Repare em como a câmera se move nos interiores — o tipo de movimento que antes exigia slider, dolly e uma equipe.",
   "price.label": "Investimento",
   "price.val": "Apresentação em 7 de setembro, 14h",
   "close.slate": "Próximo passo",
   "close.h2": "Segunda-feira. <em>14h.</em> Já está no seu calendário.",
   "close.w1": "<b>Seg · 7 de setembro de 2026</b>",
-  "close.w2": "14h · Reunião com o Max",
+  "close.w2": "14h · Reunião com a Green Flash",
   "close.w3": "Agendado pelo seu calendário",
   "close.p": "Venha com suas dúvidas sobre o plano e sobre as duas unidades. Traga o que não abriu do material do Drive. Todo o resto está nesta página.",
   "close.cta1": "Adicionar segunda ao calendário",
   "close.cta2": "Assistir ao filme de novo",
-  "sig.role": "Drone God Max · Produção de vídeo, com Green Flash Advertising",
+  "sig.role": "Produção de vídeo por Drone God Max · dronegodmax.com",
   "idx.slate": "Todos os links desta página",
   "idx.th1": "Item",
   "idx.th2": "Link",
   "idx.r1": "Vídeo de apresentação: Palm Oasis",
   "idx.r2": "Galeria",
   "idx.r3": "Cofre Green Flash (Drive)",
-  "ft.1": "Preparado para Eduardo · Link privado, não distribuir",
+  "ft.1": "Preparado para Dog Grooming USA · Link privado, não distribuir",
   "play.main": "Reproduzir o filme de apresentação",
   "play.b1": "Reproduzir Johnnie Walker Blue Label",
   "play.b2": "Reproduzir Music Meets Media",
@@ -1224,7 +1245,7 @@
   "p2.slate": "Pilar 2 · Ativos para investidores",
   "p2.h2": "Ativos que sustentam a conversa com investidores.",
   "p2.note": "A Green Flash e a Drone God Max vão produzir e manter os ativos de marca que sustentam as conversas com investidores.",
-  "p2.l1": "Filme para investidores — cinematografia com drone, Ronin 4D 6K, gráficos personalizados; produzido pela Drone God Max",
+  "p2.l1": "Filme para investidores — cinematografia com drone, Ronin 6K, gráficos personalizados; produzido pela Drone God Max",
   "p2.l2": "Site corporativo apresentando toda a presença, a relação com o grupo veterinário e as duas fontes de receita em um só lugar",
   "p2.l3": "Troca de idioma com um toque nos dois sites e em cada landing page — inglês, espanhol, crioulo haitiano e português",
   "p2.l4": "Publicação diária constante em todas as contas, demonstrando movimento ativo sempre que um investidor olhar",
@@ -1302,56 +1323,58 @@
   "sum.slate": "Resumo",
   "sum.h2": "Uma só equipe operando tudo.",
   "sum.p": "A Drone God Max entrega os dois filmes principais, os Fly-Throughs e Wag-Throughs, e toda a cinematografia com drone. A Green Flash Advertising entrega e gerencia os sites, as landing pages, o SEO local, as contas de anúncios, as redes sociais, a produção de conteúdo, os sistemas de agendamento e o agente de IA — uma só equipe operando tudo, reportando agendamentos e matrículas concluídos.",
-  "sum.tag": "Mais cliques. Mais clientes. Mais crescimento."
+  "sum.tag": "Mais cliques. Mais clientes. Mais crescimento.",
+  "lang.hint": "Experimente",
+  "vault.tag2": "Solo"
  },
  "ht": {
-  "title": "Eduardo × Drone God Max",
+  "title": "Green Flash × Dog Grooming USA",
   "lang": "Kreyòl Ayisyen",
   "top.prepared": "Prepare pou Eduardo <span>· Swivi</span> <b>Lendi 7 sept · 2:00 PM</b>",
-  "hero.kicker1": "Yon pwopozisyon pou Eduardo",
+  "hero.kicker1": "Yon pwopozisyon pou Dog Grooming USA",
   "hero.kicker2": "Septanm 2026",
   "hero.h1": "Konvèsasyon nou <em>nan yon sèl kad</em>",
-  "hero.lede": "Fim prezantasyon an, de espas ou yo, galri a, kòf videyo <strong>Green Flash</strong> la, twa fim boutik, ak plan kwasans lan — tout rasanble sou yon sèl paj pou ou ka gade l nan dis minit, epi lendi nou pase tan an ap <strong>deside, pa ap chèche</strong>.",
+  "hero.lede": "Fim prezantasyon an, tou de espas yo, galri a, kòf videyo <strong>Green Flash</strong> la, twa fim boutik, ak plan kwasans lan tout òganize sou yon sèl paj pou yon revizyon fasil anvan lendi, pou nou pase tan nou ap <strong>deside, pa ap chèche</strong>.",
   "hero.cta1": "Gade fim prezantasyon an",
   "hero.cta2": "Gade plan an",
   "r1.slate": "Bobin 01 · Fim prezantasyon",
   "r1.h2": "Kòmanse la. Sa a se estanda a.",
-  "r1.note": "Imaj ayeryèn ak dwòn nan, travay atè ak Ronin 4D la, monte epi koulè yo trete nan yon sèl estil. Gade l sou tout ekran an ak son an fò — se konsa pwojè ou a pral santi lè l fini.",
+  "r1.note": "Imaj ayeryèn ak travay atè, monte epi koulè yo trete nan yon sèl estil. Gade l sou tout ekran an ak son an fò — se konsa pwojè ou a pral santi lè l fini.",
   "r1.title": "Videyo prezantasyon: Palm Oasis",
-  "r1.sub": "Dwòn + Ronin 4D · Egzanp landing page",
+  "r1.sub": "Egzanp landing page",
   "r1.cap": "Klike pou gade l isit la, oswa louvri l sou YouTube nan pi bon kalite.",
   "r2.slate": "Bobin 03 · Foto ak videyo brit",
   "r2.h2": "Galri a ak kòf la.",
-  "r2.note": "Galri a se travay ki fini — jan foto yo parèt apre koreksyon koulè a. Kòf la se lekontrè: videyo brit dwòn nan ak Ronin 4D la ki nan dosye Drive Green Flash la, pou ou ka wè sa kamera yo kaptire anvan nenpòt finisyon.",
+  "r2.note": "Galri a se travay ki fini — jan foto yo parèt apre koreksyon koulè a. Kòf la se lekontrè: videyo brit ki nan dosye Drive Green Flash la, pou ou ka wè sa kamera yo kaptire anvan nenpòt finisyon.",
   "gal.h3": "Galri a",
   "gal.p": "Foto ayeryèn ak foto atè, koulè yo trete epi livre. Gade l jan yon kliyan ta fè l — sou telefòn, yon sèl kou.",
   "gal.foot": "Louvri galri a",
   "vault.slate": "Google Drive · Videyo brit",
   "vault.h3": "Kòf <em>Green Flash</em>",
   "vault.tag3": "San koreksyon",
-  "vault.help": "Fichye yo gwo. Si Drive mande w konekte oswa li pa vle jwe yon klip, jis di sa — Max ap voye l yon lòt fason oswa l ap gide w etap pa etap.",
+  "vault.help": "Fichye yo gwo. Si Drive mande w konekte oswa li pa vle jwe yon klip, jis di sa — n ap voye l yon lòt fason oswa n ap gide w etap pa etap.",
   "vault.foot": "Louvri dosye Drive la",
   "r3.slate": "Bobin 04 · Travay boutik",
   "r3.h2": "Twa fim. Twa espas diferan.",
-  "r3.note": "Pwodiksyon ki pi piti, chak bati sou espas ak ritm yon mak. Gade jan kamera a deplase anndan an — se Ronin 4D la k ap fè sa ki te konn mande yon slider, yon dolly ak yon ekip.",
+  "r3.note": "Pwodiksyon ki pi piti, chak bati sou espas ak ritm yon mak. Gade jan kamera a deplase anndan an — kalite mouvman ki te konn mande yon slider, yon dolly ak yon ekip.",
   "price.label": "Envestisman",
   "price.val": "Prezantasyon 7 septanm, 2pm",
   "close.slate": "Pwochen etap",
   "close.h2": "Lendi. <em>2:00 PM.</em> Li deja sou kalandriye ou.",
   "close.w1": "<b>Lendi · 7 septanm 2026</b>",
-  "close.w2": "2:00 PM · Swivi ak Max",
+  "close.w2": "2:00 PM · Swivi ak Green Flash",
   "close.w3": "Rezève nan kalandriye ou",
   "close.p": "Vini ak kesyon ou sou plan an ak sou de espas yo. Pote sa ki pa t louvri nan videyo Drive yo. Tout rès la sou paj sa a.",
   "close.cta1": "Ajoute lendi nan kalandriye a",
   "close.cta2": "Gade fim nan ankò",
-  "sig.role": "Drone God Max · Pwodiksyon videyo, ak Green Flash Advertising",
+  "sig.role": "Pwodiksyon videyo pa Drone God Max · dronegodmax.com",
   "idx.slate": "Tout lyen ki sou paj sa a",
   "idx.th1": "Resous",
   "idx.th2": "Lyen",
   "idx.r1": "Videyo prezantasyon: Palm Oasis",
   "idx.r2": "Galri",
   "idx.r3": "Kòf Green Flash (Drive)",
-  "ft.1": "Prepare pou Eduardo · Lyen prive, pa pou distribye",
+  "ft.1": "Prepare pou Dog Grooming USA · Lyen prive, pa pou distribye",
   "play.main": "Jwe fim prezantasyon an",
   "play.b1": "Jwe Johnnie Walker Blue Label",
   "play.b2": "Jwe Music Meets Media",
@@ -1388,7 +1411,7 @@
   "p2.slate": "Pilye 2 · Byen pou envestisè",
   "p2.h2": "Byen ki pote konvèsasyon ak envestisè yo.",
   "p2.note": "Green Flash ak Drone God Max pral pwodui epi kenbe byen mak ki pote konvèsasyon ak envestisè yo.",
-  "p2.l1": "Fim pou envestisè — sinematografi dwòn, Ronin 4D 6K, grafik sou mezi; pwodui pa Drone God Max",
+  "p2.l1": "Fim pou envestisè — sinematografi dwòn, Ronin 6K, grafik sou mezi; pwodui pa Drone God Max",
   "p2.l2": "Sit wèb kòporatif ki prezante tout anprent lan, relasyon ak gwoup veterinè a, ak tou de sous revni yo yon sèl kote",
   "p2.l3": "Chanje lang ak yon sèl tap sou tou de sit yo ak chak landing page — angle, panyòl, kreyòl ayisyen ak pòtigè",
   "p2.l4": "Piblikasyon chak jou san rete sou tout kont yo, ki montre mouvman aktif chak fwa yon envestisè gade",
@@ -1466,7 +1489,9 @@
   "sum.slate": "Rezime",
   "sum.h2": "Yon sèl ekip k ap fè tout bagay mache.",
   "sum.p": "Drone God Max livre de fim prensipal yo, Fly-Through ak Wag-Through yo, ak tout sinematografi dwòn. Green Flash Advertising livre epi jere sit wèb yo, landing page yo, SEO lokal, kont piblisite yo, rezo sosyal, pwodiksyon kontni, sistèm rezèvasyon ak pwogramasyon AI — yon sèl ekip k ap fè tout bagay mache, ki rapòte rezèvasyon ak enskripsyon ki fini.",
-  "sum.tag": "Plis klik. Plis kliyan. Plis kwasans."
+  "sum.tag": "Plis klik. Plis kliyan. Plis kwasans.",
+  "lang.hint": "Eseye m",
+  "vault.tag2": "Atè"
  }
 };
   (function () {
@@ -1504,7 +1529,7 @@
         history.replaceState(null, '', u);
       }
     }
-    function open(state) { menu.hidden = !state; btn.setAttribute('aria-expanded', String(state)); }
+    function open(state) { menu.hidden = !state; btn.setAttribute('aria-expanded', String(state)); if (state) root.classList.add('is-used'); }
 
     btn.addEventListener('click', function () { open(menu.hidden); });
     menu.addEventListener('click', function (e) {
@@ -1523,6 +1548,7 @@
       initial = q || stored || 'en';
     } catch (e) { try { initial = new URLSearchParams(location.search).get('lang') || 'en'; } catch (e2) {} }
     if (initial !== 'en') setLang(initial, false);
+    try { if (localStorage.getItem('lang') || new URLSearchParams(location.search).get('lang')) root.classList.add('is-used'); } catch (e) {}
   })();
 
   // Click-to-play: swap the poster frame for the YouTube player only when asked.
