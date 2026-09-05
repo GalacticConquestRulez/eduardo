@@ -11,6 +11,8 @@
 <meta property="og:image" content="https://eduardo.greenflashusa.com/media/bg-landscape.jpg">
 <meta property="og:url" content="https://eduardo.greenflashusa.com/">
 <link rel="canonical" href="https://eduardo.greenflashusa.com/">
+<link rel="icon" type="image/png" sizes="32x32" href="media/favicon-32.png">
+<link rel="apple-touch-icon" href="media/apple-touch-icon.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=IBM+Plex+Mono:wght@400;500&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;1,6..72,400&display=swap">
@@ -108,7 +110,9 @@
     min-height: 3.25rem;
     font-family: var(--mono); font-size: .74rem; letter-spacing: .06em;
   }
-  .topbar .brand { color: var(--ink); text-decoration: none; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+  .topbar .brand { display: inline-flex; align-items: center; gap: .55rem; color: var(--ink); text-decoration: none; font-weight: 500; letter-spacing: .12em; text-transform: uppercase; white-space: nowrap; }
+  .brand__mark, .sig__mark { mix-blend-mode: screen; -webkit-mask-image: radial-gradient(ellipse 62% 62% at 50% 50%, #000 55%, transparent 100%); mask-image: radial-gradient(ellipse 62% 62% at 50% 50%, #000 55%, transparent 100%); }
+  .brand__mark { height: 2.4rem; width: auto; margin: -.3rem 0; }
   .topbar .when { color: var(--ink-muted); text-align: left; }
   .topbar .when b { color: var(--amber); font-weight: 500; }
   .topbar__left { display: flex; align-items: center; gap: 1.5rem; min-width: 0; }
@@ -394,6 +398,7 @@
   .close__when b { color: var(--amber); font-weight: 500; }
   .close p { margin-top: 1.25rem; color: var(--ink-2); }
   .sig { margin-top: 2.5rem; display: grid; gap: .25rem; }
+  .sig__mark { height: 6rem; width: auto; margin: 0 0 .25rem -.75rem; justify-self: start; }
   .sig .name { font-family: var(--display); font-weight: 700; font-size: 1.6rem; text-transform: uppercase; line-height: 1; }
   .sig .role { font-family: var(--mono); font-size: .7rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); }
 
@@ -423,7 +428,7 @@
 <header class="topbar">
   <div class="wrap">
     <div class="topbar__left">
-      <a class="brand" href="#top">Green Flash</a>
+      <a class="brand" href="#top"><img class="brand__mark" src="media/gf-mark.jpg" alt="" width="720" height="480">Green Flash</a>
       <div class="when" data-i18n="top.prepared">Prepared for Eduardo <span>· Follow-up</span> <b>Mon Sep 7 · 2:00 PM</b></div>
     </div>
     <div class="topbar__right">
@@ -460,7 +465,7 @@
       </div>
       <h1 data-i18n="hero.h1">Our conversation <em>in one frame</em></h1>
       <p class="hero__lede" data-i18n="hero.lede">
-        The showcase film, both locations, gallery, <strong>Green Flash</strong> footage vault, three boutique films, and growth plan are all organized on one page for an easy review before Monday, so we can spend our time <strong>deciding, not searching</strong>.
+        The showcase film, both locations, gallery, <strong>Green Flash</strong> footage vault, four boutique films, and growth plan are all organized on one page for an easy review before Monday, so we can spend our time <strong>deciding, not searching</strong>.
       </p>
       <div class="hero__cta">
         <a class="btn btn--fill" href="#reel">
@@ -605,14 +610,11 @@
       <div class="roll__head">
         <div>
           <span class="slate" data-i18n="r3.slate">Roll 04 · Boutique work</span>
-          <h2 data-i18n="r3.h2">Three films. Three different rooms.</h2>
-        </div>
-        <div class="roll__note">
-          <p data-i18n="r3.note">Smaller productions, each built around one brand's space and pace. Watch for how the camera moves inside — the kind of movement that used to need a slider, a dolly and a crew.</p>
+          <h2 data-i18n="r3.h2">Four films. Four different rooms.</h2>
         </div>
       </div>
 
-      <div class="grid-3">
+      <div class="grid-2">
         <!-- LINK: boutique film 1 — https://youtu.be/urzfVdqW3Jo -->
         <figure class="film">
           <button class="film__frame" type="button" data-yt="urzfVdqW3Jo" aria-label="Play Johnnie Walker Blue Label" data-i18n-aria="play.b1">
@@ -650,6 +652,19 @@
             </span>
           </button>
           <figcaption class="film__caption"><a href="https://youtu.be/s099hVuAXms" target="_blank" rel="noopener">youtu.be/s099hVuAXms ↗</a></figcaption>
+        </figure>
+
+        <!-- LINK: boutique film 4 — https://youtu.be/7qvXFGsqUQY -->
+        <figure class="film">
+          <button class="film__frame" type="button" data-yt="7qvXFGsqUQY" aria-label="Play Kaua’i Hawaii" data-i18n-aria="play.b4">
+            <img src="https://img.youtube.com/vi/7qvXFGsqUQY/maxresdefault.jpg" alt="" loading="lazy"
+                 onerror="this.onerror=null;this.src='https://img.youtube.com/vi/7qvXFGsqUQY/hqdefault.jpg'">
+            <span class="film__meta">
+              <span><span class="film__title">Kaua’i Hawaii</span></span>
+              <span class="film__play" aria-hidden="true"><svg viewBox="0 0 16 16" fill="currentColor"><path d="M4 2.5v11l9-5.5z"/></svg></span>
+            </span>
+          </button>
+          <figcaption class="film__caption"><a href="https://youtu.be/7qvXFGsqUQY" target="_blank" rel="noopener">youtu.be/7qvXFGsqUQY ↗</a></figcaption>
         </figure>
       </div>
     </div>
@@ -921,6 +936,7 @@
         <a class="btn btn--line" href="#reel" data-i18n="close.cta2">Watch the film again</a>
       </div>
       <div class="sig">
+        <img class="sig__mark" src="media/gf-mark.jpg" alt="Green Flash" width="720" height="480">
         <span class="name">Green Flash Advertising</span>
         <span class="role" data-i18n="sig.role">Video production by Drone God Max · dronegodmax.com</span>
       </div>
@@ -943,6 +959,7 @@
             <tr><td>Johnnie Walker Blue Label</td><td><a href="https://youtu.be/urzfVdqW3Jo" target="_blank" rel="noopener">https://youtu.be/urzfVdqW3Jo</a></td></tr>
             <tr><td>Music Meets Media</td><td><a href="https://youtu.be/OvFY-KKLDTc" target="_blank" rel="noopener">https://youtu.be/OvFY-KKLDTc</a></td></tr>
             <tr><td>Community Collaboration</td><td><a href="https://youtu.be/s099hVuAXms" target="_blank" rel="noopener">https://youtu.be/s099hVuAXms</a></td></tr>
+            <tr><td>Kaua’i Hawaii</td><td><a href="https://youtu.be/7qvXFGsqUQY" target="_blank" rel="noopener">https://youtu.be/7qvXFGsqUQY</a></td></tr>
           </tbody>
         </table>
       </div>
@@ -1002,7 +1019,7 @@
   "hero.kicker1": "Una propuesta para Dog Grooming USA",
   "hero.kicker2": "Septiembre 2026",
   "hero.h1": "Nuestra conversación <em>en un solo cuadro</em>",
-  "hero.lede": "El film de muestra, ambos locales, la galería, la bóveda de material <strong>Green Flash</strong>, tres films boutique y el plan de crecimiento están organizados en una sola página para una revisión fácil antes del lunes, así dedicamos nuestro tiempo a <strong>decidir, no a buscar</strong>.",
+  "hero.lede": "El film de muestra, ambos locales, la galería, la bóveda de material <strong>Green Flash</strong>, cuatro films boutique y el plan de crecimiento están organizados en una sola página para una revisión fácil antes del lunes, así dedicamos nuestro tiempo a <strong>decidir, no a buscar</strong>.",
   "hero.cta1": "Ver el film de muestra",
   "hero.cta2": "Ver el plan",
   "r1.slate": "Rollo 01 · Film de muestra",
@@ -1023,8 +1040,7 @@
   "vault.help": "Archivos grandes. Si Drive te pide iniciar sesión o no reproduce un clip, solo avisa — te lo enviamos de otra forma o te guiamos paso a paso.",
   "vault.foot": "Abrir la carpeta de Drive",
   "r3.slate": "Rollo 04 · Trabajo boutique",
-  "r3.h2": "Tres films. Tres espacios distintos.",
-  "r3.note": "Producciones más pequeñas, cada una construida alrededor del espacio y el ritmo de una marca. Fíjate en cómo se mueve la cámara en interiores — el tipo de movimiento que antes requería un slider, un dolly y un equipo.",
+  "r3.h2": "Cuatro films. Cuatro espacios distintos.",
   "price.label": "Inversión",
   "price.val": "Presentación el 7 de septiembre, 2pm",
   "close.slate": "Siguiente paso",
@@ -1159,7 +1175,8 @@
   "sum.p": "Drone God Max entrega los dos films principales, los Fly-Throughs y Wag-Throughs, y toda la cinematografía con dron. Green Flash Advertising entrega y gestiona los sitios web, las landing pages, el SEO local, las cuentas publicitarias, las redes sociales, la producción de contenido, los sistemas de reservas y la agenda con IA — un solo equipo operando todo, reportando reservas e inscripciones completadas.",
   "sum.tag": "Más clics. Más clientes. Más crecimiento.",
   "lang.hint": "Pruébame",
-  "vault.tag2": "Tierra"
+  "vault.tag2": "Tierra",
+  "play.b4": "Reproducir Kaua’i Hawaii"
  },
  "pt": {
   "title": "Green Flash × Dog Grooming USA",
@@ -1168,7 +1185,7 @@
   "hero.kicker1": "Uma proposta para Dog Grooming USA",
   "hero.kicker2": "Setembro de 2026",
   "hero.h1": "Nossa conversa <em>em um só quadro</em>",
-  "hero.lede": "O filme de apresentação, as duas unidades, a galeria, o cofre de material <strong>Green Flash</strong>, três filmes boutique e o plano de crescimento estão organizados em uma única página para uma revisão fácil antes de segunda-feira, para que o nosso tempo seja para <strong>decidir, não procurar</strong>.",
+  "hero.lede": "O filme de apresentação, as duas unidades, a galeria, o cofre de material <strong>Green Flash</strong>, quatro filmes boutique e o plano de crescimento estão organizados em uma única página para uma revisão fácil antes de segunda-feira, para que o nosso tempo seja para <strong>decidir, não procurar</strong>.",
   "hero.cta1": "Assistir ao filme de apresentação",
   "hero.cta2": "Ver o plano",
   "r1.slate": "Rolo 01 · Filme de apresentação",
@@ -1189,8 +1206,7 @@
   "vault.help": "Arquivos grandes. Se o Drive pedir login ou não reproduzir um clipe, é só avisar — enviamos de outra forma ou te orientamos passo a passo.",
   "vault.foot": "Abrir a pasta do Drive",
   "r3.slate": "Rolo 04 · Trabalho boutique",
-  "r3.h2": "Três filmes. Três espaços diferentes.",
-  "r3.note": "Produções menores, cada uma construída em torno do espaço e do ritmo de uma marca. Repare em como a câmera se move nos interiores — o tipo de movimento que antes exigia slider, dolly e uma equipe.",
+  "r3.h2": "Quatro filmes. Quatro espaços diferentes.",
   "price.label": "Investimento",
   "price.val": "Apresentação em 7 de setembro, 14h",
   "close.slate": "Próximo passo",
@@ -1325,7 +1341,8 @@
   "sum.p": "A Drone God Max entrega os dois filmes principais, os Fly-Throughs e Wag-Throughs, e toda a cinematografia com drone. A Green Flash Advertising entrega e gerencia os sites, as landing pages, o SEO local, as contas de anúncios, as redes sociais, a produção de conteúdo, os sistemas de agendamento e o agente de IA — uma só equipe operando tudo, reportando agendamentos e matrículas concluídos.",
   "sum.tag": "Mais cliques. Mais clientes. Mais crescimento.",
   "lang.hint": "Experimente",
-  "vault.tag2": "Solo"
+  "vault.tag2": "Solo",
+  "play.b4": "Reproduzir Kaua’i Hawaii"
  },
  "ht": {
   "title": "Green Flash × Dog Grooming USA",
@@ -1334,7 +1351,7 @@
   "hero.kicker1": "Yon pwopozisyon pou Dog Grooming USA",
   "hero.kicker2": "Septanm 2026",
   "hero.h1": "Konvèsasyon nou <em>nan yon sèl kad</em>",
-  "hero.lede": "Fim prezantasyon an, tou de espas yo, galri a, kòf videyo <strong>Green Flash</strong> la, twa fim boutik, ak plan kwasans lan tout òganize sou yon sèl paj pou yon revizyon fasil anvan lendi, pou nou pase tan nou ap <strong>deside, pa ap chèche</strong>.",
+  "hero.lede": "Fim prezantasyon an, tou de espas yo, galri a, kòf videyo <strong>Green Flash</strong> la, kat fim boutik, ak plan kwasans lan tout òganize sou yon sèl paj pou yon revizyon fasil anvan lendi, pou nou pase tan nou ap <strong>deside, pa ap chèche</strong>.",
   "hero.cta1": "Gade fim prezantasyon an",
   "hero.cta2": "Gade plan an",
   "r1.slate": "Bobin 01 · Fim prezantasyon",
@@ -1355,8 +1372,7 @@
   "vault.help": "Fichye yo gwo. Si Drive mande w konekte oswa li pa vle jwe yon klip, jis di sa — n ap voye l yon lòt fason oswa n ap gide w etap pa etap.",
   "vault.foot": "Louvri dosye Drive la",
   "r3.slate": "Bobin 04 · Travay boutik",
-  "r3.h2": "Twa fim. Twa espas diferan.",
-  "r3.note": "Pwodiksyon ki pi piti, chak bati sou espas ak ritm yon mak. Gade jan kamera a deplase anndan an — kalite mouvman ki te konn mande yon slider, yon dolly ak yon ekip.",
+  "r3.h2": "Kat fim. Kat espas diferan.",
   "price.label": "Envestisman",
   "price.val": "Prezantasyon 7 septanm, 2pm",
   "close.slate": "Pwochen etap",
@@ -1491,7 +1507,8 @@
   "sum.p": "Drone God Max livre de fim prensipal yo, Fly-Through ak Wag-Through yo, ak tout sinematografi dwòn. Green Flash Advertising livre epi jere sit wèb yo, landing page yo, SEO lokal, kont piblisite yo, rezo sosyal, pwodiksyon kontni, sistèm rezèvasyon ak pwogramasyon AI — yon sèl ekip k ap fè tout bagay mache, ki rapòte rezèvasyon ak enskripsyon ki fini.",
   "sum.tag": "Plis klik. Plis kliyan. Plis kwasans.",
   "lang.hint": "Eseye m",
-  "vault.tag2": "Atè"
+  "vault.tag2": "Atè",
+  "play.b4": "Jwe Kaua’i Hawaii"
  }
 };
   (function () {
