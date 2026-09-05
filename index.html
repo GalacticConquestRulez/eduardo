@@ -377,6 +377,55 @@
   .invest__val { display: block; font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(1.8rem, 4vw, 2.8rem); line-height: 1; color: var(--amber); margin-top: .35rem; }
   .invest__tag { font-family: var(--serif); font-style: italic; color: var(--ink-2); font-size: 1.1rem; }
 
+  /* ---------- invoice ---------- */
+  .sum__tag { font-style: italic; color: var(--amber); margin-bottom: .6rem; }
+  .inv__meta { margin: 0 0 2rem; padding: 0; display: grid; gap: 1rem 2rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (min-width: 820px) { .inv__meta { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+  .inv__meta dt { font-family: var(--mono); font-size: .66rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); }
+  .inv__meta dd { margin: .3rem 0 0; color: var(--ink); font-size: 1rem; }
+  .inv__meta small { display: block; color: var(--ink-2); font-size: .85rem; }
+  .inv__block + .inv__block { margin-top: 2.5rem; }
+  .inv__h { font-family: var(--display); font-weight: 900; text-transform: uppercase; font-size: clamp(1.8rem, 3.5vw, 2.6rem); line-height: .95; }
+  .inv__sub { font-family: var(--mono); font-size: .68rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); margin: .4rem 0 1rem; }
+  .inv { border-collapse: collapse; width: 100%; }
+  .inv th, .inv td { text-align: left; padding: .85rem .75rem .85rem 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .inv th { font-family: var(--mono); color: var(--ink-muted); font-weight: 400; text-transform: uppercase; letter-spacing: .12em; font-size: .66rem; }
+  .inv th:nth-child(n+3), .inv td:nth-child(n+3) { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .inv th:last-child, .inv td:last-child { padding-right: 0; }
+  .inv__item { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: 1.2rem; line-height: 1.05; color: var(--ink); width: 15rem; }
+  .inv__desc { color: var(--ink-2); font-size: .95rem; }
+  .inv__qty, .inv__rate { color: var(--ink-2); font-family: var(--mono); font-size: .85rem; }
+  .inv__total { color: var(--ink); font-family: var(--mono); font-size: .95rem; }
+  .inv__group td { padding-top: 1.6rem; border-bottom: 1px solid var(--line-strong); }
+  .inv__group-h { display: block; font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: 1.35rem; line-height: 1; color: var(--amber); }
+  .inv__group-s { display: block; font-family: var(--mono); font-size: .64rem; letter-spacing: .12em; text-transform: uppercase; color: var(--ink-muted); margin-top: .35rem; }
+  .inv__sum td { border-bottom: 0; border-top: 2px solid var(--amber-deep); padding-top: 1rem; font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: 1.3rem; color: var(--ink); text-align: right; }
+  .inv__sum td:first-child { text-align: left; }
+  .inv__sum .inv__total { font-size: clamp(1.6rem, 3vw, 2.2rem); color: var(--amber); font-family: var(--display); font-weight: 900; }
+  .inv__add { margin-top: .9rem; font-family: var(--mono); font-size: .72rem; letter-spacing: .04em; color: var(--ink-muted); max-width: none; }
+  .also { list-style: none; margin: 0; padding: 0; display: grid; gap: 1rem; grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  @media (min-width: 820px) { .also { grid-template-columns: repeat(5, minmax(0, 1fr)); } }
+  .also li { padding: 1rem 1.1rem; border: 1px solid var(--line); border-radius: var(--radius); background: var(--ground-2); display: grid; gap: .3rem; }
+  .also b { font-family: var(--display); font-weight: 700; text-transform: uppercase; font-size: 1.15rem; line-height: 1; color: var(--ink); }
+  .also span { color: var(--ink-2); font-size: .9rem; }
+  .inv__foot { margin-top: 2.5rem; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 1.25rem 2rem; }
+  .inv__quote { font-style: italic; color: var(--ink-2); font-size: 1.15rem; }
+  @media (max-width: 720px) {
+    .inv thead { display: none; }
+    .inv tr { display: block; padding: .9rem 0; border-bottom: 1px solid var(--line); }
+    .inv td { display: block; padding: 0; border: 0; text-align: left !important; white-space: normal !important; }
+    .inv__item { width: auto; margin-bottom: .25rem; }
+    .inv__qty, .inv__rate, .inv__total { display: inline-block !important; margin-top: .45rem; }
+    .inv__qty::after { content: " ×"; color: var(--ink-muted); }
+    .inv__rate::after { content: " ="; color: var(--ink-muted); }
+    .inv__row--plain .inv__qty::after, .inv__row--plain .inv__rate::after { content: " ·"; }
+    .inv__qty, .inv__rate { margin-right: .35rem; }
+    .inv__group td { padding-top: 1.2rem; }
+    .inv__sum { border-bottom: 0; }
+    .inv__sum td { display: inline-block !important; border-top: 0; padding-top: .6rem; }
+    .inv__sum td:first-child { display: block !important; border-top: 2px solid var(--amber-deep); padding-top: 1rem; }
+  }
+
   /* ---------- tiers ---------- */
   .tiers { display: grid; gap: 1.25rem; grid-template-columns: 1fr; }
   @media (min-width: 820px) { .tiers { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
@@ -902,6 +951,7 @@
           <h2 data-i18n="sum.h2">One team running the full stack.</h2>
         </div>
         <div class="roll__note">
+          <p class="sum__tag" data-i18n="sum.tag">More clicks. More customers. More growth.</p>
           <p data-i18n="sum.p">Drone God Max delivers the two flagship films, the Fly-Throughs and Wag-Throughs, and all drone cinematography. Green Flash Advertising delivers and manages the websites, landing pages, local SEO, ad accounts, social media, content production, booking systems, and AI scheduling — one team running the full stack, reporting on completed bookings and enrollments.</p>
         </div>
       </div>
@@ -910,7 +960,90 @@
           <span class="invest__label" data-i18n="price.label">Investment</span>
           <b class="invest__val" data-i18n="price.val">Presentation on September 7th, 2pm</b>
         </div>
-        <span class="invest__tag" data-i18n="sum.tag">More clicks. More customers. More growth.</span>
+        <a class="btn btn--line" href="#invoice" data-i18n="invest.link">See the invoice</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= INVOICE GF-090425-01 ================= -->
+  <section class="roll" id="invoice">
+    <div class="wrap">
+      <div class="roll__head">
+        <div>
+          <span class="slate" data-i18n="inv.slate">Invoice GF-090425-01</span>
+          <h2 data-i18n="inv.h2">The numbers.</h2>
+        </div>
+        <div class="roll__note">
+          <p data-i18n="inv.note">Invoice dated September 4, 2026, due September 18, 2026. Billed to Eduardo Hernado, Dog Grooming USA / Groomer Artist Academy. Strategy × content × technology × long-term growth.</p>
+        </div>
+      </div>
+
+      <dl class="inv__meta">
+        <div><dt data-i18n="inv.k.num">Invoice #</dt><dd>GF-090425-01</dd></div>
+        <div><dt data-i18n="inv.k.date">Invoice date</dt><dd data-i18n="inv.v.date">September 4, 2026</dd></div>
+        <div><dt data-i18n="inv.k.due">Due date</dt><dd data-i18n="inv.v.due">September 18, 2026 · 14 days</dd></div>
+        <div><dt data-i18n="inv.k.billed">Billed to</dt><dd>Eduardo Hernado<br><small>Dog Grooming USA / Groomer Artist Academy</small></dd></div>
+      </dl>
+
+      <div class="inv__block">
+        <h3 class="inv__h" data-i18n="inv.one.h">One-time projects</h3>
+        <p class="inv__sub" data-i18n="inv.one.sub">High-impact creative assets to elevate your brand</p>
+        <div class="scroll">
+          <table class="inv">
+            <thead><tr><th data-i18n="inv.th.item">Item</th><th data-i18n="inv.th.desc">Description</th><th data-i18n="inv.th.qty">Qty</th><th data-i18n="inv.th.rate">Rate</th><th data-i18n="inv.th.total">Total</th></tr></thead>
+            <tbody>
+            <tr class="inv__group"><td colspan="5"><span class="inv__group-h" data-i18n="inv.dgm.h">Drone God Max — Video production &amp; drone production</span><span class="inv__group-s" data-i18n="inv.dgm.sub">Cinematic content. Real impact.</span></td></tr>
+            <tr><td class="inv__item" data-i18n="i1.n">Custom Brand Video (filmed on-site)</td><td class="inv__desc" data-i18n="i1.d">Cinematic brand video highlighting your locations, services, story, and team. Full production: drone + ground, custom graphics, music, and professional edit.</td><td class="inv__qty">1</td><td class="inv__rate">$3,500</td><td class="inv__total">$3,500</td></tr>
+            <tr><td class="inv__item" data-i18n="i2.n">Groomer Training Video</td><td class="inv__desc" data-i18n="i2.d">Educational training video for technicians, showcasing best practices, techniques, and brand standards. Full production package.</td><td class="inv__qty">1</td><td class="inv__rate">$3,500</td><td class="inv__total">$3,500</td></tr>
+            <tr><td class="inv__item" data-i18n="i3.n">Drone Fly-Throughs</td><td class="inv__desc" data-i18n="i3.d">Per-location aerial fly-through footage for site and ads.</td><td class="inv__qty">3</td><td class="inv__rate">$450</td><td class="inv__total">$1,350</td></tr>
+            <tr class="inv__group"><td colspan="5"><span class="inv__group-h" data-i18n="inv.gfa.h">Green Flash Advertising — Website, brand &amp; marketing setup</span><span class="inv__group-s" data-i18n="inv.gfa.sub">Build. Optimize. Convert.</span></td></tr>
+            <tr><td class="inv__item" data-i18n="i4.n">Website Build</td><td class="inv__desc" data-i18n="i4.d">Dog Grooming USA corporate site + Groomer Artist Academy site.</td><td class="inv__qty">2</td><td class="inv__rate">$1,000</td><td class="inv__total">$2,000</td></tr>
+            <tr><td class="inv__item" data-i18n="i5.n">Landing Pages</td><td class="inv__desc" data-i18n="i5.d">Custom landing pages (one-time fee per page).</td><td class="inv__qty">3</td><td class="inv__rate">$275</td><td class="inv__total">$825</td></tr>
+            <tr><td class="inv__item" data-i18n="i6.n">Logo Development</td><td class="inv__desc" data-i18n="i6.d">Custom logo using your dog's photo, branded for website, social media, and marketing (includes multiple file formats).</td><td class="inv__qty">1</td><td class="inv__rate">$450</td><td class="inv__total">$450</td></tr>
+            <tr><td class="inv__item" data-i18n="i7.n">Optimization, Email Retargeting &amp; Hyros Integration</td><td class="inv__desc" data-i18n="i7.d">Conversion optimization, email retargeting setup, funnel tracking and Hyros integration.</td><td class="inv__qty">1</td><td class="inv__rate">$750</td><td class="inv__total">$750</td></tr>
+            <tr><td class="inv__item" data-i18n="i8.n">Calendly Integration</td><td class="inv__desc" data-i18n="i8.d">Calendly setup and integration into website and landing pages.</td><td class="inv__qty">1</td><td class="inv__rate">$250</td><td class="inv__total">$250</td></tr>
+            <tr class="inv__sum"><td colspan="4" data-i18n="inv.one.total">One-time total</td><td class="inv__total">$12,625</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="inv__block">
+        <h3 class="inv__h" data-i18n="inv.mo.h">Monthly recurring services</h3>
+        <p class="inv__sub" data-i18n="inv.mo.sub">Consistent content. Compounding growth.</p>
+        <div class="scroll">
+          <table class="inv">
+            <thead><tr><th data-i18n="inv.th.item">Item</th><th data-i18n="inv.th.desc">Description</th><th data-i18n="inv.th.qty">Qty</th><th data-i18n="inv.th.rate">Rate</th><th data-i18n="inv.th.total">Total</th></tr></thead>
+            <tbody>
+            <tr><td class="inv__item" data-i18n="m1.n">Social Media Management</td><td class="inv__desc" data-i18n="m1.d">3 posts/day + 1 story/day, per location. Independent accounts, scripting, filming, editing, posting. Max will come in person two (2) times per month per location to capture media.</td><td class="inv__qty"><span data-i18n="u.loc">per location</span></td><td class="inv__rate">$2,500/mo</td><td class="inv__total">$2,500/mo</td></tr>
+            <tr class="inv__row--plain"><td class="inv__item" data-i18n="m2.n">Local SEO</td><td class="inv__desc" data-i18n="m2.d">Per-location optimization so ad spend converts on the right store page.</td><td class="inv__qty"><span data-i18n="u.loc">per location</span></td><td class="inv__rate"><span data-i18n="u.incl">Included</span></td><td class="inv__total"><span data-i18n="u.incl">Included</span></td></tr>
+            <tr><td class="inv__item" data-i18n="m3.n">Website Management</td><td class="inv__desc" data-i18n="m3.d">Ongoing website management, edits per request, security, backups, and performance monitoring.</td><td class="inv__qty"><span data-i18n="u.site">per website</span></td><td class="inv__rate">$100/mo</td><td class="inv__total">$100/mo</td></tr>
+            <tr><td class="inv__item" data-i18n="m4.n">Hosting &amp; Maintenance</td><td class="inv__desc" data-i18n="m4.d">Per site. Edits turned around within 24 hours.</td><td class="inv__qty"><span data-i18n="u.site2">per site</span></td><td class="inv__rate">$25/mo</td><td class="inv__total">$25/mo</td></tr>
+            <tr class="inv__sum"><td colspan="4" data-i18n="inv.mo.total">Monthly total (1 location, 2 sites)</td><td class="inv__total">$2,625/mo</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="inv__add" data-i18n="inv.mo.add">Additional locations: +$2,500/mo per location · +$25/mo per additional site</p>
+      </div>
+
+      <div class="inv__block">
+        <h3 class="inv__h" data-i18n="inv.also.h">Also included</h3>
+        <ul class="also">
+          <li><b data-i18n="a1.n">Merchandise</b><span data-i18n="a1.s">Custom branded</span></li>
+          <li><b data-i18n="a2.n">Biweekly shoots</b><span data-i18n="a2.s">Every in-person location</span></li>
+          <li><b data-i18n="a3.n">Employee training</b><span data-i18n="a3.s">How to upload content to the Google Drive pool</span></li>
+          <li><b data-i18n="a4.n">Google Drive pool</b><span data-i18n="a4.s">Organized content library</span></li>
+          <li><b data-i18n="a5.n">Ongoing support</b><span data-i18n="a5.s">Strategy &amp; creative</span></li>
+        </ul>
+      </div>
+
+      <div class="inv__foot">
+        <p class="inv__quote" data-i18n="inv.quote">“Elevating the pet care industry one story at a time.” — Max</p>
+        <!-- LINK: invoice image — media/invoice-GF-090425-01.jpg -->
+        <a class="btn btn--line" href="media/invoice-GF-090425-01.jpg" download="Invoice-GF-090425-01.jpg">
+          <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 2v8M4.5 6.5L8 10l3.5-3.5M2.5 13.5h11"/></svg>
+          <span data-i18n="inv.download">Download the invoice</span>
+        </a>
       </div>
     </div>
   </section>
@@ -1176,7 +1309,74 @@
   "sum.tag": "Más clics. Más clientes. Más crecimiento.",
   "lang.hint": "Pruébame",
   "vault.tag2": "Tierra",
-  "play.b4": "Reproducir Kaua’i Hawaii"
+  "play.b4": "Reproducir Kaua’i Hawaii",
+  "inv.slate": "Factura GF-090425-01",
+  "inv.h2": "Los números.",
+  "inv.note": "Factura con fecha 4 de septiembre de 2026, vence el 18 de septiembre de 2026. Facturado a Eduardo Hernado, Dog Grooming USA / Groomer Artist Academy. Estrategia × contenido × tecnología × crecimiento a largo plazo.",
+  "inv.k.num": "Factura n.º",
+  "inv.k.date": "Fecha de factura",
+  "inv.k.due": "Fecha de vencimiento",
+  "inv.k.billed": "Facturado a",
+  "inv.v.date": "4 de septiembre de 2026",
+  "inv.v.due": "18 de septiembre de 2026 · 14 días",
+  "inv.th.item": "Concepto",
+  "inv.th.desc": "Descripción",
+  "inv.th.qty": "Cant.",
+  "inv.th.rate": "Tarifa",
+  "inv.th.total": "Total",
+  "inv.one.h": "Proyectos únicos",
+  "inv.one.sub": "Activos creativos de alto impacto para elevar tu marca",
+  "inv.dgm.h": "Drone God Max — Producción de video y dron",
+  "inv.dgm.sub": "Contenido cinematográfico. Impacto real.",
+  "i1.n": "Video de marca a medida (filmado en sitio)",
+  "i1.d": "Video de marca cinematográfico que destaca tus locales, servicios, historia y equipo. Producción completa: dron + tierra, gráficos a medida, música y edición profesional.",
+  "i2.n": "Video de formación para groomers",
+  "i2.d": "Video educativo para técnicos, mostrando mejores prácticas, técnicas y estándares de marca. Paquete de producción completo.",
+  "i3.n": "Fly-Throughs con dron",
+  "i3.d": "Recorrido aéreo por local para el sitio y los anuncios.",
+  "inv.gfa.h": "Green Flash Advertising — Sitio web, marca y configuración de marketing",
+  "inv.gfa.sub": "Construir. Optimizar. Convertir.",
+  "i4.n": "Construcción de sitios web",
+  "i4.d": "Sitio corporativo de Dog Grooming USA + sitio de Groomer Artist Academy.",
+  "i5.n": "Landing pages",
+  "i5.d": "Landing pages a medida (tarifa única por página).",
+  "i6.n": "Desarrollo de logo",
+  "i6.d": "Logo a medida con la foto de tu perro, adaptado para web, redes sociales y marketing (incluye varios formatos de archivo).",
+  "i7.n": "Optimización, retargeting por email e integración con Hyros",
+  "i7.d": "Optimización de conversión, configuración de retargeting por email, seguimiento de embudo e integración con Hyros.",
+  "i8.n": "Integración de Calendly",
+  "i8.d": "Configuración e integración de Calendly en el sitio web y las landing pages.",
+  "inv.one.total": "Total único",
+  "inv.mo.h": "Servicios mensuales recurrentes",
+  "inv.mo.sub": "Contenido constante. Crecimiento compuesto.",
+  "m1.n": "Gestión de redes sociales",
+  "m1.d": "3 publicaciones/día + 1 historia/día, por local. Cuentas independientes, guion, filmación, edición y publicación. Max irá en persona dos (2) veces al mes por local para capturar material.",
+  "m2.n": "SEO local",
+  "m2.d": "Optimización por local para que la inversión publicitaria convierta en la página de tienda correcta.",
+  "m3.n": "Gestión del sitio web",
+  "m3.d": "Gestión continua del sitio, ediciones a pedido, seguridad, copias de respaldo y monitoreo de rendimiento.",
+  "m4.n": "Hosting y mantenimiento",
+  "m4.d": "Por sitio. Ediciones entregadas en menos de 24 horas.",
+  "u.loc": "por local",
+  "u.site": "por sitio web",
+  "u.site2": "por sitio",
+  "u.incl": "Incluido",
+  "inv.mo.total": "Total mensual (1 local, 2 sitios)",
+  "inv.mo.add": "Locales adicionales: +$2,500/mes por local · +$25/mes por sitio adicional",
+  "inv.also.h": "También incluido",
+  "a1.n": "Merchandise",
+  "a1.s": "Con marca personalizada",
+  "a2.n": "Rodajes quincenales",
+  "a2.s": "En cada local, en persona",
+  "a3.n": "Capacitación de empleados",
+  "a3.s": "Cómo subir contenido al pool de Google Drive",
+  "a4.n": "Pool de Google Drive",
+  "a4.s": "Biblioteca de contenido organizada",
+  "a5.n": "Soporte continuo",
+  "a5.s": "Estrategia y creatividad",
+  "inv.quote": "“Elevando la industria del cuidado de mascotas, una historia a la vez.” — Max",
+  "inv.download": "Descargar la factura",
+  "invest.link": "Ver la factura"
  },
  "pt": {
   "title": "Green Flash × Dog Grooming USA",
@@ -1342,7 +1542,74 @@
   "sum.tag": "Mais cliques. Mais clientes. Mais crescimento.",
   "lang.hint": "Experimente",
   "vault.tag2": "Solo",
-  "play.b4": "Reproduzir Kaua’i Hawaii"
+  "play.b4": "Reproduzir Kaua’i Hawaii",
+  "inv.slate": "Fatura GF-090425-01",
+  "inv.h2": "Os números.",
+  "inv.note": "Fatura datada de 4 de setembro de 2026, com vencimento em 18 de setembro de 2026. Faturado a Eduardo Hernado, Dog Grooming USA / Groomer Artist Academy. Estratégia × conteúdo × tecnologia × crescimento de longo prazo.",
+  "inv.k.num": "Fatura n.º",
+  "inv.k.date": "Data da fatura",
+  "inv.k.due": "Vencimento",
+  "inv.k.billed": "Faturado a",
+  "inv.v.date": "4 de setembro de 2026",
+  "inv.v.due": "18 de setembro de 2026 · 14 dias",
+  "inv.th.item": "Item",
+  "inv.th.desc": "Descrição",
+  "inv.th.qty": "Qtd.",
+  "inv.th.rate": "Valor",
+  "inv.th.total": "Total",
+  "inv.one.h": "Projetos únicos",
+  "inv.one.sub": "Ativos criativos de alto impacto para elevar a sua marca",
+  "inv.dgm.h": "Drone God Max — Produção de vídeo e drone",
+  "inv.dgm.sub": "Conteúdo cinematográfico. Impacto real.",
+  "i1.n": "Vídeo de marca personalizado (filmado no local)",
+  "i1.d": "Vídeo de marca cinematográfico destacando suas unidades, serviços, história e equipe. Produção completa: drone + solo, gráficos personalizados, música e edição profissional.",
+  "i2.n": "Vídeo de treinamento para groomers",
+  "i2.d": "Vídeo educativo para técnicos, mostrando boas práticas, técnicas e padrões da marca. Pacote de produção completo.",
+  "i3.n": "Fly-Throughs com drone",
+  "i3.d": "Passeio aéreo por unidade para o site e os anúncios.",
+  "inv.gfa.h": "Green Flash Advertising — Site, marca e configuração de marketing",
+  "inv.gfa.sub": "Construir. Otimizar. Converter.",
+  "i4.n": "Construção de sites",
+  "i4.d": "Site corporativo da Dog Grooming USA + site da Groomer Artist Academy.",
+  "i5.n": "Landing pages",
+  "i5.d": "Landing pages personalizadas (taxa única por página).",
+  "i6.n": "Desenvolvimento de logo",
+  "i6.d": "Logo personalizado com a foto do seu cão, adaptado para site, redes sociais e marketing (inclui vários formatos de arquivo).",
+  "i7.n": "Otimização, retargeting por e-mail e integração com Hyros",
+  "i7.d": "Otimização de conversão, configuração de retargeting por e-mail, rastreamento de funil e integração com Hyros.",
+  "i8.n": "Integração com Calendly",
+  "i8.d": "Configuração e integração do Calendly no site e nas landing pages.",
+  "inv.one.total": "Total único",
+  "inv.mo.h": "Serviços mensais recorrentes",
+  "inv.mo.sub": "Conteúdo constante. Crescimento composto.",
+  "m1.n": "Gestão de redes sociais",
+  "m1.d": "3 posts/dia + 1 story/dia, por unidade. Contas independentes, roteiro, filmagem, edição e publicação. O Max irá pessoalmente duas (2) vezes por mês a cada unidade para capturar material.",
+  "m2.n": "SEO local",
+  "m2.d": "Otimização por unidade para que a verba de anúncios converta na página da loja correta.",
+  "m3.n": "Gestão do site",
+  "m3.d": "Gestão contínua do site, edições sob demanda, segurança, backups e monitoramento de desempenho.",
+  "m4.n": "Hospedagem e manutenção",
+  "m4.d": "Por site. Edições entregues em até 24 horas.",
+  "u.loc": "por unidade",
+  "u.site": "por site",
+  "u.site2": "por site",
+  "u.incl": "Incluído",
+  "inv.mo.total": "Total mensal (1 unidade, 2 sites)",
+  "inv.mo.add": "Unidades adicionais: +$2,500/mês por unidade · +$25/mês por site adicional",
+  "inv.also.h": "Também incluído",
+  "a1.n": "Merchandise",
+  "a1.s": "Com a marca personalizada",
+  "a2.n": "Filmagens quinzenais",
+  "a2.s": "Em cada unidade, presencialmente",
+  "a3.n": "Treinamento da equipe",
+  "a3.s": "Como enviar conteúdo ao pool do Google Drive",
+  "a4.n": "Pool do Google Drive",
+  "a4.s": "Biblioteca de conteúdo organizada",
+  "a5.n": "Suporte contínuo",
+  "a5.s": "Estratégia e criação",
+  "inv.quote": "“Elevando o setor de cuidados com pets, uma história de cada vez.” — Max",
+  "inv.download": "Baixar a fatura",
+  "invest.link": "Ver a fatura"
  },
  "ht": {
   "title": "Green Flash × Dog Grooming USA",
@@ -1508,7 +1775,74 @@
   "sum.tag": "Plis klik. Plis kliyan. Plis kwasans.",
   "lang.hint": "Eseye m",
   "vault.tag2": "Atè",
-  "play.b4": "Jwe Kaua’i Hawaii"
+  "play.b4": "Jwe Kaua’i Hawaii",
+  "inv.slate": "Fakti GF-090425-01",
+  "inv.h2": "Chif yo.",
+  "inv.note": "Fakti ki date 4 septanm 2026, pou peye anvan 18 septanm 2026. Faktire bay Eduardo Hernado, Dog Grooming USA / Groomer Artist Academy. Estrateji × kontni × teknoloji × kwasans alontèm.",
+  "inv.k.num": "Fakti nimewo",
+  "inv.k.date": "Dat fakti",
+  "inv.k.due": "Dat limit peman",
+  "inv.k.billed": "Faktire bay",
+  "inv.v.date": "4 septanm 2026",
+  "inv.v.due": "18 septanm 2026 · 14 jou",
+  "inv.th.item": "Atik",
+  "inv.th.desc": "Deskripsyon",
+  "inv.th.qty": "Kant.",
+  "inv.th.rate": "Pri",
+  "inv.th.total": "Total",
+  "inv.one.h": "Pwojè yon sèl fwa",
+  "inv.one.sub": "Byen kreyatif gwo enpak pou leve mak ou",
+  "inv.dgm.h": "Drone God Max — Pwodiksyon videyo ak dwòn",
+  "inv.dgm.sub": "Kontni sinema. Enpak reyèl.",
+  "i1.n": "Videyo mak sou mezi (filme sou plas)",
+  "i1.d": "Videyo mak estil sinema ki mete espas ou yo, sèvis ou yo, istwa ou ak ekip ou an valè. Pwodiksyon konplè: dwòn + atè, grafik sou mezi, mizik ak montaj pwofesyonèl.",
+  "i2.n": "Videyo fòmasyon pou groomer",
+  "i2.d": "Videyo edikatif pou teknisyen, ki montre pi bon pratik, teknik ak estanda mak la. Pakè pwodiksyon konplè.",
+  "i3.n": "Fly-Through ak dwòn",
+  "i3.d": "Vòl ayeryèn pou chak espas, pou sit la ak piblisite yo.",
+  "inv.gfa.h": "Green Flash Advertising — Sit wèb, mak ak konfigirasyon maketing",
+  "inv.gfa.sub": "Bati. Optimize. Konvèti.",
+  "i4.n": "Konstriksyon sit wèb",
+  "i4.d": "Sit kòporatif Dog Grooming USA + sit Groomer Artist Academy.",
+  "i5.n": "Landing page",
+  "i5.d": "Landing page sou mezi (frè yon sèl fwa pou chak paj).",
+  "i6.n": "Devlopman logo",
+  "i6.d": "Logo sou mezi ak foto chen ou, adapte pou sit wèb, rezo sosyal ak maketing (gen plizyè fòma fichye).",
+  "i7.n": "Optimizasyon, retargeting pa imèl ak entegrasyon Hyros",
+  "i7.d": "Optimizasyon konvèsyon, konfigirasyon retargeting pa imèl, swivi antonwa ak entegrasyon Hyros.",
+  "i8.n": "Entegrasyon Calendly",
+  "i8.d": "Konfigirasyon ak entegrasyon Calendly nan sit wèb la ak landing page yo.",
+  "inv.one.total": "Total yon sèl fwa",
+  "inv.mo.h": "Sèvis chak mwa",
+  "inv.mo.sub": "Kontni san rete. Kwasans ki ogmante.",
+  "m1.n": "Jesyon rezo sosyal",
+  "m1.d": "3 pòs/jou + 1 istwa/jou, pou chak espas. Kont endepandan, senaryo, filmaj, montaj, piblikasyon. Max ap vini an pèsòn de (2) fwa pa mwa nan chak espas pou kaptire imaj.",
+  "m2.n": "SEO lokal",
+  "m2.d": "Optimizasyon pou chak espas pou depans piblisite a konvèti sou bon paj boutik la.",
+  "m3.n": "Jesyon sit wèb",
+  "m3.d": "Jesyon sit san rete, modifikasyon sou demann, sekirite, sovgad ak swivi pèfòmans.",
+  "m4.n": "Ebèjman ak antretyen",
+  "m4.d": "Pou chak sit. Modifikasyon fèt nan mwens pase 24 èdtan.",
+  "u.loc": "pou chak espas",
+  "u.site": "pou chak sit wèb",
+  "u.site2": "pou chak sit",
+  "u.incl": "Enkli",
+  "inv.mo.total": "Total chak mwa (1 espas, 2 sit)",
+  "inv.mo.add": "Espas anplis: +$2,500/mwa pou chak espas · +$25/mwa pou chak sit anplis",
+  "inv.also.h": "Enkli tou",
+  "a1.n": "Mèch",
+  "a1.s": "Ak mak ou sou li",
+  "a2.n": "Tounaj chak de semèn",
+  "a2.s": "Nan chak espas, an pèsòn",
+  "a3.n": "Fòmasyon anplwaye",
+  "a3.s": "Kijan pou voye kontni nan pool Google Drive la",
+  "a4.n": "Pool Google Drive",
+  "a4.s": "Bibliyotèk kontni òganize",
+  "a5.n": "Sipò san rete",
+  "a5.s": "Estrateji ak kreyasyon",
+  "inv.quote": "“N ap leve endistri swen bèt la, yon istwa alafwa.” — Max",
+  "inv.download": "Telechaje fakti a",
+  "invest.link": "Gade fakti a"
  }
 };
   (function () {
