@@ -1,0 +1,25 @@
+# Manual smoke check: is eduardo.greenflashusa.com answering, over HTTP and HTTPS,
+# and is it serving this repo's page? Run from the Actions tab or by API.
+name: Check live site
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    steps:
+      - name: DNS
+        run: getent hosts eduardo.greenflashusa.com || echo "no DNS answer"
+      - name: HTTP
+        run: |
+          curl -sS -m 20 -o http.html -w 'status=%{http_code} redirect=%{redirect_url}\n' http://eduardo.greenflashusa.com/ || echo "http: connection failed"
+          grep -o '<title>[^<]*' http.html || echo "http: no <title> in body"
+      - name: HTTPS
+        run: |
+          curl -sS -m 20 -o https.html -w 'status=%{http_code} size=%{size_download}\n' https://eduardo.greenflashusa.com/ || echo "https: connection or certificate failed"
+          grep -o '<title>[^<]*' https.html || echo "https: no <title> in body"
+      - name: Background film
+        run: curl -sS -m 40 -o /dev/null -w 'bg-landscape.mp4 status=%{http_code} size=%{size_download}\n' http://eduardo.greenflashusa.com/media/bg-landscape.mp4 || echo "media: failed"
+      - name: Direct to server IP
+        run: curl -sS -m 20 -o /dev/null -w 'status=%{http_code}\n' -H 'Host: eduardo.greenflashusa.com' http://159.223.127.113/ || echo "ip: connection failed"
